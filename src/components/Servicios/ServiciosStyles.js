@@ -16,7 +16,7 @@ export const ServiciosContainer = styled.div`
   flex-direction: column;
   align-items: center;
   gap: 30px;
-  padding: 20px;
+  padding: 20px 20px 200px 20px;
   width: 100%;
   animation: ${fadeIn} 0.8s ease forwards;
 

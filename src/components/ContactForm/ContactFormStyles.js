@@ -9,6 +9,7 @@ export const WrapperForm = styled.div`
   backdrop-filter: blur(2px) saturate(180%);
   -webkit-backdrop-filter: blur(2px) saturate(180%);
   background-color: rgba(0, 0, 0, 0.5);
+  
   @media (max-width: 650px) {
     border-radius: 0;
     border: none;

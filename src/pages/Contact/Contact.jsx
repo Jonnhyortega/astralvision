@@ -16,6 +16,7 @@ const ContactContainer = styled.div`
   background-position: center;
   background-attachment: fixed;
   padding: 2em 0 6em 0;
+    box-shadow: 1px 1px 25px 15px black;
 `;
 
 const Contact = () => {
