@@ -19,21 +19,19 @@ export const ServiciosContainer = styled.div`
   padding: 20px 20px 200px 20px;
   width: 100%;
   animation: ${fadeIn} 0.8s ease forwards;
-
-
 `;
 
 export const Card = styled.div`
   display: flex;
   flex-direction: ${({ reverse }) => (reverse ? "row-reverse" : "row")};
   align-items: center;
-  width: 100%;
-  max-width: 1200px;
+  justify-content: space-evenly;
+  width: auto;
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-  background-color: rgba(255, 255, 255, 0.9);
-  border: 2px solid #e0e0e0;
+  background-color: transparent;
+  // border: 2px solid #e0e0e0;
   transition: box-shadow 0.3s ease, transform 0.3s ease;
   animation: ${fadeIn} 0.8s ease forwards;
 
@@ -48,13 +46,13 @@ export const Card = styled.div`
 `;
 
 export const CardImage = styled.img`
-  width: 50%;
-  height: auto;
+  width: 400px;
+  height: 300px;
   border-radius: 10px;
   object-fit: cover;
   transition: transform 0.3s ease;
   animation: ${fadeIn} 0.8s 0.2s ease forwards;
-
+  border: 2px solid var(--color5);
   &:hover {
     transform: scale(1.05);
   }
@@ -80,14 +78,13 @@ export const CardContent = styled.div`
 
 export const CardTitle = styled.h3`
   font-size: 2rem;
-  color: #2c3e50;
+  color: var(--color3);
   margin: 0;
   text-transform: uppercase;
   letter-spacing: 1.2px;
-  font-weight: 700;
-  line-height: 1.3;
+  font-weight: 900;
   padding-bottom: 10px;
-  border-bottom: 3px solid rgba(0, 150, 136, 0.8);
+  border-bottom: 3px solid var(--color5);
   transition: color 0.3s ease, transform 0.2s ease;
   animation: ${fadeIn} 0.8s 0.6s ease forwards;
 
@@ -108,7 +105,7 @@ export const CardTitle = styled.h3`
 
 export const CardText = styled.p`
   font-size: 1.1rem;
-  color: #666;
+  color: white;
   line-height: 1.6;
   animation: ${fadeIn} 0.8s 0.8s ease forwards;
 `;

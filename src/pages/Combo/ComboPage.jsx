@@ -3,7 +3,7 @@ import React, { useRef } from "react";
 import HeroSection from "../../components/ComboSections/HeroSection";
 import SolutionSection from "../../components/ComboSections/SolutionSection";
 import CTASection from "../../components/ComboSections/CtaSection";
-
+import { ComboWrapper } from "./ComboPageStyles";
 const ComboPage = () => {
   const sectionsRef = useRef([]);
 
@@ -12,7 +12,7 @@ const ComboPage = () => {
   };
 
   return (
-    <div>
+    <ComboWrapper>
       <div ref={(el) => (sectionsRef.current[0] = el)}>
         <HeroSection navigateToSection={navigateToSection} />
       </div>
@@ -22,7 +22,7 @@ const ComboPage = () => {
       <div ref={(el) => (sectionsRef.current[2] = el)}>
         <CTASection />
       </div>
-    </div>
+    </ComboWrapper>
   );
 };
 

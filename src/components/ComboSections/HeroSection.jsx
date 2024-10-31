@@ -10,7 +10,10 @@ const Section = styled.div`
   align-items: center;
   justify-content: center;
   text-align: center;
-  background: url("/Imgs/BackgroundHero/backHero2.jpeg") center/cover no-repeat;
+  background: transparent;
+
+    padding: 2em;
+
 `;
 
 const Overlay = styled.div`

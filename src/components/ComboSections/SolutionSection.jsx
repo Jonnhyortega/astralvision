@@ -21,8 +21,10 @@ const Section = styled.div`
   align-items: center;
   justify-content: center;
   text-align: center;
-  background: url("/Imgs/BackgroundSolution/backSolution.jpeg") center/cover no-repeat;
+  background: transparent;
   animation: ${slideIn} 1s ease-in-out;
+
+  padding: 2em;
 `;
 
 const Overlay = styled.div`

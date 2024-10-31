@@ -21,8 +21,9 @@ const Section = styled.div`
   align-items: center;
   justify-content: center;
   text-align: center;
-  background: url("/Imgs/BackgroundCTA/backCTA.jpeg") center/cover no-repeat;
+  background: transparent;
   animation: ${slideIn} 1s ease-in-out;
+  padding: 2em;
 `;
 
 const Overlay = styled.div`
@@ -42,13 +43,20 @@ const Heading = styled.h2`
 `;
 
 const Text = styled.p`
-  color: #ddd;
-  font-size: 1.2rem;
+  color: white;
+  font-weight: bold;
+  font-size: 2rem;
+  text-align: left;
   z-index: 2;
+  width: 100%;
+
+  text-shadow: -1px -1px 0 #000,
+    /* Sombras en varias direcciones para crear el borde */ 1px -1px 0 #000,
+    -1px 1px 0 #000, 1px 1px 0 #000;
 `;
 
 const StyledLink = styled.a`
-  padding: 10px 20px;
+  padding: 15px 25px;
   font-size: 1rem;
   margin-top: 20px;
   background-color: #f39c12;
@@ -66,12 +74,11 @@ const StyledLink = styled.a`
 export const CTASection = () => (
   <Section>
     <Overlay />
-    <Heading>¡El Combo Perfecto para Tu Negocio!</Heading>
     <Text>
       Transforma tu presencia en línea con nuestro combo de landing page +
       tienda online a un precio muy accesible
     </Text>
-    <StyledLink href="https://wa.link/71nhsh" target="_blank">
+    <StyledLink href="https://wa.link/futfhzs" target="_blank">
       Hablar con un asesor
     </StyledLink>
   </Section>

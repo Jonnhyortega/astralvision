@@ -1,13 +1,14 @@
 @import url("https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Titillium+Web:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700&display=swap");
 :root {
-  --bodyColor: linear-gradient(
+  /* --bodyColor: linear-gradient(
     255deg,
     #123e48 2%,
     #125258 23%,
     #127074 48%,
     #17a39c 69%,
     #20dbca 81%
-  );
+  ); */
+  --bodyColor: black;
   --gralColor: black;
   --titilium: "Titillium Web", sans-serif;
   --roboto: "Roboto", sans-serif;
@@ -23,7 +24,7 @@ body {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-
+  /* color: rgb(34, 34, 34); */
 }
 * {
   margin: 0;

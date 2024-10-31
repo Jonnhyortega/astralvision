@@ -8,19 +8,21 @@ import {
   CardText,
   CardButton,
 } from "./ServiciosStyles";
-
+import bckgLanding from "../../imgs/BackgroundServicios/BckgLandingPages.jpg";
+import bckgTienda from "../../imgs/BackgroundServicios/BckgTiendaOnline.jpg";
+import bckgRedes from "../../imgs/BackgroundServicios/BckgRedes.jpg";
 const serviciosData = [
   {
     title: "Creamos tu Landing Page",
-    img: "https://images.unsplash.com/photo-1525182008055-f88b95ff7980",
+    img: bckgLanding,
     description:
       "Atrae más clientes con una página única y efectiva. Dale estilo y profesionalismo a tu marca con una pagina de aterrizaje donde se muestre informacion de tu negocio/emprendimiento.",
   },
   {
     title: "Creación de Tiendas Online",
-    img: "https://images.unsplash.com/photo-1519337265831-281ec6cc8514",
+    img: bckgTienda,
     description:
-      "Desarrollamos tu tienda online con todo lo necesario para empezar a vender. En un mundo digitalizado, estar offline es perder oportunidades. Con una tienda física, cuando tomas vacaciones, tus ingresos se detienen; con tu negocio online, puedes generar ingresos desde cualquier lugar, ¡incluso desde la playa! ",
+      "Creamos tu tienda online con todas las herramientas necesarias para que comiences a vender de inmediato. En un mundo cada vez más digital, estar offline significa perder oportunidades. Mientras que en una tienda física los ingresos se detienen en vacaciones, con tu negocio online puedes generar ventas en cualquier momento y lugar, ¡incluso mientras disfrutas de un merecido descanso! ",
   },
   {
     title: "Sitios Webs Personalizados",
@@ -30,7 +32,7 @@ const serviciosData = [
   },
   {
     title: "Flyers, Banners, Contenido para Redes",
-    img: "https://images.unsplash.com/photo-1485217988980-11786ced9454",
+    img: bckgRedes,
     description:
       "Potencia tu marca en redes sociales con contenido visual impactante y profesional. Creamos stories, posts y material gráfico diseñado especialmente para destacar lo mejor de tu emprendimiento, capturando la atención de tu audiencia y generando interacción. Nuestro enfoque está en construir una imagen sólida y atractiva que lleve tu marca al siguiente nivel.",
   },
