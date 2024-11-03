@@ -9,7 +9,6 @@ const AppRoutes = () => {
     <Routes>
       <Route path="/" element={<Home />} />
       <Route path="contact" element={<Contact />} />
-      {/* <Route path="projects" element={<elememt** />} /> */}
       <Route path="promocion" element={<ComboPage />} />
       <Route path="*" element={<NoPage />} />
     </Routes>

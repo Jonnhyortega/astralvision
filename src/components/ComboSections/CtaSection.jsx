@@ -78,7 +78,7 @@ export const CTASection = () => (
       Transforma tu presencia en línea con nuestro combo de landing page +
       tienda online a un precio muy accesible
     </Text>
-    <StyledLink href="https://wa.link/futfhzs" target="_blank">
+    <StyledLink href="" target="_blank">
       Hablar con un asesor
     </StyledLink>
   </Section>

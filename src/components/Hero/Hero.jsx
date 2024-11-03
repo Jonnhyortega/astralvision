@@ -1,19 +1,31 @@
 import React from "react";
-import { HeroContainer, Background, Overlay, Title, Subtitle, StyledLink, Text } from "./HeroStyles";
+import {
+  HeroContainer,
+  Background,
+  Overlay,
+  Title,
+  Subtitle,
+  StyledLink,
+  Text,
+} from "./HeroStyles";
 
 export const Hero = () => {
   const handleNavigate = () => {
-    window.open("https://wa.link/ba9197", "_blank");
+    window.open("", "_blank");
   };
 
   return (
     <HeroContainer>
-      <Background /> {/* Fondo con animación */}
+      <Background />
       <Overlay />
       <Title>Astral Vision Estudio</Title>
-      <Subtitle>Impulsá tu emprendimiento con un diseño atractivo y funcional</Subtitle>
+      <Subtitle>
+        Impulsá tu emprendimiento con un diseño atractivo y funcional
+      </Subtitle>
       <Text>Agencia de Diseño Web</Text>
-      <StyledLink onClick={handleNavigate}>Solicita tu paquete de Landing Page + Tienda Online</StyledLink>
+      <StyledLink onClick={handleNavigate}>
+        Contactar
+      </StyledLink>
     </HeroContainer>
   );
 };

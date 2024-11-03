@@ -3,19 +3,12 @@ import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import logo from "../../imgs/LogoAstral.jpeg";
 const ModalFormWrapper = styled.div`
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   z-index: 1000;
-  backdrop-filter: blur(25px) saturate(200%);
-  -webkit-backdrop-filter: blur(25px) saturate(200%);
-  background-color: rgba(17, 25, 40, 0);
+  
   .btns {
     display: flex;
   }
@@ -27,14 +20,12 @@ const ModalFormWrapper = styled.div`
     display: flex;
     flex-direction: column;
     gap: 20px;
-    widht: 500px;
   }
 
   div > p {
     color: white;
     font-weight: 700;
     font-size: 1.4em;
-    width: 50%;
     margin: 0 auto;
   }
 
@@ -66,7 +57,7 @@ export default function ModalMessage({ updateModalOpen }) {
   };
 
   const handleWsp = () => {
-    window.open("https://wa.link/ba9197", "_blank");
+    window.open("", "_blank");
   };
 
   return (

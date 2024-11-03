@@ -24,7 +24,7 @@ const ContactContainer = styled.div`
 const Contact = () => {
   return (
     <ContactContainer>
-      {/* <Overlay /> */}
+      <Overlay />
       <ContactForm />
     </ContactContainer>
   );

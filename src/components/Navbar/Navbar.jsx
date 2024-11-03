@@ -27,14 +27,11 @@ export default function Navbar() {
         </NavLink>
         <NavLink to="/promocion" onClick={toggleNavbar}>
         Promo
-          {/* <FontAwesomeIcon icon={faHome} /> */}
         </NavLink>
         <NavLink to="/contact" onClick={toggleNavbar}>
           <FontAwesomeIcon icon={faEnvelope} />
         </NavLink>
-        {/* <NavLink to="/projects" onClick={toggleNavbar}>
-          <FontAwesomeIcon icon={faFolder} />
-        </NavLink> */}
+        
       </div>
       <ToggleButton onClick={toggleNavbar}>
         {isOpen ? <MdOutlineArrowBackIosNew /> : <MdOutlineArrowForwardIos />}

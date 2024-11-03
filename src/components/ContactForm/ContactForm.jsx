@@ -55,10 +55,6 @@ const ContactForm = () => {
         setIsModalOpen(true);
         console.log("Email sent successfully:", response.status, response.text);
         setStatus("Mensaje enviado con éxito");
-
-        setTimeout(() => {
-          window.location.href = "/";
-        }, 5000);
       })
       .catch((err) => {
         console.error("Error sending email:", err);
@@ -69,48 +65,51 @@ const ContactForm = () => {
 
   return (
     <WrapperForm>
-      <h2>Contacto</h2>
-      <form onSubmit={handleSubmit}>
-        <label htmlFor="user_name">Nombre</label>
-        <input
-          type="text"
-          name="user_name"
-          placeholder="Ingrese nombre"
-          value={formData.user_name}
-          onChange={handleChange}
-          required
-        />
-        <label htmlFor="user_email">Correo electrónico</label>
+      {!isModalOpen ? (
+        <div>
+          <h2>Contacto</h2>
+          <form onSubmit={handleSubmit}>
+            <label htmlFor="user_name">Nombre</label>
+            <input
+              type="text"
+              name="user_name"
+              placeholder="Ingrese nombre"
+              value={formData.user_name}
+              onChange={handleChange}
+              required
+            />
+            <label htmlFor="user_email">Correo electrónico</label>
 
-        <input
-          type="email"
-          name="user_email"
-          placeholder="Ingrese correo electrónico"
-          value={formData.user_email}
-          onChange={handleChange}
-          required
-        />
-        <label htmlFor="user_number">Teléfono</label>
+            <input
+              type="email"
+              name="user_email"
+              placeholder="Ingrese correo electrónico"
+              value={formData.user_email}
+              onChange={handleChange}
+              required
+            />
+            <label htmlFor="user_number">Teléfono</label>
 
-        <input
-          type="number"
-          name="user_number"
-          placeholder="Tu teléfono"
-          value={formData.user_number}
-          onChange={handleChange}
-        />
-        <label htmlFor="message">Mensaje</label>
+            <input
+              type="number"
+              name="user_number"
+              placeholder="Tu teléfono"
+              value={formData.user_number}
+              onChange={handleChange}
+            />
+            <label htmlFor="message">Mensaje</label>
 
-        <textarea
-          name="message"
-          placeholder="Escriba algo que quiera contarnos"
-          value={formData.message}
-          onChange={handleChange}
-          required
-        ></textarea>
-        <button type="submit">Enviar</button>
-      </form>
-      {isModalOpen && (
+            <textarea
+              name="message"
+              placeholder="Escriba algo que quiera contarnos"
+              value={formData.message}
+              onChange={handleChange}
+              required
+            ></textarea>
+            <button type="submit">Enviar</button>
+          </form>
+        </div>
+      ) : (
         <ModalMessage updateModalOpen={setIsModalOpen} message={status} />
       )}
     </WrapperForm>

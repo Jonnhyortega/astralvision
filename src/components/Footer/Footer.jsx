@@ -1,4 +1,3 @@
-// Footer.js
 import React from "react";
 import styled from "styled-components";
 import { FaInstagram } from "react-icons/fa";
@@ -54,14 +53,14 @@ const Footer = () => {
       <FooterContainer>
         <SocialLinks>
           <a
-            href="https://wa.link/ba9197"
+            href=""
             target="_blank"
             rel="noopener noreferrer"
           >
             <SiWhatsapp />
           </a>
           <a
-            href="https://www.instagram.com/astralvisionco/"
+            href=""
             target="_blank"
             rel="noopener noreferrer"
           >

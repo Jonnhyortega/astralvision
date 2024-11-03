@@ -47,7 +47,6 @@ const Servicios = () => {
           <CardContent>
             <CardTitle>{servicio.title}</CardTitle>
             <CardText>{servicio.description}</CardText>
-            {/* <CardButton>Conocer Más</CardButton> */}
           </CardContent>
         </Card>
       ))}
