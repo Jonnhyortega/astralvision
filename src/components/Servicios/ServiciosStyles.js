@@ -64,16 +64,18 @@ export const ServiciosContainer = styled.div`
 
   @media (max-width: 868px) {
     width: auto;
+
+    .cards-container {
+      width: 100%;
+    }
   }
 `;
 
 export const Card = styled.div`
   display: flex;
-  flex-direction: ${({ reverse }) => (reverse ? "row-reverse" : "row")};
   align-items: center;
   justify-content: space-evenly;
   padding: 20px;
-  border-radius: 5px;
   box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
   background-color: transparent;
   transition: box-shadow 0.4s ease, transform 0.4s ease;
@@ -103,6 +105,8 @@ export const Card = styled.div`
   @media (max-width: 868px) {
     flex-direction: column;
     height: auto;
+    width: 100%;
+    border-radius: none;
   }
 `;
 
