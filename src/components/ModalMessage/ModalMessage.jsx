@@ -1,14 +1,20 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
-import logo from "../../imgs/LogoAstral.jpeg";
+import logo from "../../imgs/LogoAstral.webp";
+import "ldrs/ring";
+import { grid } from "ldrs";
+import "animate.css";
+
+grid.register();
+
 const ModalFormWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   z-index: 1000;
-  
+
   .btns {
     display: flex;
   }
@@ -50,29 +56,41 @@ const ModalFormWrapper = styled.div`
   }
 `;
 export default function ModalMessage({ updateModalOpen }) {
-  const hookTo = useNavigate();
   const handleClick = () => {
-    hookTo("/");
+    window.location.reload();
     updateModalOpen(false);
   };
-
+  const [showLoader, setShowLoader] = useState(true);
   const handleWsp = () => {
-    window.open("", "_blank");
+    window.open("https://wa.link/uj2tlr", "_blank");
   };
+
+  useEffect(() => {
+    setTimeout(() => {
+      setShowLoader((ps) => !ps);
+    }, 3000);
+  }, []);
 
   return (
     <ModalFormWrapper>
-      <div>
-        <img src={logo}></img>
-        <p>
-          ¡Tu mensaje ha sido enviado con éxito! Nos pondremos en contacto
-          contigo lo antes posible. Gracias por tu interés.
-        </p>
-        <div className="btns">
-          <button onClick={handleClick}> Ir a inicio</button>
-          <button onClick={handleWsp}>Contactar por whatsapp</button>
+      {showLoader ? (
+        <l-grid size="60" speed="1.5" color="white"></l-grid>
+      ) : (
+        <div>
+          <img
+            src={logo}
+            className="animate__animated animate__backInLeft"
+          ></img>
+          <p className="animate__animated animate__backInLeft">
+            ¡Tu mensaje ha sido enviado con éxito! Nos pondremos en contacto
+            contigo lo antes posible. Gracias por tu interés.
+          </p>
+          <div className="btns animate__animated animate__backInLeft">
+            {/* <button onClick={handleClick}> Ir a inicio</button> */}
+            <button onClick={handleWsp}>Contactar por whatsapp</button>
+          </div>
         </div>
-      </div>
+      )}
     </ModalFormWrapper>
   );
 }

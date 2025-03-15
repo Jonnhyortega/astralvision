@@ -1,20 +1,24 @@
-import React from "react";
 import styled from "styled-components";
-import { FaInstagram } from "react-icons/fa";
+import { FaInstagram, FaFacebook } from "react-icons/fa";
 import { SiWhatsapp } from "react-icons/si";
-import logo from "../../imgs/LogoAstral.jpeg";
-import { useLocation } from "react-router-dom";
 
 const FooterContainer = styled.footer`
-  background-color: transparent;
+  background-color: var(--primary);
   color: white;
-  padding: 20px;
   text-align: center;
-
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
   img {
     width: 35px;
     border-radius: 50%;
-    margin-top: 30px;
+    border: 1px solid var(--third);
+    position: absolute;
+    left: 5px;
+    top: -20px;
   }
 
   @media (max-width: 768px) {
@@ -23,16 +27,20 @@ const FooterContainer = styled.footer`
 `;
 
 const SocialLinks = styled.div`
-  margin: 10px 0;
-
+  display: flex;
+  justify-content: center;
+  height: 100%;
+  width: 100px;
+  
   a {
-    color: white;
+    color: var(--third);
     margin: 0 10px;
     font-size: 1.5rem;
     text-decoration: none;
-  font-weight: bold;
+    font-weight: bold;
+    transition: color 0.4s ease;
     &:hover {
-      color: var(--color1);
+      color: black;
     }
   }
 `;
@@ -40,39 +48,41 @@ const SocialLinks = styled.div`
 const Copyright = styled.p`
   margin-top: 10px;
   font-size: 0.9rem;
-    color: white;
-    letter-spacing: 2px;
+  color: black;
+  letter-spacing: 2px;
+  
 `;
 
 const Footer = () => {
-  const location = useLocation();
-  const pathActual = location.pathname;
-
   return (
-    pathActual != "/promocion" && (
-      <FooterContainer>
-        <SocialLinks>
-          <a
-            href=""
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <SiWhatsapp />
-          </a>
-          <a
-            href=""
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <FaInstagram />
-          </a>
-        </SocialLinks>
-        <Copyright>
-          © 2024 <strong>Astral Vision.</strong> Todos los derechos reservados{" "}
-        </Copyright>
-        <img src={logo} alt="Logo empresa" />
-      </FooterContainer>
-    )
+    <FooterContainer>
+      <SocialLinks>
+        <a
+          href="https://wa.link/uj2tlr"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <SiWhatsapp />
+        </a>
+        <a
+          href="https://www.instagram.com/astralvisionco/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <FaInstagram />
+        </a>
+        <a
+          href="https://www.facebook.com/profile.php?id=61573859531556"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <FaFacebook />
+        </a>
+      </SocialLinks>
+      <Copyright>
+        © 2025 <strong>Astral Vision.</strong> Todos los derechos reservados{" "}
+      </Copyright>
+    </FooterContainer>
   );
 };
 

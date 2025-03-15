@@ -1,31 +1,28 @@
 @import url("https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Titillium+Web:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Funnel+Display:wght@300..800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
 :root {
-  /* --bodyColor: linear-gradient(
-    255deg,
-    #123e48 2%,
-    #125258 23%,
-    #127074 48%,
-    #17a39c 69%,
-    #20dbca 81%
-  ); */
-  --bodyColor: black;
-  --gralColor: black;
+  /* PALETA PRINCIPAL */
+  --primary: #e0e0e0;
+  --secondary: #333663;
+  --third: #24638d;
+
+  /* FONTS */
+  --roboto: "Roboto", sans-serif;
+  --funnel: "Funnel Display", sans-serif;
   --titilium: "Titillium Web", sans-serif;
   --roboto: "Roboto", sans-serif;
   --oswald: "Oswald", serif;
-  --color1: #123e48;
-  --color2: #125258;
-  --color3: #127074;
-  --color4: #17a39c;
-  --color5: #20dbca;
+  --inter: "Inter", sans-serif;
 }
 
 body {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  /* color: rgb(34, 34, 34); */
 }
+
 * {
   margin: 0;
   padding: 0;
@@ -38,14 +35,15 @@ body {
 
 /* SCROLL BAR */
 ::-webkit-scrollbar {
-  width: 10px;
+  width: 12px;
 }
 ::-webkit-scrollbar-track {
-  background: white;
+  background: #e0e0e0;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #dedede;
+  background: grey;
+  border-radius: 5px;
 }
 
 ::-webkit-scrollbar-thumb:hover {

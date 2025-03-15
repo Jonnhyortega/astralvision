@@ -5,11 +5,7 @@ export const WrapperForm = styled.div`
   padding: 50px;
   border-radius: 5px;
   z-index: 100;
-  border: 1px solid white;
-  backdrop-filter: blur(2px) saturate(180%);
-  -webkit-backdrop-filter: blur(2px) saturate(180%);
-  background-color: rgba(0, 0, 0, 0.5);
-  
+
   @media (max-width: 650px) {
     border-radius: 0;
     border: none;
@@ -28,29 +24,43 @@ export const WrapperForm = styled.div`
   form {
     display: flex;
     flex-direction: column;
-    gap: 1em;
     z-index: 100;
   }
 
-  label{
-      font-size: 20px;
-      color: white;
-      font-weight: bold;
-
+  label {
+    font-size: 20px;
+    color: white;
+    font-weight: bold;
   }
 
   input,
   textarea {
-    border-top-left-radius: 10px;
-    border-bottom-right-radius: 12px;
+    margin-top: 10px;
+    border-radius: 2px;
     padding: 10px;
     margin-bottom: 15px;
-    border: 1px solid white;
+    border: 1px solid grey;
     font-size: 16px;
+    font-weight: bold;
     background: transparent;
     color: white;
     font-family: "Roboto", sans-serif;
     font-weight: 100;
+    outline: none;
+  }
+
+  input:focus,
+  textarea:focus {
+    border: 1px solid white;
+    color: white;
+    filter: drop-shadow(1px 1px 5px grey);
+    box-shadow: 1px 1px 3px var(--third);
+  }
+
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
   }
 
   textarea {
@@ -69,7 +79,7 @@ export const WrapperForm = styled.div`
     background-color: transparent;
     color: white;
     font-weight: 700;
-    border: 1px solid white;
+    border: 1px solid grey;
     border-radius: 5px;
     font-size: 16px;
     cursor: pointer;
@@ -79,7 +89,8 @@ export const WrapperForm = styled.div`
   button:hover {
     color: white;
     border: 1px solid transparent;
-    background-color: #0056b3;
+    background-color: var(--primary);
+    color: black;
   }
 
   p {

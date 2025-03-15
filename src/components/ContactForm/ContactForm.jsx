@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import emailjs from "emailjs-com";
 import { WrapperForm } from "./ContactFormStyles.js";
 import ModalMessage from "../ModalMessage/ModalMessage.jsx";
@@ -72,15 +72,17 @@ const ContactForm = () => {
             <label htmlFor="user_name">Nombre</label>
             <input
               type="text"
+              id="user_name"
               name="user_name"
               placeholder="Ingrese nombre"
               value={formData.user_name}
               onChange={handleChange}
               required
             />
-            <label htmlFor="user_email">Correo electrónico</label>
 
+            <label htmlFor="user_email">Correo electrónico</label>
             <input
+              id="user_email"
               type="email"
               name="user_email"
               placeholder="Ingrese correo electrónico"
@@ -88,18 +90,20 @@ const ContactForm = () => {
               onChange={handleChange}
               required
             />
-            <label htmlFor="user_number">Teléfono</label>
 
+            <label htmlFor="user_number">Teléfono</label>
             <input
+              id="user_number"
               type="number"
               name="user_number"
               placeholder="Tu teléfono"
               value={formData.user_number}
               onChange={handleChange}
             />
-            <label htmlFor="message">Mensaje</label>
 
+            <label htmlFor="message">Mensaje</label>
             <textarea
+              id="message"
               name="message"
               placeholder="Escriba algo que quiera contarnos"
               value={formData.message}

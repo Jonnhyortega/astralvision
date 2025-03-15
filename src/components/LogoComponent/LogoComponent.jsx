@@ -1,31 +1,22 @@
-import React from "react";
-import logo from "../../imgs/LogoAstral.jpeg";
+import logo from "../../imgs/LogoAstral.webp";
 import styled from "styled-components";
+import "animate.css";
 
 const LogoContent = styled.div`
-  position: fixed;
-  top: -2px;
-  right: -55px;
+  cursor: pointer;
+  border-radius: 50%;
+
+  z-index: 2;
 
   img {
-    width: 50px;
+    width: 150px;
     border-radius: 50%;
-    // animation: spin 5s linear infinite;
-  }
-
-  @keyframes spin {
-    from {
-      transform: rotate(0deg);
-    }
-    to {
-      transform: rotate(360deg);
-    }
   }
 `;
 
 export const LogoComponent = () => {
   return (
-    <LogoContent>
+    <LogoContent className="animate__animated animate__backInLeft">
       <img src={logo} alt="Logo Astral" />
     </LogoContent>
   );

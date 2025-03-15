@@ -1,24 +1,68 @@
-import styled, { keyframes } from "styled-components";
-
-const fadeIn = keyframes`
-  0% {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-`;
+import styled from "styled-components";
 
 export const ServiciosContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 30px;
-  padding: 20px 20px 200px 20px;
   width: 100%;
-  animation: ${fadeIn} 0.8s ease forwards;
+  min-height: 100vh;
+  position: relative;
+  /* border: 1px solid gold;
+  * {
+    border: 1px solid red;
+  } */
+
+  .arrow-left {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 0 5px;
+    height: 100%;
+    width: 30px;
+  }
+  .arrow-right {
+    padding: 0 5px;
+    position: absolute;
+    top: 0;
+    right: 1px;
+    height: 100%;
+    width: 30px;
+  }
+
+  .arrow {
+    cursor: pointer;
+    transition: 0.2s all;
+    width: 35px;
+  }
+
+  .arrow:hover {
+    box-shadow: 1px 1px 5px grey;
+  }
+
+  h2 {
+    color: black;
+    text-align: center;
+    width: 100%;
+    font-size: 3.5em;
+    margin: 3rem 0;
+    font-family: var(--funnel);
+    font-weight: 900;
+    color: var(--third);
+    filter: drop-shadow(1px 1px 1px grey);
+  }
+
+  .cards-container {
+    width: 90%;
+    margin: 0 auto;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  @media (max-width: 868px) {
+    width: auto;
+  }
 `;
 
 export const Card = styled.div`
@@ -26,51 +70,49 @@ export const Card = styled.div`
   flex-direction: ${({ reverse }) => (reverse ? "row-reverse" : "row")};
   align-items: center;
   justify-content: space-evenly;
-  width: auto;
   padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  border-radius: 5px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
   background-color: transparent;
-  // border: 2px solid #e0e0e0;
-  transition: box-shadow 0.3s ease, transform 0.3s ease;
-  animation: ${fadeIn} 0.8s ease forwards;
+  transition: box-shadow 0.4s ease, transform 0.4s ease;
+  position: relative;
+  overflow: hidden;
+  height: 400px;
+  width: 100%;
 
-  &:hover {
+  &:hover .text-title {
+    color: #00acc1;
     transform: translateY(-5px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    text-decoration: underline;
   }
 
-  @media (max-width: 768px) {
-    flex-direction: column;
-  }
-`;
-
-export const CardImage = styled.img`
-  width: 400px;
-  height: 300px;
-  border-radius: 10px;
-  object-fit: cover;
-  transition: transform 0.3s ease;
-  animation: ${fadeIn} 0.8s 0.2s ease forwards;
-  border: 2px solid var(--color5);
-  &:hover {
-    transform: scale(1.05);
-  }
-
-  @media (max-width: 768px) {
+  .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
+    height: 100%;
+    backdrop-filter: blur(4px) saturate(180%);
+    -webkit-backdrop-filter: blur(2px) saturate(180%);
+    background-color: rgb(0, 0, 0, 0.5);
+    z-index: -1;
+  }
+
+  @media (max-width: 868px) {
+    flex-direction: column;
+    height: auto;
   }
 `;
 
 export const CardContent = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  gap: 20px;
   padding: 20px;
-  width: 50%;
-  animation: ${fadeIn} 0.8s 0.4s ease forwards;
+  width: 90%;
+  z-index: 1;
 
-  @media (max-width: 768px) {
+  @media (max-width: 868px) {
     width: 100%;
     text-align: center;
   }
@@ -78,24 +120,15 @@ export const CardContent = styled.div`
 
 export const CardTitle = styled.h3`
   font-size: 2rem;
-  color: var(--color3);
-  margin: 0;
+  color: white;
+  margin: 2rem 0;
   text-transform: uppercase;
   letter-spacing: 1.2px;
   font-weight: 900;
-  padding-bottom: 10px;
-  border-bottom: 3px solid var(--color5);
-  transition: color 0.3s ease, transform 0.2s ease;
-  animation: ${fadeIn} 0.8s 0.6s ease forwards;
-
-  &:hover {
-    color: #009688;
-    transform: translateY(-3px);
-  }
+  transition: color 0.4s ease, transform 0.3s ease;
 
   @media (max-width: 768px) {
     font-size: 1.8rem;
-    text-align: center;
   }
 
   @media (max-width: 480px) {
@@ -104,30 +137,9 @@ export const CardTitle = styled.h3`
 `;
 
 export const CardText = styled.p`
-  font-size: 1.1rem;
+  font-size: 1.3rem;
   color: white;
-  line-height: 1.6;
-  animation: ${fadeIn} 0.8s 0.8s ease forwards;
-`;
-
-export const CardButton = styled.button`
-  align-self: flex-start;
-  padding: 10px 20px;
-  font-size: 1rem;
-  color: #fff;
-  background-color: #00c853;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.2s ease;
-  animation: ${fadeIn} 0.8s 1s ease forwards;
-
-  &:hover {
-    background-color: #009624;
-    transform: translateY(-2px);
-  }
-
-  @media (max-width: 768px) {
-    align-self: center;
-  }
+  line-height: 1.3;
+  font-weight: 300;
+  filter: drop-shadow(1px 1px 5px black);
 `;
