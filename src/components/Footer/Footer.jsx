@@ -31,7 +31,7 @@ const SocialLinks = styled.div`
   justify-content: center;
   height: 100%;
   width: 100px;
-  
+
   a {
     color: var(--third);
     margin: 0 10px;
@@ -50,18 +50,13 @@ const Copyright = styled.p`
   font-size: 0.9rem;
   color: black;
   letter-spacing: 2px;
-  
 `;
 
 const Footer = () => {
   return (
     <FooterContainer>
       <SocialLinks>
-        <a
-          href="https://wa.link/uj2tlr"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
+        <a href="wa.link/v7mgfm" target="_blank" rel="noopener noreferrer">
           <SiWhatsapp />
         </a>
         <a

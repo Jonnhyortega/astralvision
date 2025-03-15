@@ -19,11 +19,13 @@ export const ServiciosContainer = styled.div`
     padding: 0 5px;
     height: 100%;
     width: 30px;
+    z-index: 1;
   }
   .arrow-right {
     padding: 0 5px;
     position: absolute;
     top: 0;
+    z-index: 1;
     right: 1px;
     height: 100%;
     width: 30px;
@@ -79,7 +81,7 @@ export const Card = styled.div`
   overflow: hidden;
   height: 400px;
   width: 100%;
-
+  margin-bottom: 2rem;
   &:hover .text-title {
     color: #00acc1;
     transform: translateY(-5px);

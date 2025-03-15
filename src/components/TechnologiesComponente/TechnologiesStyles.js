@@ -16,8 +16,10 @@ export const TechnologiesContent = styled.div`
 
   div {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: center;
     align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
     padding: 1rem 2rem;
   }
 `;

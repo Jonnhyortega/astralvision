@@ -10,7 +10,7 @@ import { motion } from "framer-motion";
 
 export const Hero = () => {
   const handleNavigate = () => {
-    window.open("https://wa.link/uj2tlr", "_blank");
+    window.open("wa.link/v7mgfm", "_blank");
   };
 
   const texto = "Agencia de diseño web y marketing digital.".split("");
