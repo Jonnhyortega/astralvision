@@ -1,12 +1,14 @@
 import styled from "styled-components";
 
-export const ServiciosContainer = styled.div`
-  display: flex;
+export const ServiciosContainer = styled.section`
+  /* display: flex; */
   flex-direction: column;
   align-items: center;
   width: 100%;
   min-height: 100vh;
   position: relative;
+  background-color: var(--primary);
+  padding: 3rem 0;
   /* border: 1px solid gold;
   * {
     border: 1px solid red;
@@ -46,7 +48,7 @@ export const ServiciosContainer = styled.div`
     text-align: center;
     width: 100%;
     font-size: 3.5em;
-    margin: 3rem 0;
+    padding: 2rem 0 4rem 0;
     font-family: var(--funnel);
     font-weight: 900;
     color: var(--third);

@@ -1,4 +1,3 @@
-import React from "react";
 import { PubliWrapper } from "./PublicidadStyles";
 export const Publicidad = () => {
   return (

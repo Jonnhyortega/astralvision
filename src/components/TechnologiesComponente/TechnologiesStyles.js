@@ -1,10 +1,11 @@
 import styled from "styled-components";
 
-export const TechnologiesContent = styled.div`
+export const TechnologiesContent = styled.section`
   width: 100%;
   bottom: 0;
   margin: 4rem 0 0 0;
   padding: 5rem 0 8rem 0;
+  min-height: 100vh;
 
   h3 {
     font-size: 2rem;

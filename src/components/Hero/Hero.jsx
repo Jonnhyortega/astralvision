@@ -1,24 +1,14 @@
 import { LogoComponent } from "../LogoComponent/LogoComponent";
-import {
-  HeroContainer,
-  Background,
-  Overlay,
-  StyledLink,
-  Text,
-} from "./HeroStyles";
+import { HeroContainer, Background, Overlay, Text } from "./HeroStyles";
 import { motion } from "framer-motion";
 
 export const Hero = () => {
-  const handleNavigate = () => {
-    window.open("wa.link/v7mgfm", "_blank");
-  };
-
   const texto = "Agencia de diseño web y marketing digital.".split("");
 
   return (
     <HeroContainer>
       <Background className="animate__animated animate__backInDown" />
-      <Overlay className="animate__animated animate__backInUp" />
+      <Overlay className="animate__animated animate__jello" />
       <LogoComponent />
 
       <Text>
@@ -45,7 +35,13 @@ export const Hero = () => {
           ))}
         </motion.div>
       </Text>
-      <StyledLink onClick={handleNavigate}>Contactar</StyledLink>
+      <a
+        className="btn-contactar"
+        href="https://wa.link/v7mgfm"
+        target="_blank"
+      >
+        Contactar
+      </a>
     </HeroContainer>
   );
 };

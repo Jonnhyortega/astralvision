@@ -13,17 +13,27 @@
       property="og:description"
       content="Obtén un diseño de página web personalizado y profesional con nuestros servicios de desarrollo web."
     />
-    <!-- <meta
-      property="og:image"
-      content="https://tusitio.com/imagen-representativa.jpg"
-    /> -->
+    <meta property="og:image" content="/LogoAstral.webp" />
     <meta property="og:url" content="https://www.astralvisionestudio.com/" />
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="es_ES" />
     <meta property="og:site_name" content="Astral Vision©" />
     <title>Astral Vision©</title>
   </head>
-  
+  <!-- Google tag (gtag.js) -->
+  <script
+    async
+    src="https://www.googletagmanager.com/gtag/js?id=G-7X1G7R7QCY"
+  ></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag("js", new Date());
+
+    gtag("config", "G-7X1G7R7QCY");
+  </script>
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>

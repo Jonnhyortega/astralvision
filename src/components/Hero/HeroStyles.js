@@ -1,8 +1,7 @@
 import styled from "styled-components";
-import { Link } from "react-router-dom";
 import defaultBckgImg from "../../imgs/BackgroundHero/backHero6.webp";
 
-export const HeroContainer = styled.div`
+export const HeroContainer = styled.section`
   position: relative;
   height: 100vh;
   width: 100%;
@@ -18,44 +17,9 @@ export const HeroContainer = styled.div`
     align-items: center;
     padding-right: 0;
   }
-`;
 
-export const Background = styled.div`
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-image: url(${defaultBckgImg});
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
-  opacity: 0.9; 
-`;
 
-export const Overlay = styled.div`
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  backdrop-filter: blur(3px) saturate(200%);
-  background-color: rgba(0, 0, 0, 0.3);
-  z-index: 2;
-`;
-
-export const Text = styled.div`
-  position: relative;
-  z-index: 2;
-  color: white;
-  font-size: 1.8rem;
-  font-weight: 300;
-  font-family: var(--funnel);
-  filter: drop-shadow(1px 1px 1px black);
-  text-align: center;
-`;
-
-export const StyledLink = styled(Link)`
+  .btn-contactar {
   position: relative;
   z-index: 2;
   padding: 20px 30px;
@@ -86,4 +50,43 @@ export const StyledLink = styled(Link)`
     width: 200px;
     text-align: center;
   }
+
+  }
+
 `;
+
+export const Background = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url(${defaultBckgImg});
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  opacity: 0.9;
+`;
+
+export const Overlay = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  backdrop-filter: blur(3px) saturate(200%);
+  background-color: rgba(0, 0, 0, 0.3);
+  z-index: 2;
+`;
+
+export const Text = styled.div`
+  position: relative;
+  z-index: 2;
+  color: white;
+  font-size: 1.8rem;
+  font-weight: 300;
+  font-family: var(--funnel);
+  filter: drop-shadow(1px 1px 1px black);
+  text-align: center;
+`;
+

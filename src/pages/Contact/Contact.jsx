@@ -1,8 +1,7 @@
-import React from "react";
 import ContactForm from "../../components/ContactForm/ContactForm";
 import styled from "styled-components";
 
-const ContactContainer = styled.div`
+const ContactContainer = styled.section`
   width: 100%;
   display: flex;
   align-items: center;

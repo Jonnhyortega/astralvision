@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { FaInstagram, FaFacebook } from "react-icons/fa";
 import { SiWhatsapp } from "react-icons/si";
+import { SiGmail } from "react-icons/si";
 
 const FooterContainer = styled.footer`
   background-color: var(--primary);
@@ -39,8 +40,11 @@ const SocialLinks = styled.div`
     text-decoration: none;
     font-weight: bold;
     transition: color 0.4s ease;
+    border-bottom: 2px solid transparent;
     &:hover {
       color: black;
+      transform: scale(1.1);
+      border-bottom: 2px solid var(--third);
     }
   }
 `;
@@ -56,7 +60,11 @@ const Footer = () => {
   return (
     <FooterContainer>
       <SocialLinks>
-        <a href="wa.link/v7mgfm" target="_blank" rel="noopener noreferrer">
+        <a
+          href="https://wa.link/v7mgfm"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           <SiWhatsapp />
         </a>
         <a
@@ -73,9 +81,15 @@ const Footer = () => {
         >
           <FaFacebook />
         </a>
+
+        <a href="mailto:astralvisionestudio@gmail.com">
+          <SiGmail />
+        </a>
       </SocialLinks>
+
       <Copyright>
-        © 2025 <strong>Astral Vision.</strong> Todos los derechos reservados{" "}
+        © {new Date().getFullYear()} <strong>Astral Vision.</strong> Todos los
+        derechos reservados{" "}
       </Copyright>
     </FooterContainer>
   );
