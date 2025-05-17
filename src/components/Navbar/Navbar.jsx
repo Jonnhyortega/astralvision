@@ -15,6 +15,8 @@ export const Navbar = () => {
   };
 
   useEffect(() => {
+    
+
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
       if (currentScrollY > lastScrollY) {
@@ -42,12 +44,22 @@ export const Navbar = () => {
       </div>
 
       {showMenu ? (
-        <HiOutlineX onClick={handleToggleMenu} className="text-2xl toggle-menu" />
+        <HiOutlineX
+          onClick={handleToggleMenu}
+          className="text-2xl toggle-menu"
+        />
       ) : (
-        <HiOutlineMenu onClick={handleToggleMenu} className="text-2xl toggle-menu" />
+        <HiOutlineMenu
+          onClick={handleToggleMenu}
+          className="text-2xl toggle-menu"
+        />
       )}
 
-      <div className={`menu-mobile ${showMenu ? "menu-mobile-open" : "menu-mobile-close"}`}>
+      <div
+        className={`menu-mobile ${
+          showMenu ? "menu-mobile-open" : "menu-mobile-close"
+        }`}
+      >
         <NavLink onClick={handleToggleMenu} to={"/"}>
           Inicio
         </NavLink>

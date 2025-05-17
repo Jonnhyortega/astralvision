@@ -2,107 +2,66 @@ import styled from "styled-components";
 import { FaInstagram, FaFacebook, FaGoogle } from "react-icons/fa";
 import { SiWhatsapp } from "react-icons/si";
 import { SiGmail } from "react-icons/si";
-
-const FooterContainer = styled.footer`
-  color: white;
-  text-align: center;
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 20px;
-  border-top: 1px solid var(--third);
-  background: black;
-
-  img {
-    width: 35px;
-    border-radius: 50%;
-    border: 1px solid var(--third);
-    position: absolute;
-    left: 5px;
-    top: -20px;
-  }
-
-  @media (max-width: 768px) {
-    padding: 15px;
-  }
-`;
-
-const SocialLinks = styled.div`
-  display: flex;
-  justify-content: center;
-  height: 100%;
-  width: 100px;
-
-  a {
-    color: var(--third);
-    margin: 0 10px;
-    font-size: 1.5rem;
-    text-decoration: none;
-    font-weight: bold;
-    transition: color 0.4s ease;
-    border-bottom: 2px solid transparent;
-    &:hover {
-      color: white;
-      transform: scale(1.1);
-      border-bottom: 2px solid var(--third);
-    }
-  }
-`;
-
-const Copyright = styled.p`
-  margin-top: 10px;
-  font-size: 0.9rem;
-  color: white;
-  letter-spacing: 2px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 10px;
-
-  h4 {
-    font-size: 1rem;
-    font-weight: bolder;
-    color: white;
-  }
-`;
-
+import { FooterContainer, SocialLinks, Copyright } from "./FooterStyles";
+import { MdLocationOn } from "react-icons/md";
 const Footer = () => {
   return (
     <FooterContainer>
       <SocialLinks>
-        <a
-          href="https://wa.link/v7mgfm"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <SiWhatsapp />
-        </a>
-        <a
-          href="https://www.instagram.com/astralvisionco/"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <FaInstagram />
-        </a>
-        <a
-          href="https://www.facebook.com/profile.php?id=61573859531556"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <FaFacebook />
-        </a>
-
-        <a href="mailto:astralvisionestudio@gmail.com">
-          <SiGmail />
-        </a>
-
-        <a href="https://maps.app.goo.gl/MuDzaEkscywn51hK8" target="blank">
-          <FaGoogle />
-        </a>
+        <h3>Nuestras redes</h3>
+        <div>
+          <a
+            href="https://wa.link/v7mgfm"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <SiWhatsapp />
+          </a>
+          <a
+            href="https://www.instagram.com/astralvisionco/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <FaInstagram />
+          </a>
+          <a
+            href="https://www.facebook.com/profile.php?id=61573859531556"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <FaFacebook />
+          </a>
+          <a href="mailto:astralvisionestudio@gmail.com">
+            <SiGmail />
+          </a>
+          <a href="https://maps.app.goo.gl/MuDzaEkscywn51hK8" target="blank">
+            <FaGoogle />
+          </a>
+        </div>
       </SocialLinks>
+      <div className="footer-info">
+        <h3>Desarrollo de software</h3>
+        <span>
+          Brindamos soluciones personalizadas para impulsar tu presencia online.
+        </span>
+      </div>
+      <div className="footer-contact">
+        <h3>Contacto</h3>
+        <ul>
+          <li>
+            Ciudad Autonoma de Buenos Aires
+            <MdLocationOn />
+          </li>
+          <li>
+            <a href="mailto:astralvisionestudio@gmail.com">
+              astralvisionestudio@gmail.com
+            </a>
+          </li>
+          <li>
+            <a href="https://wa.link/v7mgfm">+54 11 5010-9592</a>
+          </li>
+        </ul>
+      </div>
 
       <Copyright>
         <h4>Astral Vision.</h4> {new Date().getFullYear()}©

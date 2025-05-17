@@ -10,7 +10,7 @@ export const Hero = () => {
       {/* className="animate__animated animate__pulse" */}
       {/* <Background  /> */}
       <Overlay />
-      <LogoComponent />
+      {/* <LogoComponent /> */}
 
       <Text>
         <motion.div
@@ -36,6 +36,7 @@ export const Hero = () => {
           ))}
         </motion.div>
       </Text>
+      <p>Desarrollamos sitios modernos y sistemas funcionales</p>
       <a
         className="btn-contactar"
         href="https://wa.link/v7mgfm"

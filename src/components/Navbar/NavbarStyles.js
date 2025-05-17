@@ -8,7 +8,7 @@ export const NavbarWrapper = styled.nav`
   justify-content: end;
   gap: 20px;
   position: fixed;
-  top: ${({ scrollDirection }) => (scrollDirection === "down" ? "-60px" : "0")};
+  top: ${({ scrollDirection }) => (scrollDirection === "down" ? "-100px" : "0")};
   left: 0;
   z-index: 1000;
   width: 100%;
@@ -31,10 +31,10 @@ export const NavbarWrapper = styled.nav`
     box-shadow: ${({ scrollDirection }) =>
       scrollDirection === "down" ? "1px 1px 5px 1px black" : "none"};
     left: ${({ scrollDirection }) =>
-      scrollDirection === "down" ? "43%" : "5px"};
+      scrollDirection === "down" ? "5px" : "5px"};
     transition: 1s;
     top: ${({ scrollDirection }) =>
-      scrollDirection === "down" ? "63px" : "10px"};
+      scrollDirection === "down" ? "105px" : "10px"};
     transition: .8s;
   }
 
@@ -55,13 +55,14 @@ export const NavbarWrapper = styled.nav`
       scrollDirection === "down" ? "-100px" : "25px"};
     right: 20px;
     transition: all 0.7s ease;
+    z-index: 1001;
   }
 
   .menu-mobile-open {
     gap: 20px;
     width: 100%;
-    height: 95vh;
-    top: 40px;
+    height: 100vh;
+    top: 0px;
     left: 0;
     background-color: var(--third);
     transition: all 0.4s ease;

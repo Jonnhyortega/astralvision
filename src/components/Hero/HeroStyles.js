@@ -7,23 +7,35 @@ export const HeroContainer = styled.section`
   width: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: start;
   align-items: center;
   gap: 20px;
   padding-right: 5%;
   z-index: 100;
   border-bottom: 4px solid var(--third);
-
-
+  p {
+    z-index: 4;
+    color: black;
+    font-size: 4rem;
+    font-weight: bolder;
+    font-family: var(--roboto);
+    text-align: right;
+    padding: 0 20px;
+  }
   @media (max-width: 768px) {
     align-items: center;
-    padding-right: 0;
+    height: 80vh;
+
+    p {
+      font-size: 2.6rem;
+      text-align: center;
+    }
   }
 
   .btn-contactar {
     position: relative;
     z-index: 2;
-    padding: 20px 30px;
+    padding: 7px 25px;
     font-size: 1.2rem;
     border-radius: 8px;
     cursor: pointer;
@@ -31,9 +43,7 @@ export const HeroContainer = styled.section`
     transition: 0.3s ease;
     background: var(--third);
     color: white;
-    margin: 3em auto;
     font-weight: 600;
-
     &:hover {
       transform: scale(1.1);
       transition: 0.2s;
@@ -60,10 +70,10 @@ export const Background = styled.div`
   left: 0;
   width: 100%;
   height: 100%;
-  background-image: url(${defaultBckgImg});
+  /* background-image: url(${defaultBckgImg});
   background-size: cover;
   background-position: center;
-  background-attachment: fixed;
+  background-attachment: fixed; */
   opacity: 0.9;
 `;
 
@@ -73,18 +83,27 @@ export const Overlay = styled.div`
   left: 0;
   width: 100%;
   height: 100%;
-  backdrop-filter: blur(1px) saturate(100%);
+  /* backdrop-filter: blur(1px) saturate(100%); */
   background-color: rgba(0, 0, 0, 0.3);
-  z-index: 2;
+  z-index: 0;
 `;
 
 export const Text = styled.div`
   position: relative;
   z-index: 2;
   color: white;
-  font-size: 1.8rem;
-  font-weight: 300;
-  font-family: var(--funnel);
+  font-size: 2rem;
+  margin-top: 160px;
+  width: 90%;
+  font-weight: bolder;
+  font-family: var(--titilium);
   filter: drop-shadow(1px 1px 1px black);
-  text-align: center;
+  text-align: right;
+
+  @media (max-width: 768px) {
+    font-size: 1.2rem;
+    text-align: center;
+
+    margin-top: 130px;
+  }
 `;
