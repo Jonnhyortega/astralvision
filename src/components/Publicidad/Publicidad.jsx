@@ -2,7 +2,7 @@ import { PubliWrapper } from "./PublicidadStyles";
 export const Publicidad = () => {
   return (
     <PubliWrapper>
-      <h3>Impulsa tu Negocio</h3>
+      <h3>Impulsa tu negocio</h3>
       <span>
         Lleva tu marca al siguiente nivel con estrategias publicitarias y una
         página web diseñada para destacar. Creamos sitios webs modernos,

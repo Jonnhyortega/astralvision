@@ -6,9 +6,10 @@ export const Hero = () => {
   const texto = "Agencia de diseño web y marketing digital.".split("");
 
   return (
-    <HeroContainer>
-      <Background className="animate__animated animate__backInDown" />
-      <Overlay className="animate__animated animate__jello" />
+    <HeroContainer >
+      {/* className="animate__animated animate__pulse" */}
+      {/* <Background  /> */}
+      <Overlay />
       <LogoComponent />
 
       <Text>

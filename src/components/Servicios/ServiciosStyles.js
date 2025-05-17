@@ -7,8 +7,7 @@ export const ServiciosContainer = styled.section`
   width: 100%;
   min-height: 100vh;
   position: relative;
-  background-color: var(--primary);
-  padding: 3rem 0;
+  padding-top: 3rem;
   /* border: 1px solid gold;
   * {
     border: 1px solid red;
@@ -16,21 +15,23 @@ export const ServiciosContainer = styled.section`
 
   .arrow-left {
     position: absolute;
-    top: 0;
-    left: 0;
+    top: 50%;
+    left: 4px;
     padding: 0 5px;
-    height: 100%;
+    height: 50px;
     width: 30px;
     z-index: 1;
+    border-radius: 50%;
   }
   .arrow-right {
+    border-radius: 50%;
     padding: 0 5px;
     position: absolute;
-    top: 0;
-    z-index: 1;
-    right: 1px;
-    height: 100%;
+    top: 50%;
+    height: 50px;
     width: 30px;
+    z-index: 1;
+    right: 4px;
   }
 
   .arrow {
@@ -56,7 +57,7 @@ export const ServiciosContainer = styled.section`
   }
 
   .cards-container {
-    width: 90%;
+    width: 87%;
     margin: 0 auto;
     overflow: hidden;
     display: flex;
@@ -100,10 +101,16 @@ export const Card = styled.div`
     height: 100%;
     backdrop-filter: blur(4px) saturate(180%);
     -webkit-backdrop-filter: blur(2px) saturate(180%);
-    background-color: rgb(0, 0, 0, 0.5);
+    background-color: rgb(0, 0, 0, 0.9);
     z-index: -1;
   }
 
+  @media (max-width: 868px) {
+    flex-direction: column;
+    height: auto;
+    width: 100%;
+    border-radius: none;
+  }
   @media (max-width: 868px) {
     flex-direction: column;
     height: auto;

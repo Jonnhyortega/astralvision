@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const PubliWrapper = styled.section`
   width: 100%;
   min-height: 100vh;
-  background: var(--primary);
+  background: black;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
@@ -18,31 +18,32 @@ export const PubliWrapper = styled.section`
     text-align: center;
     font-family: var(--inter);
     color: var(--third);
+    filter: drop-shadow(1px 1px 1px black);
   }
 
   span {
     font-family: var(--roboto);
     font-size: 1.2rem;
     width: 80%;
+      color: white; 
 
-    strong{
+    strong {
       font-weight: bolder;
     }
   }
 
   button {
     padding: 1em;
-    background: transparent;
-    border: 1px solid var(--third );
+    border: 1px solid transparent;
     cursor: pointer;
     border-radius: 3px;
     font-family: var(--funnel);
     font-weight: bold;
     transition: 0.4s all;
+    background: white;
 
     &:hover {
-      background: var(--third);
-      color: white;
+      color: black;
       border: 1px solid transparent;
       transform: translateY(-2px);
     }

@@ -1,10 +1,9 @@
 import styled from "styled-components";
-import { FaInstagram, FaFacebook } from "react-icons/fa";
+import { FaInstagram, FaFacebook, FaGoogle } from "react-icons/fa";
 import { SiWhatsapp } from "react-icons/si";
 import { SiGmail } from "react-icons/si";
 
 const FooterContainer = styled.footer`
-  background-color: var(--primary);
   color: white;
   text-align: center;
   position: relative;
@@ -13,6 +12,9 @@ const FooterContainer = styled.footer`
   align-items: center;
   justify-content: center;
   padding: 20px;
+  border-top: 1px solid var(--third);
+  background: black;
+
   img {
     width: 35px;
     border-radius: 50%;
@@ -42,7 +44,7 @@ const SocialLinks = styled.div`
     transition: color 0.4s ease;
     border-bottom: 2px solid transparent;
     &:hover {
-      color: black;
+      color: white;
       transform: scale(1.1);
       border-bottom: 2px solid var(--third);
     }
@@ -52,8 +54,19 @@ const SocialLinks = styled.div`
 const Copyright = styled.p`
   margin-top: 10px;
   font-size: 0.9rem;
-  color: black;
+  color: white;
   letter-spacing: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+
+  h4 {
+    font-size: 1rem;
+    font-weight: bolder;
+    color: white;
+  }
 `;
 
 const Footer = () => {
@@ -85,11 +98,14 @@ const Footer = () => {
         <a href="mailto:astralvisionestudio@gmail.com">
           <SiGmail />
         </a>
+
+        <a href="https://maps.app.goo.gl/MuDzaEkscywn51hK8" target="blank">
+          <FaGoogle />
+        </a>
       </SocialLinks>
 
       <Copyright>
-        © {new Date().getFullYear()} <strong>Astral Vision.</strong> Todos los
-        derechos reservados{" "}
+        <h4>Astral Vision.</h4> {new Date().getFullYear()}©
       </Copyright>
     </FooterContainer>
   );

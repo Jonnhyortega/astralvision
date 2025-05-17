@@ -1,4 +1,3 @@
-import React from 'react';
 import { Link } from 'react-router-dom';
 import styled, { keyframes } from 'styled-components';
 
@@ -21,7 +20,7 @@ const ErrorMessage = styled.div`
   height: 100vh;
   animation: ${fadeIn} 0.5s ease-in-out;
 
-  h1 {
+  span {
     font-size: 4rem;
     color: #ff4d4d;
     margin-bottom: 1rem;
@@ -55,7 +54,7 @@ const ErrorMessage = styled.div`
 export const NoPage = () => {
   return (
     <ErrorMessage>
-      <h1>404</h1>
+      <span>404</span>
       <p>Oops! Página no encontrada.</p>
       <Link to="/">Volver al inicio</Link>
     </ErrorMessage>

@@ -14,7 +14,7 @@ export const WrapperForm = styled.div`
 
   h2 {
     text-align: center;
-    color: white;
+    color: black;
     margin-bottom: 50px;
     font-weight: 900px;
     font-size: 2em;
@@ -25,11 +25,12 @@ export const WrapperForm = styled.div`
     display: flex;
     flex-direction: column;
     z-index: 100;
+    color: black;
   }
 
   label {
+    color: black;
     font-size: 20px;
-    color: white;
     font-weight: bold;
   }
 
@@ -43,18 +44,17 @@ export const WrapperForm = styled.div`
     font-size: 16px;
     font-weight: bold;
     background: transparent;
-    color: white;
+    color: black;
     font-family: "Roboto", sans-serif;
     font-weight: 100;
     outline: none;
   }
-
+  
   input:focus,
   textarea:focus {
-    border: 1px solid white;
-    color: white;
-    filter: drop-shadow(1px 1px 5px grey);
-    box-shadow: 1px 1px 3px var(--third);
+    border: 1px solid black;
+    color: black;
+    font-weight: bolder ;
   }
 
   input::-webkit-outer-spin-button,
@@ -69,7 +69,7 @@ export const WrapperForm = styled.div`
 
   input::placeholder,
   textarea::placeholder {
-    color: white;
+    color: black;
   }
 
   button {
@@ -77,7 +77,7 @@ export const WrapperForm = styled.div`
     width: 150px;
     margin: 0 auto;
     background-color: transparent;
-    color: white;
+    color: black;
     font-weight: 700;
     border: 1px solid grey;
     border-radius: 5px;
@@ -87,10 +87,10 @@ export const WrapperForm = styled.div`
   }
 
   button:hover {
-    color: white;
-    border: 1px solid transparent;
-    background-color: var(--primary);
     color: black;
+    border: 1px solid transparent;
+    background-color: black;
+    color: white;
   }
 
   p {

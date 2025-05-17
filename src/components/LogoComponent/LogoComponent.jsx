@@ -5,9 +5,8 @@ import "animate.css";
 const LogoContent = styled.div`
   cursor: pointer;
   border-radius: 50%;
-
   z-index: 2;
-
+  margin-top: 4rem;
   img {
     width: 150px;
     border-radius: 50%;

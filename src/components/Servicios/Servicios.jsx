@@ -16,6 +16,7 @@ import bckgNetwork from "../../imgs/BackgroundServicios/bckgNetwork.webp";
 import bckgSoftware from "../../imgs/BackgroundServicios/bckgSoftware.webp";
 import "animate.css";
 
+
 const serviciosData = [
   {
     title: "Creamos tu Landing Page",
@@ -61,16 +62,18 @@ const serviciosData = [
   },
 ];
 
+
 const Servicios = () => {
   const [indexData, setIndexData] = useState(0);
   const [animateOut, setAnimateOut] = useState(false);
   const [animateIn, setAnimateIn] = useState(true);
-  const [direction, setDirection] = useState(null); // Agrega un estado para la dirección
+  const [direction, setDirection] = useState(null);
+
 
   const choiceCard = (arrow) => {
     setAnimateOut(true);
     setAnimateIn(false);
-    setDirection(arrow); // Establece la dirección
+    setDirection(arrow); 
 
     setTimeout(() => {
       if (arrow === "left") {
@@ -86,6 +89,7 @@ const Servicios = () => {
       setAnimateIn(true);
     }, 500);
   };
+
 
   return (
     <ServiciosContainer>
@@ -120,11 +124,11 @@ const Servicios = () => {
               : ""
           }`}
           reverse={indexData % 2 !== 0}
-          style={{
-            backgroundImage: `url(${serviciosData[indexData].img})`,
-            backgroundSize: "cover",
-            backgroundPosition: "center",
-          }}
+          // style={{
+          //   backgroundImage: `url(${serviciosData[indexData].img})`,
+          //   backgroundSize: "cover",
+          //   backgroundPosition: "center",
+          // }}
         >
           <div className="overlay"></div>
           <CardContent>

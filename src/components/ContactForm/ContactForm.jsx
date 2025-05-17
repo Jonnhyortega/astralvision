@@ -2,6 +2,7 @@ import { useState } from "react";
 import emailjs from "emailjs-com";
 import { WrapperForm } from "./ContactFormStyles.js";
 import ModalMessage from "../ModalMessage/ModalMessage.jsx";
+import "animate.css";
 
 const ContactForm = () => {
   const [formData, setFormData] = useState({
@@ -64,7 +65,7 @@ const ContactForm = () => {
   };
 
   return (
-    <WrapperForm>
+    <WrapperForm className="animate__animated animate__fadeInUp">
       {!isModalOpen ? (
         <div>
           <h2>Contacto</h2>

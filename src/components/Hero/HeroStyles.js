@@ -12,47 +12,46 @@ export const HeroContainer = styled.section`
   gap: 20px;
   padding-right: 5%;
   z-index: 100;
+  border-bottom: 4px solid var(--third);
+
 
   @media (max-width: 768px) {
     align-items: center;
     padding-right: 0;
   }
 
-
   .btn-contactar {
-  position: relative;
-  z-index: 2;
-  padding: 20px 30px;
-  font-size: 1.2rem;
-  border-radius: 8px;
-  cursor: pointer;
-  text-decoration: none;
-  transition: 0.3s ease;
-  background: var(--third);
-  color: white;
-  margin: 3em auto;
-  font-weight: 600;
+    position: relative;
+    z-index: 2;
+    padding: 20px 30px;
+    font-size: 1.2rem;
+    border-radius: 8px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: 0.3s ease;
+    background: var(--third);
+    color: white;
+    margin: 3em auto;
+    font-weight: 600;
 
-  &:hover {
-    transform: scale(1.1);
-    transition: 0.2s;
-    background: var(--primary);
-    color: var(--third);
+    &:hover {
+      transform: scale(1.1);
+      transition: 0.2s;
+      background: var(--primary);
+      color: var(--third);
+    }
+
+    @media (max-width: 768px) {
+      font-size: 1rem;
+      padding: 8px;
+    }
+
+    @media (max-width: 480px) {
+      font-size: 0.9rem;
+      width: 200px;
+      text-align: center;
+    }
   }
-
-  @media (max-width: 768px) {
-    font-size: 1rem;
-    padding: 8px;
-  }
-
-  @media (max-width: 480px) {
-    font-size: 0.9rem;
-    width: 200px;
-    text-align: center;
-  }
-
-  }
-
 `;
 
 export const Background = styled.div`
@@ -74,7 +73,7 @@ export const Overlay = styled.div`
   left: 0;
   width: 100%;
   height: 100%;
-  backdrop-filter: blur(3px) saturate(200%);
+  backdrop-filter: blur(1px) saturate(100%);
   background-color: rgba(0, 0, 0, 0.3);
   z-index: 2;
 `;
@@ -89,4 +88,3 @@ export const Text = styled.div`
   filter: drop-shadow(1px 1px 1px black);
   text-align: center;
 `;
-

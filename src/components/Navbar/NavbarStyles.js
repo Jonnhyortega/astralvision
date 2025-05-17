@@ -2,18 +2,134 @@ import styled from "styled-components";
 import { Link } from "react-router-dom";
 
 export const NavbarWrapper = styled.nav`
-  padding: 10px;
+  padding: 40px;
   display: flex;
   align-items: center;
   justify-content: end;
   gap: 20px;
   position: fixed;
-  top: 0;
+  top: ${({ scrollDirection }) => (scrollDirection === "down" ? "-60px" : "0")};
   left: 0;
   z-index: 1000;
   width: 100%;
-  background: transparent;
-  transition: transform 0.3s ease;
+  height: 40px;
+  transition: transform 0.8s ease, top 0.6s ease;
+  backdrop-filter: blur(25px) saturate(180%);
+  -webkit-backdrop-filter: blur(25px) saturate(180%);
+  background-color: rgba(255, 255, 255, 0);
+  border-bottom: ${({ scrollDirection }) =>
+    scrollDirection === "down"
+      ? "1px solid var(--third)"
+      : "5px solid var(--third)"};
+
+  img {
+    position: absolute;
+    border-radius: 50%;
+    width: 60px;
+    border: ${({ scrollDirection }) =>
+      scrollDirection === "down" ? "2px solid var(--third)" : "transparent"};
+    box-shadow: ${({ scrollDirection }) =>
+      scrollDirection === "down" ? "1px 1px 5px 1px black" : "none"};
+    left: ${({ scrollDirection }) =>
+      scrollDirection === "down" ? "43%" : "5px"};
+    transition: 1s;
+    top: ${({ scrollDirection }) =>
+      scrollDirection === "down" ? "63px" : "10px"};
+    transition: .8s;
+  }
+
+  .menu-desktop {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+  }
+
+  .toggle-menu {
+    display: none;
+    font-size: 2rem;
+    color: var(--color1);
+    cursor: pointer;
+    position: absolute;
+    top: 4px;
+    top: ${({ scrollDirection }) =>
+      scrollDirection === "down" ? "-100px" : "25px"};
+    right: 20px;
+    transition: all 0.7s ease;
+  }
+
+  .menu-mobile-open {
+    gap: 20px;
+    width: 100%;
+    height: 95vh;
+    top: 40px;
+    left: 0;
+    background-color: var(--third);
+    transition: all 0.4s ease;
+  }
+
+  .menu-mobile-close {
+    overflow: hidden;
+    width: 1px;
+    height: 1px;
+    transition: all 0.4s ease;
+    top: -200px;
+  }
+
+  .menu-mobile {
+    transition: all 1s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 1px;
+      left: 0;
+      width: 100px;
+      height: 100px;
+      border-top: 10px solid white;
+      border-right: 10px solid transparent;
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: 15px;
+      left: 0;
+      width: 80px;
+      height: 100px;
+      border-top: 10px solid whitesmoke;
+      border-right: 10px solid transparent;
+    }
+
+    a {
+      color: white;
+    }
+
+    small {
+      color: white;
+      font-size: 0.8rem;
+      margin-top: 20px;
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      width: 100%;
+      display: flex;
+    }
+  }
+
+  @media (max-width: 568px) {
+    .toggle-menu {
+      display: flex;
+    }
+
+    .menu-desktop {
+      display: none;
+    }
+  }
 `;
 
 export const NavLink = styled(Link)`
@@ -22,26 +138,12 @@ export const NavLink = styled(Link)`
   font-size: 1.2rem;
   font-weight: bold;
   padding: 1px 5px;
-  border-radius: 4px;
-  transition: color 0.3s ease, background-color 0.3s ease;
-  border: 1px solid transparent;
+  transition: color 0.1s ease, background-color 0.3s ease;
+  border-bottom: 1px solid transparent;
+  padding-bottom: 2px;
 
   &:hover {
-    background-color: var(--third);
-  }
-`;
-
-export const ToggleButton = styled.button`
-  background: transparent;
-  border: none;
-  color: var(--color1);
-  cursor: pointer;
-  font-size: 1.5rem;
-  padding: 5px;
-  position: absolute;
-  right: 0;
-  top: 6px;
-  &:hover {
-    color: #fff;
+    border-bottom: 1px solid var(--third);
+    color: var(--third);
   }
 `;

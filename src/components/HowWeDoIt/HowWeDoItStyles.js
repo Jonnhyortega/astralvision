@@ -44,7 +44,7 @@ export const WrapperHWDI = styled.section`
     font-family: var(--funnel);
     font-weight: 900;
     color: white;
-    filter: drop-shadow(1px 1px 1px white);
+    filter: drop-shadow(1px 1px 1px black);
     z-index: 1;
 
     @media (max-width: 768px) {
