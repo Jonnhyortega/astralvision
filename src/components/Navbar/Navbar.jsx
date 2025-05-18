@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { NavbarWrapper, NavLink } from "./NavbarStyles";
 import { HiOutlineMenu, HiOutlineX } from "react-icons/hi";
 import logo from "../../imgs/LogoAstral.webp";
+import { useLocation } from "react-router-dom";
 
 export const Navbar = () => {
   const [showMenu, setShowMenu] = useState(false);
@@ -9,14 +10,13 @@ export const Navbar = () => {
   const [lastScrollY, setLastScrollY] = useState(
     typeof window !== "undefined" ? window.scrollY : 0
   );
+  const { pathname } = useLocation();
 
   const handleToggleMenu = () => {
     setShowMenu(!showMenu);
   };
 
   useEffect(() => {
-    
-
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
       if (currentScrollY > lastScrollY) {
@@ -37,10 +37,27 @@ export const Navbar = () => {
       <div className="deco"></div>
 
       <div className="menu-desktop">
-        <NavLink to={"/"}>Inicio</NavLink>
-        <NavLink to={"/projects"}>Proyectos</NavLink>
-        <NavLink to={"/contact"}>Contacto</NavLink>
-        <NavLink to={"/services"}>Servicios</NavLink>
+        <NavLink className={pathname === "/" ? "active-menu" : ""} to={"/"}>
+          Inicio
+        </NavLink>
+        <NavLink
+          className={pathname === "/projects" ? "active-menu" : ""}
+          to={"/projects"}
+        >
+          Proyectos
+        </NavLink>
+        <NavLink
+          className={pathname === "/contact" ? "active-menu" : ""}
+          to={"/contact"}
+        >
+          Contacto
+        </NavLink>
+        <NavLink
+          className={pathname === "/services" ? "active-menu" : ""}
+          to={"/services"}
+        >
+          Servicios
+        </NavLink>
       </div>
 
       {showMenu ? (
@@ -60,23 +77,40 @@ export const Navbar = () => {
           showMenu ? "menu-mobile-open" : "menu-mobile-close"
         }`}
       >
-        <NavLink onClick={handleToggleMenu} to={"/"}>
+        <NavLink
+          className={pathname === "/" ? "active-menu-mobile" : ""}
+          onClick={handleToggleMenu}
+          to={"/"}
+          style={{ marginTop: "150px" }}
+        >
           Inicio
         </NavLink>
-        <NavLink onClick={handleToggleMenu} to={"/projects"}>
+        <NavLink
+          className={pathname === "/projects" ? "active-menu-mobile" : ""}
+          onClick={handleToggleMenu}
+          to={"/projects"}
+        >
           Proyectos
         </NavLink>
-        <NavLink onClick={handleToggleMenu} to={"/contact"}>
+        <NavLink
+          className={pathname === "/contact" ? "active-menu-mobile" : ""}
+          onClick={handleToggleMenu}
+          to={"/contact"}
+        >
           Contacto
         </NavLink>
-        <NavLink onClick={handleToggleMenu} to={"/services"}>
+        <NavLink
+          className={pathname === "/services" ? "active-menu-mobile" : ""}
+          onClick={handleToggleMenu}
+          to={"/services"}
+        >
           Servicios
         </NavLink>
 
-        <small>
-          <h4>Astral Vision.©</h4>
-          {new Date().getFullYear()}
-        </small>
+        <div className="astral-logo">
+          <h1>Astral Vision.©</h1>
+          <span>{new Date().getFullYear()}</span>
+        </div>
       </div>
     </NavbarWrapper>
   );

@@ -6,10 +6,13 @@ export const FooterContainer = styled.footer`
   position: relative;
   display: flex;
   align-items: center;
-  justify-content: space-around;
-  padding: 20px;
-  border-top: 1px solid var(--third);
+  justify-content: space-between;
   background: black;
+  padding: 15px 15px 70px 15px;
+  /* border-top: 4px solid var(--third);
+  * {
+    border: 1px solid gold;
+  } */
 
   .footer-info {
     display: flex;
@@ -22,10 +25,12 @@ export const FooterContainer = styled.footer`
       font-family: var(--titilium);
       margin-bottom: 10px;
       width: 100%;
+      text-align: left;
     }
 
-    span{
-        width: 100%;
+    span {
+      text-align: left;
+      width: 100%;
     }
   }
 
@@ -39,26 +44,32 @@ export const FooterContainer = styled.footer`
 
     h3 {
       font-family: var(--titilium);
-      margin-bottom: 10px;
+      /* margin-bottom: 10px; */
       width: 100%;
+      text-align: left;
     }
+
     ul {
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
+      width: 100%;
 
       li {
         list-style: none;
         display: flex;
         align-items: center;
-        justify-content: center;
+        justify-content: start;
         text-align: left;
         width: 100%;
+
         a {
           text-align: left;
+          width: 100%;
           text-decoration: none;
           color: white;
+
           &:hover {
             color: var(--third);
             transform: scale(1.1);
@@ -142,12 +153,14 @@ export const Copyright = styled.p`
   flex-wrap: wrap;
   gap: 10px;
   position: absolute;
-  bottom: 5px;
-  left: 5%;
+  left: 0%;
+  bottom: 2px;
+  width: 100%;
+
   @media (max-width: 868px) {
-    right: 0;
+    position: relative;
   }
-  h4 {
+  h1 {
     font-size: 1rem;
     font-weight: bolder;
     color: white;

@@ -8,7 +8,8 @@ export const NavbarWrapper = styled.nav`
   justify-content: end;
   gap: 20px;
   position: fixed;
-  top: ${({ scrollDirection }) => (scrollDirection === "down" ? "-100px" : "0")};
+  top: ${({ scrollDirection }) =>
+    scrollDirection === "down" ? "-100px" : "0"};
   left: 0;
   z-index: 1000;
   width: 100%;
@@ -21,6 +22,18 @@ export const NavbarWrapper = styled.nav`
     scrollDirection === "down"
       ? "1px solid var(--third)"
       : "5px solid var(--third)"};
+
+  .active-menu {
+    border-bottom: 3px solid var(--third);
+    letter-spacing: 2px;
+    color: var(--third);
+  }
+
+  .active-menu-mobile {
+    border-bottom: 3px solid black;
+    letter-spacing: 2px;
+    color: black;
+  }
 
   img {
     position: absolute;
@@ -35,7 +48,7 @@ export const NavbarWrapper = styled.nav`
     transition: 1s;
     top: ${({ scrollDirection }) =>
       scrollDirection === "down" ? "105px" : "10px"};
-    transition: .8s;
+    transition: 0.8s;
   }
 
   .menu-desktop {
@@ -81,7 +94,7 @@ export const NavbarWrapper = styled.nav`
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: start;
     position: absolute;
 
     &::before {
@@ -110,15 +123,21 @@ export const NavbarWrapper = styled.nav`
       color: white;
     }
 
-    small {
+    .astral-logo {
       color: white;
       font-size: 0.8rem;
-      margin-top: 20px;
-      position: absolute;
-      bottom: 20px;
-      left: 50%;
+      margin-top: 50px;
+      text-align: center;
       width: 100%;
       display: flex;
+      align-items: center;
+      justify-content: center;
+
+      h1 {
+        font-size: 0.8rem;
+        font-weight: bold;
+        text-align: center;
+      }
     }
   }
 
@@ -134,17 +153,19 @@ export const NavbarWrapper = styled.nav`
 `;
 
 export const NavLink = styled(Link)`
-  color: var(--color2);
+  color: black;
   text-decoration: none;
   font-size: 1.2rem;
   font-weight: bold;
   padding: 1px 5px;
-  transition: color 0.1s ease, background-color 0.3s ease;
+  transition: 0.1s ease;
   border-bottom: 1px solid transparent;
   padding-bottom: 2px;
+  font-family: var(--oswald);
+  padding-bottom: 5px;
 
   &:hover {
-    border-bottom: 1px solid var(--third);
+    border-bottom: 3px solid var(--third);
     color: var(--third);
   }
 `;

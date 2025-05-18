@@ -7,6 +7,7 @@ import { MdLocationOn } from "react-icons/md";
 const Footer = () => {
   return (
     <FooterContainer>
+
       <SocialLinks>
         <h3>Nuestras redes</h3>
         <div>
@@ -39,18 +40,20 @@ const Footer = () => {
           </a>
         </div>
       </SocialLinks>
+
       <div className="footer-info">
         <h3>Desarrollo de software</h3>
         <span>
           Brindamos soluciones personalizadas para impulsar tu presencia online.
         </span>
       </div>
+
       <div className="footer-contact">
         <h3>Contacto</h3>
         <ul>
           <li>
             Ciudad Autonoma de Buenos Aires
-            <MdLocationOn />
+            <MdLocationOn style={{marginLeft: "20px", color: "red", fontSize: "1.2rem"}}/>
           </li>
           <li>
             <a href="mailto:astralvisionestudio@gmail.com">
@@ -64,7 +67,7 @@ const Footer = () => {
       </div>
 
       <Copyright>
-        <h4>Astral Vision.</h4> {new Date().getFullYear()}©
+        <h1>Astral Vision.</h1> {new Date().getFullYear()}©
       </Copyright>
     </FooterContainer>
   );

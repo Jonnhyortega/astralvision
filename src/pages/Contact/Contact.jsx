@@ -8,7 +8,6 @@ const ContactContainer = styled.section`
   justify-content: center;
   position: relative;
   z-index: 100;
-  padding: 2em 0 6em 0;
 `;
 
 const Contact = () => {
