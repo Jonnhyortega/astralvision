@@ -1,4 +1,6 @@
+import { motion } from "framer-motion";
 import { WrapperHWDI } from "./HowWeDoItStyles";
+
 const info = [
   {
     title: "Estudio de mercado",
@@ -21,27 +23,44 @@ const info = [
     image: "https://img.icons8.com/plasticine/100/code--v2.png",
   },
 ];
+
 export const HowWeDoIt = () => {
   return (
     <WrapperHWDI>
-      <h2>¿Como trabajamos?</h2>
-      {info.map((x) => {
-        return (
-          <div key={x.title}>
-            <img
-              className="img"
-              width="96"
-              height="96"
-              src={x.image}
-              alt="Diseño web profesional para empresas"
-            />
-            <div>
-              <h3 className="title">{x.title}</h3>
-              <p className="info">{x.info}</p>
-            </div>
+      <motion.h2
+        initial={{ opacity: 0, y: -50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+        viewport={{ once: true }}
+      >
+        ¿Cómo trabajamos?
+      </motion.h2>
+
+      {info.map((x, index) => (
+        <motion.div
+          key={x.title}
+          className="card"
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, delay: index * 0.1 }}
+          viewport={{ once: true }}
+          whileHover={{
+            scale: 1.02,
+            transition: { duration: 0.3 },
+          }}
+        >
+          <motion.img
+            src={x.image}
+            alt={`Icono ${x.title}`}
+            className="img"
+            whileHover={{ rotate: [0, -5, 5, 0], transition: { duration: 0.8 } }}
+          />
+          <div>
+            <h3 className="title">{x.title}</h3>
+            <p className="info">{x.info}</p>
           </div>
-        );
-      })}
+        </motion.div>
+      ))}
     </WrapperHWDI>
   );
 };

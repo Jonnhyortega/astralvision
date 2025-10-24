@@ -15,13 +15,21 @@ export const NavbarWrapper = styled.nav`
   width: 100%;
   height: 40px;
   transition: transform 0.8s ease, top 0.6s ease;
-  backdrop-filter: blur(25px) saturate(180%);
+  /* backdrop-filter: blur(25px) saturate(180%);
   -webkit-backdrop-filter: blur(25px) saturate(180%);
-  background-color: rgba(255, 255, 255, 0);
-  border-bottom: ${({ scrollDirection }) =>
+  background-color: rgba(255, 255, 255, 0); */
+  background: radial-gradient(
+      circle at 30% 30%,
+      #e0e0e0 0%,
+      rgba(210, 239, 229, 0.9) 100%
+    ),
+    rgba(230, 230, 240, 0.6);
+  /* border-bottom: ${({ scrollDirection }) =>
     scrollDirection === "down"
       ? "1px solid var(--third)"
-      : "5px solid var(--third)"};
+      : "5px solid var(--third)"}; */
+
+      
 
   .active-menu {
     border-bottom: 3px solid var(--third);

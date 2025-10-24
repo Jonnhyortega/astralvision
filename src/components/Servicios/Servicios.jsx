@@ -5,139 +5,131 @@ import {
   CardContent,
   CardTitle,
   CardText,
+  CtaButton,
+  BgImage,
 } from "./ServiciosStyles";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeft, faArrowRight } from "@fortawesome/free-solid-svg-icons";
-import bckgLanding from "../../imgs/BackgroundServicios/BckgLandingPages.webp";
-import bckgTienda from "../../imgs/BackgroundServicios/BckgTiendaOnline.webp";
-import bckgRedes from "../../imgs/BackgroundServicios/BckgRedes.webp";
-import bckgCampaña from "../../imgs/BackgroundServicios/bckgCampañas.webp";
-import bckgNetwork from "../../imgs/BackgroundServicios/bckgNetwork.webp";
-import bckgSoftware from "../../imgs/BackgroundServicios/bckgSoftware.webp";
+import { motion } from "framer-motion";
 import "animate.css";
-
 
 const serviciosData = [
   {
-    title: "Creamos tu Landing Page",
-    img: bckgLanding,
+    id:1,
+    title: "Landing Pages que convierten ",
+    icon: "https://img.icons8.com/ios/50/rocket--v1.png",
+    img: "https://res.cloudinary.com/do87isqjr/image/upload/v1760654855/BckgLandingPages_g51omv.webp",
     description:
-      "Atrae más clientes con una página única y efectiva. Dale estilo y profesionalismo a tu marca con una pagina de aterrizaje donde se muestre informacion de tu negocio/emprendimiento.",
+      "Transformamos tu idea en una página profesional diseñada para captar clientes. Rápida, optimizada y lista para hacer crecer tu negocio.",
+    cta: "Quiero mi landing",
   },
   {
-    title: "Creación de Tiendas Online",
-    img: bckgTienda,
+    title: "Tiendas Online ",
+    img: "https://res.cloudinary.com/do87isqjr/image/upload/v1760654856/BckgTiendaOnline_vaopo5.webp",
+    icon: "https://img.icons8.com/ios/50/shopping-cart--v1.png",
     description:
-      "Creamos tu tienda online con todas las herramientas necesarias para que comiences a vender de inmediato. En un mundo cada vez más digital, estar offline significa perder oportunidades. Mientras que en una tienda física los ingresos se detienen en vacaciones, con tu negocio online puedes generar ventas en cualquier momento y lugar, ¡incluso mientras disfrutas de un merecido descanso! ",
+    "Creamos tu tienda digital lista para vender con integración a WhatsApp, redes y medios de pago. Vendé 24/7, incluso mientras descansás.",
+    cta: "Quiero mi tienda",
   },
   {
-    title: "Sitios Webs Personalizados",
+    title: "Sitios Web Personalizados ",
     img: "https://images.unsplash.com/photo-1498050108023-c5249f4df085",
+    icon: "https://img.icons8.com/ios/50/portfolio.png",
     description:
-      "Creamos un diseño a medida que refleja la identidad de tu marca, transmitiendo profesionalismo y autenticidad. Somos especialistas en diseño y entendemos cómo plasmar la esencia de tu negocio en cada detalle, generando una experiencia visual única que conecta con tu audiencia.",
+    "Diseñamos sitios web únicos que reflejan la esencia de tu marca. Transmití confianza, profesionalismo y estilo desde el primer clic.",
+    cta: "Quiero mi web",
   },
   {
-    title: "Flyers, Banners, Contenido para Redes",
-    img: bckgRedes,
+    title: "Contenido para Redes 📱",
+    img: "https://res.cloudinary.com/do87isqjr/image/upload/v1760654855/BckgRedes_lzhr3a.webp",
+    icon: "https://img.icons8.com/external-soleicons-line-amoghdesign/17/external-sociales-soleicons-line-vol-03-soleicons-line-amoghdesign.png",
     description:
-      "Potenciá tu marca en redes sociales con contenido visual impactante y profesional. Creamos stories, posts y material gráfico diseñado especialmente para destacar lo mejor de tu emprendimiento, capturando la atención de tu audiencia y generando interacción. Nuestro enfoque está en construir una imagen sólida y atractiva que lleve tu marca al siguiente nivel.",
+      "Diseñamos piezas visuales impactantes: stories, flyers y banners que hacen destacar tu marca y generan interacción real.",
+    cta: "Potenciar redes",
   },
   {
-    title: "Campañas de publicidad",
-    img: bckgCampaña,
+    title: "Campañas Publicitarias 🎯",
+    img: "https://res.cloudinary.com/do87isqjr/image/upload/v1760654855/bckgCampa%C3%B1as_wgzmwp.webp",
     description:
-      "Ideamos campañas de publicidad para que tu producto/servicio o lo que quieras vender tenga llegada absoluta en todos los rincones las redes sociales, feeds de facebook e instagram, reels, marketplace, messenger, etc. Inundá la redes sociales con tu marca.",
+      "Creamos estrategias publicitarias que multiplican tu alcance. Llevamos tu marca a los feeds, reels y marketplace correctos.",
+    cta: "Quiero una campaña",
   },
   {
-    title: "Conectividad Empresarial: Redes a tu Medida",
-    img: bckgNetwork,
+    title: "Conectividad Empresarial ⚙️",
+    img: "https://res.cloudinary.com/do87isqjr/image/upload/v1760654855/bckgNetwork_tmhuod.webp",
     description:
-      "Impulsa la productividad de tu empresa con soluciones de conectividad diseñadas para ti. Ofrecemos instalación, configuración y mantenimiento de redes empresariales seguras y eficientes, incluyendo VPN, redes LAN/WAN e integración de IoT. Aseguramos una comunicación fluida entre tus equipos y oficinas, optimizando procesos y garantizando la seguridad de tus datos. ¡Conéctate al futuro con infraestructura de red confiable y profesional!",
+      "Diseñamos e instalamos redes empresariales seguras, rápidas y estables. Conectá tus equipos y oficinas sin interrupciones.",
+    cta: "Mejorar conectividad",
   },
   {
-    title: "Desarrollo de software a Medida",
-    img: bckgSoftware,
+    title: "Software a Medida 💻",
+    img: "https://wheelhub.es/wp-content/uploads/2024/02/soluciones-a-medida-wheelhub.png",
     description:
-      "Desarrollamos soluciones de software personalizadas para adaptarse a las necesidades específicas de tu empresa. Nuestros expertos crean sistemas informáticos que optimizan procesos, mejoran la eficiencia y garantizan la escalabilidad. Desde aplicaciones móviles hasta sistemas de gestión empresarial, ofrecemos soluciones tecnológicas que impulsan tu negocio hacia el éxito.",
+      "Creamos soluciones de software personalizadas para tu negocio. Automatizá procesos y optimizá tu gestión diaria.",
+    cta: "Solicitar demo",
   },
 ];
 
-
 const Servicios = () => {
   const [indexData, setIndexData] = useState(0);
-  const [animateOut, setAnimateOut] = useState(false);
-  const [animateIn, setAnimateIn] = useState(true);
   const [direction, setDirection] = useState(null);
 
-
   const choiceCard = (arrow) => {
-    setAnimateOut(true);
-    setAnimateIn(false);
-    setDirection(arrow); 
-
-    setTimeout(() => {
-      if (arrow === "left") {
-        setIndexData((prevIndex) =>
-          prevIndex === 0 ? serviciosData.length - 1 : prevIndex - 1
-        );
-      } else if (arrow === "right") {
-        setIndexData((prevIndex) =>
-          prevIndex === serviciosData.length - 1 ? 0 : prevIndex + 1
-        );
-      }
-      setAnimateOut(false);
-      setAnimateIn(true);
-    }, 500);
+    setDirection(arrow);
+    setIndexData((prev) => {
+      if (arrow === "left") return prev === 0 ? serviciosData.length - 1 : prev - 1;
+      else return prev === serviciosData.length - 1 ? 0 : prev + 1;
+    });
   };
-
 
   return (
     <ServiciosContainer>
-      <h2>Nuestros servicios</h2>
+      <h2>
+        <span>Servicios</span> que impulsan tu negocio
+      </h2>
 
       <FontAwesomeIcon
-        onClick={() => {
-          choiceCard("left");
-        }}
+        onClick={() => choiceCard("left")}
         className="arrow arrow-left"
         icon={faArrowLeft}
       />
       <FontAwesomeIcon
-        onClick={() => {
-          choiceCard("right");
-        }}
+        onClick={() => choiceCard("right")}
         className="arrow arrow-right"
         icon={faArrowRight}
       />
 
       <div className="cards-container">
-        <Card
-          className={`animate__animated ${
-            animateOut
-              ? direction === "left"
-                ? "animate__backOutRight"
-                : "animate__backOutLeft"
-              : animateIn
-              ? direction === "left"
-                ? "animate__fadeInLeft"
-                : "animate__fadeInRight"
-              : ""
-          }`}
-          reverse={indexData % 2 !== 0}
-          // style={{
-          //   backgroundImage: `url(${serviciosData[indexData].img})`,
-          //   backgroundSize: "cover",
-          //   backgroundPosition: "center",
-          // }}
-        >
-          <div className="overlay"></div>
+        {/* 🔹 Contenedor arrastrable */}
+        <motion.div
+        key={indexData} // 🔥 fuerza el re-render suave entre cards
+        drag="x"
+        dragConstraints={{ left: 0, right: 0 }}
+        dragElastic={0.4}
+        onDragEnd={(event, info) => {
+          if (info.offset.x < -100) choiceCard("right");
+          if (info.offset.x > 100) choiceCard("left");
+        }}
+        style={{ cursor: "grab" }}
+        whileTap={{ cursor: "grabbing", scale: 0.98 }}
+        initial={{ opacity: 0, x: direction === "left" ? -100 : 100 }}
+        animate={{ opacity: 1, x: 0 }}
+        exit={{ opacity: 0, x: direction === "left" ? 100 : -100 }}
+        transition={{ duration: 0.4, ease: "easeInOut" }}
+      >
+        <Card>
+          <BgImage src={serviciosData[indexData].img} />
+          <div className="overlay" />
           <CardContent>
-            <CardTitle className="text-title">
-              {serviciosData[indexData].title}
-            </CardTitle>
+            <CardTitle>{serviciosData[indexData].title}</CardTitle>
             <CardText>{serviciosData[indexData].description}</CardText>
+            <CtaButton href="https://wa.me/5491150109592" target="_blank">
+              {serviciosData[indexData].cta}
+            </CtaButton>
           </CardContent>
         </Card>
+      </motion.div>
+
       </div>
     </ServiciosContainer>
   );

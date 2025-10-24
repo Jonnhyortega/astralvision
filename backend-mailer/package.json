@@ -1,0 +1,19 @@
+{
+  "name": "backend-mailer",
+  "version": "1.0.0",
+  "description": "Microservicio de envío de correos con Nodemailer para AWS Lambda",
+  "main": "serverless.js",
+  "scripts": {
+    "start": "node serverless.js"
+  },
+  "keywords": ["aws", "lambda", "nodemailer", "express", "api", "mailer"],
+  "author": "Astral Vision",
+  "license": "MIT",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "nodemailer": "^6.9.5",
+    "serverless-http": "^3.2.0"
+  }
+}

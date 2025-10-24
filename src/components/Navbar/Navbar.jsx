@@ -4,6 +4,8 @@ import { HiOutlineMenu, HiOutlineX } from "react-icons/hi";
 import logo from "../../imgs/LogoAstral.webp";
 import { useLocation } from "react-router-dom";
 
+
+
 export const Navbar = () => {
   const [showMenu, setShowMenu] = useState(false);
   const [scrollDirection, setScrollDirection] = useState("up");

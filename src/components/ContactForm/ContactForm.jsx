@@ -1,7 +1,7 @@
 import { useState } from "react";
-import emailjs from "emailjs-com";
 import { WrapperForm } from "./ContactFormStyles.js";
 import ModalMessage from "../ModalMessage/ModalMessage.jsx";
+import { motion } from "framer-motion";
 import "animate.css";
 
 const ContactForm = () => {
@@ -13,6 +13,7 @@ const ContactForm = () => {
   });
   const [status, setStatus] = useState("");
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -20,7 +21,7 @@ const ContactForm = () => {
   };
 
   const validateForm = () => {
-    const { user_name, user_email, user_number, message } = formData;
+    const { user_name, user_email, message } = formData;
     if (!user_name || !user_email || !message) {
       setStatus("Por favor, completa todos los campos obligatorios.");
       return false;
@@ -30,90 +31,112 @@ const ContactForm = () => {
       setStatus("Por favor, ingresa un correo electrónico válido.");
       return false;
     }
-    if (user_number && !/^\d+$/.test(user_number)) {
-      setStatus("Por favor, ingresa un número de teléfono válido.");
-      return false;
-    }
     return true;
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-
     if (!validateForm()) {
       setIsModalOpen(true);
       return;
     }
 
-    emailjs
-      .send(
-        "service_gdo8n6y",
-        "template_zf3xnet",
-        formData,
-        "30EV_8FnuYed_mJCi"
-      )
-      .then((response) => {
-        setIsModalOpen(true);
-        console.log("Email sent successfully:", response.status, response.text);
-        setStatus("Mensaje enviado con éxito");
-      })
-      .catch((err) => {
-        console.error("Error sending email:", err);
-        setStatus("Error al enviar el mensaje, por favor intenta de nuevo");
-        setIsModalOpen(true);
-      });
+    setLoading(true);
+
+    try {
+      const response = await fetch(
+        "https://i6khkfix69.execute-api.us-east-1.amazonaws.com/default/nodemailer-astralvision",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            name: formData.user_name,
+            email: formData.user_email,
+            phone: formData.user_number,
+            message: formData.message,
+          }),
+        }
+      );
+
+      const data = await response.json();
+
+      if (response.ok && data.success) {
+        setStatus("✅ Mensaje enviado con éxito, te responderemos en breve.");
+        setFormData({ user_name: "", user_email: "", user_number: "", message: "" });
+      } else {
+        throw new Error(data.message || "Error al enviar el mensaje");
+      }
+    } catch (error) {
+      console.error("Error al enviar el mensaje:", error);
+      setStatus("❌ Hubo un problema al enviar el mensaje. Intenta nuevamente.");
+    } finally {
+      setIsModalOpen(true);
+      setLoading(false);
+    }
   };
 
   return (
-    <WrapperForm className="animate__animated animate__fadeInUp">
+    <WrapperForm>
       {!isModalOpen ? (
-        <div>
-          <h2>Contacto</h2>
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+          className="form-box"
+        >
+          <h2>Hablemos sobre tu proyecto</h2>
+          <p>Contanos tu idea o necesidad y te respondemos en menos de 24 horas.</p>
+
           <form onSubmit={handleSubmit}>
-            <label htmlFor="user_name">Nombre</label>
+            <label>Nombre</label>
             <input
               type="text"
-              id="user_name"
               name="user_name"
-              placeholder="Ingrese nombre"
+              placeholder="Tu nombre completo"
               value={formData.user_name}
               onChange={handleChange}
               required
             />
 
-            <label htmlFor="user_email">Correo electrónico</label>
+            <label>Email</label>
             <input
-              id="user_email"
               type="email"
               name="user_email"
-              placeholder="Ingrese correo electrónico"
+              placeholder="correo@ejemplo.com"
               value={formData.user_email}
               onChange={handleChange}
               required
             />
 
-            <label htmlFor="user_number">Teléfono</label>
+            <label>Teléfono</label>
             <input
-              id="user_number"
-              type="number"
+              type="tel"
               name="user_number"
-              placeholder="Tu teléfono"
+              placeholder="(opcional)"
               value={formData.user_number}
               onChange={handleChange}
             />
 
-            <label htmlFor="message">Mensaje</label>
+            <label>Mensaje</label>
             <textarea
-              id="message"
               name="message"
-              placeholder="Escriba algo que quiera contarnos"
+              placeholder="Contame qué estás buscando..."
               value={formData.message}
               onChange={handleChange}
               required
-            ></textarea>
-            <button type="submit">Enviar</button>
+            />
+
+            <motion.button
+              type="submit"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.97 }}
+              disabled={loading}
+            >
+              {loading ? "Enviando..." : "Enviar mensaje"}
+            </motion.button>
           </form>
-        </div>
+        </motion.div>
       ) : (
         <ModalMessage updateModalOpen={setIsModalOpen} message={status} />
       )}

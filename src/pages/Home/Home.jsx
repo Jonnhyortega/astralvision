@@ -13,9 +13,9 @@ export const Home = () => {
       <Servicios />
       <HowWeDoIt />
       <Opinions />
+      <Contact />
       <Technologies />
       <Publicidad />
-      <Contact />
     </HomeWrapper>
   );
 };

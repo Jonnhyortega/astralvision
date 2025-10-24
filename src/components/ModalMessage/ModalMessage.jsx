@@ -62,7 +62,7 @@ export default function ModalMessage({ updateModalOpen }) {
   };
   const [showLoader, setShowLoader] = useState(true);
   const handleWsp = () => {
-    window.open("https://wa.link/uj2tlr", "_blank");
+    window.open("https://wa.link/iov09z", "_blank");
   };
 
   useEffect(() => {
