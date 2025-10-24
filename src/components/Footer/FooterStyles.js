@@ -45,6 +45,11 @@ export const FooterGrid = styled.div`
 `;
 
 export const FooterColumn = styled.div`
+  display: flex ;
+  flex-direction: column ;
+  align-items: center ;
+  justify-content: center ;
+  
   h3 {
     color: var(--third);
     font-family: var(--funnel);

@@ -32,13 +32,13 @@ export const Hero = () => {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1 }}
       >
-        <motion.h2
+        {/* <motion.h2
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2, duration: 0.8 }}
         >
           Agencia de diseño web y marketing digital 
-        </motion.h2>
+        </motion.h2> */}
 
         <Title
           initial={{ opacity: 0, y: 30 }}

@@ -5,12 +5,16 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 
 export default function ProjectsPage() {
+
+  const projectsRandom = projects.sort(() => Math.random() - 0.5);
   return (
     <ProjectsWrapper>
       <h2 className="headline">Proyectos recientes</h2>
 
       <div className="projects-list">
-        {projects.map((project, index) => (
+        {
+          
+          projectsRandom.map((project, index) => (
           <motion.div
             key={project.id}
             className={`project-row ${index % 2 === 0 ? "normal" : "reverse"}`}

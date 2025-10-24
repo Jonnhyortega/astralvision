@@ -4,7 +4,7 @@ import SocialContact from "../../components/SocialContact/SocialContact";
 
 const ContactContainer = styled.section`
   width: 100%;
-  min-height: 60vh ;
+  min-height: 90vh ;
   display: flex;
   flex-direction: column ;
   align-items: center;
@@ -19,6 +19,8 @@ const ContactContainer = styled.section`
     font-weight: 900 ;
     font-size: 3rem ;
     color: white ;
+    text-align: center ;
+    margin-top: 3rem ;
   }
 `;
 

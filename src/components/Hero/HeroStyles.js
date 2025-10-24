@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 export const HeroContainer = styled.section`
   position: relative;
   width: 100%;
-  height: 100vh;
+  min-height: 100vh;
   overflow: hidden;
   display: flex;
   justify-content: center;
@@ -13,7 +13,6 @@ export const HeroContainer = styled.section`
   color: #fff;
 
   @media (max-width: 768px) {
-    height: 85vh;
     padding: 2rem 0;
   }
 `;
@@ -64,12 +63,12 @@ export const TextContent = styled(motion.div)`
   }
 `;
 
-export const Title = styled(motion.p)`
+export const Title = styled(motion.h3)`
   font-size: 2.8rem;
   font-weight: 600;
   line-height: 1.2;
   color: #fff;
-  margin: 1.5rem 0;
+  margin: 3.5rem 0 2rem 0;
   text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
   position: relative;
 
@@ -166,14 +165,15 @@ export const WhatsappFloat = styled.a`
   font-size: 1.8rem;
   z-index: 1000;
   transition: 0.3s ease;
-
+  background: transparent ;
   img{
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+      /* box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); */
+      background: transparent ;
+    &:hover {
+      transform: scale(1.1);
+    }
   }
 
-  &:hover {
-    transform: scale(1.1);
-  }
 
   @media (max-width: 480px) {
     padding: 12px;

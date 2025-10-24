@@ -1,17 +1,12 @@
 import { useState } from "react";
-import Modal from "./Modal";
+// import Modal from "./Modal";
 import { TechnologiesContent } from "./TechnologiesStyles";
 
 export default function Technologies() {
   const [techToRender, setTechToRender] = useState("");
 
-  const handleOnmouseEnter = (string) => {
-    setTechToRender(string);
-  };
-
-  const handleOnmouseLeave = () => {
-    setTechToRender("");
-  };
+  const handleOnmouseEnter = (string) => setTechToRender(string);
+  const handleOnmouseLeave = () => setTechToRender("");
 
   const techs = [
     {
@@ -44,25 +39,65 @@ export default function Technologies() {
       src: "https://static.cdnlogo.com/logos/f/16/facebook-ads.svg",
       alt: "Facebook Ads",
     },
+    {
+      id: "python",
+      src: "https://img.icons8.com/3d-fluency/94/python.png",
+      alt: "Python",
+    }
+  ];
+
+  const clients = [
+    {
+      name: "Viandas H&G",
+      src: "https://res.cloudinary.com/do87isqjr/image/upload/v1761247975/logo_2_z1dcau.webp",
+    },
+    {
+      name: "Sanitarios Lugano",
+      src: "https://res.cloudinary.com/do87isqjr/image/upload/v1761247566/LogoBlue_myntoz.jpg",
+    },
+    {
+      name: "Hc habilitaciones",
+      src: "https://res.cloudinary.com/do87isqjr/image/upload/v1761247432/logo_au2kan.webp",
+    },
+    {
+      name: "Creatina Sticks",
+      src: "https://res.cloudinary.com/do87isqjr/image/upload/v1761247688/logo_-_copia_mvyoq5.jpg",
+    },
   ];
 
   return (
     <TechnologiesContent>
-      {/* <h3>Nos especializamos en</h3> */}
-      <div>
+      <div className="intro">
+        <h3>
+          Tecnologías de vanguardia <span>confiables y profesionales</span>
+        </h3>
+        <p>
+          En Astral Vision usamos herramientas modernas para garantizar
+          rendimiento, seguridad y escalabilidad en cada proyecto.
+        </p>
+      </div>
+
+      <div className="tech-grid">
         {techs.map((tech) => (
           <div
             className="content-img"
             key={tech.id}
+            // onMouseEnter={() => handleOnmouseEnter(tech.id)}
+            // onMouseLeave={handleOnmouseLeave}
           >
-            <img
-              className="img-technologies"
-              src={tech.src}
-              alt={tech.alt}
-            />
-            {techToRender === tech.id && <Modal tech={tech.id} />}
+            <img className="img-technologies" src={tech.src} alt={tech.alt} />
+            {/* {techToRender === tech.id && <Modal tech={tech.id} />} */}
           </div>
         ))}
+      </div>
+
+      <div className="clients-section">
+        <h4>Marcas que confían en nosotros</h4>
+        <div className="clients-logos">
+          {clients.map((client) => (
+            <img key={client.name} src={client.src} alt={client.name} />
+          ))}
+        </div>
       </div>
     </TechnologiesContent>
   );

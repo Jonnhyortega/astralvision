@@ -11,6 +11,7 @@ export const ProjectsWrapper = styled.section`
     font-size: 3rem;
     text-align: center;
     margin-bottom: 4rem;
+    font-family: var(--oswald);
     background: linear-gradient(90deg, var(--secondary), var(--third));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;

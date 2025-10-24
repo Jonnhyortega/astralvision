@@ -33,8 +33,21 @@ export const Navbar = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, [lastScrollY]);
 
+  useEffect(() => {
+    if (showMenu) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "auto";
+    }
+  
+    return () => {
+      document.body.style.overflow = "auto";
+    };
+  }, [showMenu]);
+  
+
   return (
-    <NavbarWrapper scrollDirection={scrollDirection}>
+    <NavbarWrapper scrollDirection={scrollDirection} showMenu={showMenu}>
       <img src={logo} alt="Astral Vision Estudio" />
       <div className="deco"></div>
 
