@@ -18,7 +18,7 @@ export default function ProjectsPage() {
           <motion.div
             key={project.id}
             className={`project-row ${index % 2 === 0 ? "normal" : "reverse"}`}
-            style={{background: `linear-gradient(90deg, ${project.color[0]}, ${project.color[1]}`, padding: "5rem"}}
+            style={{background: project.color.background, padding: "5rem"}}
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: index * 0.1 }}
@@ -29,7 +29,7 @@ export default function ProjectsPage() {
 
             <div className="text-side">
               <h3 style={{
-                color: project.color[0]
+                color: project.color.font
               }}>{project.name}</h3>
               <p>{project.description}</p>
               <div className="buttons">

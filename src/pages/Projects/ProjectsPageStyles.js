@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const ProjectsWrapper = styled.section`
   width: 100%;
   padding: 6rem 2rem;
-  background: var(--primary);
+  background: radial-gradient(circle at 20% 30%, #0b1221 0%, #05080f 100%);
   color: #f5f5f5;
   font-family: "Poppins", sans-serif;
 
@@ -66,13 +66,14 @@ export const ProjectsWrapper = styled.section`
     h3 {
       font-size: 2.2rem;
       filter: drop-shadow(1px 3px 1px black) ;
-
+      font-family: var(--oswald) ;
     }
 
     p {
       font-size: 1.1rem;
       color: white;
       line-height: 1.7;
+      font-family:var(--titilium) ;
     }
 
     .buttons {
