@@ -2,6 +2,7 @@ import React from "react";
 import { useParams } from "react-router-dom";
 import projects from "../../utils/projects";
 import { ProjectDetailWrapper } from "./ProjectDetailStyles";
+import { motion } from "framer-motion";
 
 export default function ProjectDetail() {
   const { id } = useParams();
@@ -11,26 +12,64 @@ export default function ProjectDetail() {
 
   return (
     <ProjectDetailWrapper>
-      <header className="banner">
-        <img src={project.img[0]} alt={project.name} />
-        <div className="title-overlay">
+      {/* ---------- HERO ---------- */}
+      <header
+        className="banner"
+        style={{ background: project.color.background }}
+      >
+        <motion.div
+          className="overlay"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1 }}
+        >
+          <img
+            src={project.logo}
+            alt={project.name}
+            className="project-logo"
+          />
           <h1>{project.name}</h1>
-          <p>{project.shortDesc || "Proyecto destacado del estudio"}</p>
-        </div>
+          <p>{project.description}</p>
+        </motion.div>
       </header>
 
+      {/* ---------- BODY ---------- */}
       <section className="case-body">
-        <h2>Sobre el proyecto</h2>
-        <p>{project.description}</p>
+        {/* <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.7 }}
+        >
+          <h2>Sobre el proyecto</h2>
+          <p>{project.description}</p>
+        </motion.div> */}
 
-        <h2>Stack tecnológico</h2>
-        <ul>
-          {project.tech?.map((t, i) => <li key={i}>{t}</li>)}
-        </ul>
+        {/* <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.7, delay: 0.2 }}
+          className="tech-stack"
+        >
+          <h2>Stack tecnológico</h2>
+          <ul>
+            {project.tech?.map((t, i) => (
+              <li key={i}>{t}</li>
+            ))}
+          </ul>
+        </motion.div> */}
 
-        <a href={project.link} className="visit-btn" target="_blank" rel="noopener noreferrer">
+        <motion.a
+          href={project.link}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="visit-btn"
+          whileHover={{ boxShadow: "0 0 15px rgba(0,0,0,0.4)" }}
+          transition={{ type: "spring", stiffness: 250 }}
+        >
           Ver sitio en vivo
-        </a>
+        </motion.a>
       </section>
     </ProjectDetailWrapper>
   );

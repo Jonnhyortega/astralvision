@@ -43,22 +43,22 @@ const serviciosData = [
       "Diseñamos sitios únicos que reflejan la esencia de tu marca, transmitiendo confianza y profesionalismo.",
     cta: "Quiero mi web",
   },
-  {
-    id: 4,
-    title: "Contenido para Redes",
-    icon: <FaPalette />,
-    description:
-      "Diseñamos piezas visuales impactantes que destacan tu marca y aumentan la interacción real.",
-    cta: "Potenciar redes",
-  },
-  {
-    id: 5,
-    title: "Campañas Publicitarias",
-    icon: <FaBullhorn />,
-    description:
-      "Estrategias publicitarias efectivas que multiplican tu alcance en redes, reels y marketplaces.",
-    cta: "Quiero una campaña",
-  },
+  // {
+  //   id: 4,
+  //   title: "Contenido para Redes",
+  //   icon: <FaPalette />,
+  //   description:
+  //     "Diseñamos piezas visuales impactantes que destacan tu marca y aumentan la interacción real.",
+  //   cta: "Potenciar redes",
+  // },
+  // {
+  //   id: 5,
+  //   title: "Campañas Publicitarias",
+  //   icon: <FaBullhorn />,
+  //   description:
+  //     "Estrategias publicitarias efectivas que multiplican tu alcance en redes, reels y marketplaces.",
+  //   cta: "Quiero una campaña",
+  // },
   {
     id: 6,
     title: "Conectividad Empresarial",
@@ -97,7 +97,7 @@ const Servicios = () => {
               <CardTitle>{servicio.title}</CardTitle>
               <CardText>{servicio.description}</CardText>
               <CtaButton
-                href="https://wa.me/5491150109592"
+                href="https://wa.me/1122684234"
                 target="_blank"
                 rel="noopener noreferrer"
               >

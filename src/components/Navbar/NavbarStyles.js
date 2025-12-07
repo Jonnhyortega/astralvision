@@ -12,7 +12,7 @@ export const NavbarWrapper = styled.nav`
   align-items: center;
   justify-content: space-between;
   backdrop-filter: blur(10px);
-  background: rgba(15, 15, 20, 0.85);
+  background: rgba(15, 15, 20, 0.25);
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   transition: top 0.5s ease, background 0.3s ease;
 

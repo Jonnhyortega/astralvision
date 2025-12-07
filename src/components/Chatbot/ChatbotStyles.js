@@ -103,7 +103,20 @@ export const ChatbotContainer = styled.div`
     overflow-y: auto;
     display: flex;
     flex-direction: column;
-    background: rgba(255,255,255,0.05);
+    background: rgba(255,255,255,0.05);  
+  }
+
+  .link-list > li {
+
+
+    text-decoration: none ;
+    list-style: none ;
+    li{
+    }
+  }
+
+  .link-list > li:hover{
+    color: pink ;
   }
 
   .message {

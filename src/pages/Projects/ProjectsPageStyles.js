@@ -10,9 +10,9 @@ export const ProjectsWrapper = styled.section`
   .headline {
     font-size: 3rem;
     text-align: center;
-    margin-bottom: 4rem;
+    margin: 4rem 0;
     font-family: var(--oswald);
-    background: linear-gradient(90deg, var(--secondary), var(--third));
+    background: linear-gradient(90deg, white, gray);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
   }

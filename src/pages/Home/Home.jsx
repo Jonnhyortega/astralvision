@@ -15,7 +15,7 @@ export const Home = () => {
       <Opinions />
       <Contact />
       <Technologies />
-      <Publicidad />
+      {/* <Publicidad /> */}
     </HomeWrapper>
   );
 };

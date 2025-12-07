@@ -72,7 +72,7 @@ export const Hero = () => {
         >
           <a
             className="btn-primary"
-            href="https://wa.me/541141935710?text=Hola!%20Vi%20sus%20servicios%20en%20Astral%20Vision%20y%20quiero%20una%20cotización%20para%20mi%20sitio%20web."
+            href="https://wa.me/1122684234?text=Hola!%20Vi%20sus%20servicios%20en%20Astral%20Vision%20y%20quiero%20una%20cotización%20para%20mi%20sitio%20web."
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -87,7 +87,7 @@ export const Hero = () => {
 
       {/* 🔹 Botón flotante de WhatsApp */}
       <WhatsappFloat
-        href="https://wa.me/5491150109592?text=Hola!%20Quiero%20más%20información%20sobre%20sus%20servicios."
+        href="https://wa.me/541122684234?text=Hola%20Astral%20Vision!%20Quiero%20más%20información%20sobre%20sus%20servicios."
         target="_blank"
         rel="noopener noreferrer"
       >

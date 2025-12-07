@@ -57,7 +57,10 @@ export const TechnologiesContent = styled.section`
       font-family: var(--oswald); 
       font-size: 2.4rem;
       font-weight: 700;
-
+      
+    }
+    span {
+      color: white;
     }
 
     .clients-logos {

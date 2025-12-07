@@ -33,15 +33,15 @@ export default function ProjectsPage() {
               }}>{project.name}</h3>
               <p>{project.description}</p>
               <div className="buttons">
-                <Link to={`/projects/${project.id}`} className="btn-detail">
+                {/* <Link to={`/projects/${project.id}`} className="btn-detail">
                   Ver detalles
-                </Link>
+                </Link> */}
                 <a
                   href={project.link}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="btn-site"
-                  style={{background: project.color[0]
+                  style={{background: project.color.button
                   }}
                 >
                   Ver sitio

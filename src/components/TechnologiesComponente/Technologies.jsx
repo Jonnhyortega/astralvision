@@ -1,9 +1,10 @@
 import { useState } from "react";
-// import Modal from "./Modal";
+import projects from "../../utils/projects";
 import { TechnologiesContent } from "./TechnologiesStyles";
 
 export default function Technologies() {
   const [techToRender, setTechToRender] = useState("");
+  const project_data = projects;
 
   const handleOnmouseEnter = (string) => setTechToRender(string);
   const handleOnmouseLeave = () => setTechToRender("");
@@ -67,7 +68,7 @@ export default function Technologies() {
 
   return (
     <TechnologiesContent>
-      <div className="intro">
+      {/* <div className="intro">
         <h3>
           Tecnologías de vanguardia <span>confiables y profesionales</span>
         </h3>
@@ -75,27 +76,25 @@ export default function Technologies() {
           En Astral Vision usamos herramientas modernas para garantizar
           rendimiento, seguridad y escalabilidad en cada proyecto.
         </p>
-      </div>
+      </div> */}
 
-      <div className="tech-grid">
+      {/* <div className="tech-grid">
         {techs.map((tech) => (
           <div
             className="content-img"
             key={tech.id}
-            // onMouseEnter={() => handleOnmouseEnter(tech.id)}
-            // onMouseLeave={handleOnmouseLeave}
+            
           >
             <img className="img-technologies" src={tech.src} alt={tech.alt} />
-            {/* {techToRender === tech.id && <Modal tech={tech.id} />} */}
           </div>
         ))}
-      </div>
+      </div> */}
 
       <div className="clients-section">
-        <h4>Marcas que confían en nosotros</h4>
+        <h4>Marcas que <span>confían en nosotros</span></h4>
         <div className="clients-logos">
-          {clients.map((client) => (
-            <img key={client.name} src={client.src} alt={client.name} />
+          {projects.map((p) => (
+            <img key={p.id} src={p.logo} alt={"Logo de " + p.name} />
           ))}
         </div>
       </div>
