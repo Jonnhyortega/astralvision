@@ -2,65 +2,34 @@ import styled from "styled-components";
 
 export const TechnologiesContent = styled.section`
   width: 100%;
-  padding: 6rem 1rem 8rem 1rem;
-  background: linear-gradient(180deg, #0f0f14 0%, #061824 100%);
+  padding: 8rem 2rem 10rem 2rem;
+  background: radial-gradient(circle at 50% 10%, #111 0%, #02040a 100%);
   color: #fff;
   text-align: center;
-
-  .intro {
-    max-width: 800px;
-    margin: 0 auto 4rem auto;
-    padding: 0 1rem;
-
-    h3 {
-      font-size: 2.4rem;
-      font-weight: 700;
-      font-family: var(--oswald);
-      margin-bottom: 1rem;
-
-      span {
-        color: var(--third);
-      }
-    }
-
-    p {
-      font-size: 1.1rem;
-      color: #ccc;
-      line-height: 1.6;
-    }
-  }
-
-  .tech-grid {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 2rem;
-    margin-bottom: 6rem;
-  }
-
-  .img-technologies {
-    width: 100px;
-    height: 100px;
-    filter: drop-shadow(1px 1px 3px black);
-    transition: 0.3s ease;
-    &:hover {
-      transform: scale(1.1);
-      filter: drop-shadow(1px 1px 5px var(--third));
-    }
-  }
+  overflow: hidden;
 
   .clients-section {
+    max-width: 1200px;
+    margin: 0 auto;
+
     h4 {
-      margin-bottom: 2rem;
-      color: var(--third);
-      font-family: var(--oswald); 
-      font-size: 2.4rem;
-      font-weight: 700;
-      
-    }
-    span {
+      margin-bottom: 5rem;
       color: white;
+      font-family: var(--funnel); 
+      font-size: 3rem;
+      font-weight: 800;
+      letter-spacing: -1px;
+      
+      span {
+        color: var(--third);
+        background: linear-gradient(90deg, var(--third), #fff);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+      
+      @media (max-width: 768px) {
+        font-size: 2.2rem;
+      }
     }
 
     .clients-logos {
@@ -68,31 +37,48 @@ export const TechnologiesContent = styled.section`
       justify-content: center;
       align-items: center;
       flex-wrap: wrap;
-      gap: 3rem;
+      gap: 4rem;
+      perspective: 1000px;
+
+      .logo-wrapper {
+        /* Wrapper for the floating animation */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 160px;
+        height: 100px;
+      }
 
       img {
-        width: 140px;
+        max-width: 100%;
+        max-height: 100%;
+        width: auto;
         height: auto;
-        opacity: 0.8;
-        transition: 0.3s;
-        border-radius: 20px ;
-        filter: drop-shadow(1px 1px 3px rgba(0, 0, 0, 0.4));
+        object-fit: contain;
+        opacity: 0.6;
+        filter: grayscale(100%);
+        transition: all 0.4s ease;
+        cursor: pointer;
+
+        /* Enhance interaction */
         &:hover {
           opacity: 1;
-          transform: scale(1.05);
+          filter: grayscale(0%) drop-shadow(0 0 10px rgba(255,255,255,0.4));
         }
       }
     }
   }
 
   @media (max-width: 768px) {
-    .img-technologies {
-      width: 80px;
-      height: 80px;
-    }
-
-    .clients-logos img {
-      width: 110px;
+    padding: 6rem 1rem;
+    
+    .clients-logos {
+      gap: 2rem;
+      
+      .logo-wrapper {
+        width: 120px;
+        height: 80px;
+      }
     }
   }
 `;

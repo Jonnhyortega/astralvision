@@ -102,7 +102,7 @@ useEffect(() => {
           content: "Podés contactarme por WhatsApp o completar el formulario:",
           actions: [
             { label: "💬 WhatsApp", url: "https://wa.me/541122684234" },
-            { label: "📋 Formulario", url: "/contacto" },
+            // { label: "📋 Formulario", url: "/contacto" },
           ],
         };
         break;

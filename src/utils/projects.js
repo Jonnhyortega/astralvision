@@ -96,11 +96,24 @@ export const projects = [
     id: 8,
     name: "Controlia software",
     logo: "https://res.cloudinary.com/do87isqjr/image/upload/v1765112813/logo-controlia_wn3fcj.png",
-    link: "https://controlia-software.vercel.app/",
+    link: "https://gestioncontrolia.com",
     color: {
       background: "",
       font: "#0951F0",
       button: "#0951F0"
+    },
+    description:
+      "Software de gestion para pymes y comercios. Permite administrar inventarios, ventas, clientes y proveedores de manera eficiente.",
+  },
+  {
+    id: 9,
+    name: "Ls Motos",
+    logo: "https://res.cloudinary.com/do87isqjr/image/upload/v1767995225/cian-removebg-preview_1_vhpjvx.png",
+    link: "https://lsmotos.com",
+    color: {
+      background: "transparent",
+      font: "#00CEFE",
+      button: "#00CEFE"
     },
     description:
       "Software de gestion para pymes y comercios. Permite administrar inventarios, ventas, clientes y proveedores de manera eficiente.",

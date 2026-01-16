@@ -96,7 +96,7 @@ export const CtaButton = styled.a`
   background: radial-gradient(circle at 20% 30%, #0b1221 0%, #05080f 100%);
   color: white;
   font-weight: 600;
-  border-radius: 40px;
+  border-radius: 5px;
   padding: 0.8rem 1.6rem;
   text-decoration: none;
   transition: 0.3s;

@@ -1,5 +1,8 @@
 import { motion } from "framer-motion";
 import { NavLink } from "react-router-dom";
+import { Canvas } from "@react-three/fiber";
+import { OrbitControls } from "@react-three/drei";
+import { Suspense } from "react";
 import {
   HeroContainer,
   Background,
@@ -10,21 +13,43 @@ import {
   MicroText,
   ButtonsContainer,
   WhatsappFloat,
+  CanvasContainer,
 } from "./HeroStyles";
 import heroBackground from "../../imgs/BackgroundHero/backHero6.webp";
+import BlackHole from "./BlackHole";
 
 export const Hero = () => {
   return (
     <HeroContainer>
       {/* 🔹 Fondo con animación sutil */}
-      <motion.div
-        as={Background}
-        style={{ backgroundImage: `url(${heroBackground})` }}
+      <Background
+        as={motion.div}
+        // style={{ backgroundImage: `url(${heroBackground})` }}
         initial={{ scale: 1.05 }}
         animate={{ scale: 1 }}
         transition={{ duration: 8, repeat: Infinity, repeatType: "reverse" }}
       />
       <Overlay />
+
+      {/* 🔹 Objeto 3D: Black Hole */}
+      <CanvasContainer
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 2, delay: 0.5 }}
+      >
+        <Canvas 
+          camera={{ position: [0, 0, 8], fov: 45 }}
+          dpr={[1, 2]} // Optimiza para pantallas retina evitando renderizar pixeles extra innecesarios
+          gl={{ powerPreference: "high-performance", alpha: true, antialias: true }}
+        >
+          <ambientLight intensity={0.5} />
+          <pointLight position={[10, 10, 10]} intensity={1} />
+          <Suspense fallback={null}>
+            <BlackHole />
+          </Suspense>
+          <OrbitControls enableZoom={false} enablePan={false} autoRotate autoRotateSpeed={0.5} />
+        </Canvas>
+      </CanvasContainer>
 
       {/* 🔹 Texto central */}
       <TextContent
@@ -76,7 +101,7 @@ export const Hero = () => {
             target="_blank"
             rel="noopener noreferrer"
           >
-            🚀 Quiero mi sitio web
+            Quiero mi sitio web
           </a>
 
           <NavLink className="btn-secondary" to="/projects">

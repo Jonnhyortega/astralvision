@@ -2,20 +2,18 @@ import { motion } from "framer-motion";
 import {
   ServiciosContainer,
   ServiciosGrid,
-  Card,
   IconWrapper,
   CardTitle,
   CardText,
-  CtaButton,
+  CtaButton, 
 } from "./ServiciosStyles";
+import { TiltCard } from "./TiltCard";
 import {
   FaRocket,
   FaShoppingCart,
   FaLaptopCode,
-  FaBullhorn,
   FaNetworkWired,
   FaCogs,
-  FaPalette,
 } from "react-icons/fa";
 
 const serviciosData = [
@@ -25,7 +23,6 @@ const serviciosData = [
     icon: <FaRocket />,
     description:
       "Transformamos tu idea en una página profesional optimizada para captar clientes y generar resultados.",
-    cta: "Quiero mi landing",
   },
   {
     id: 2,
@@ -33,7 +30,6 @@ const serviciosData = [
     icon: <FaShoppingCart />,
     description:
       "Creamos tu tienda lista para vender con medios de pago, integración a redes y atención por WhatsApp.",
-    cta: "Quiero mi tienda",
   },
   {
     id: 3,
@@ -41,31 +37,13 @@ const serviciosData = [
     icon: <FaLaptopCode />,
     description:
       "Diseñamos sitios únicos que reflejan la esencia de tu marca, transmitiendo confianza y profesionalismo.",
-    cta: "Quiero mi web",
   },
-  // {
-  //   id: 4,
-  //   title: "Contenido para Redes",
-  //   icon: <FaPalette />,
-  //   description:
-  //     "Diseñamos piezas visuales impactantes que destacan tu marca y aumentan la interacción real.",
-  //   cta: "Potenciar redes",
-  // },
-  // {
-  //   id: 5,
-  //   title: "Campañas Publicitarias",
-  //   icon: <FaBullhorn />,
-  //   description:
-  //     "Estrategias publicitarias efectivas que multiplican tu alcance en redes, reels y marketplaces.",
-  //   cta: "Quiero una campaña",
-  // },
   {
     id: 6,
     title: "Conectividad Empresarial",
     icon: <FaNetworkWired />,
     description:
       "Diseñamos redes empresariales seguras y rápidas. Conectá tus equipos sin interrupciones.",
-    cta: "Mejorar conectividad",
   },
   {
     id: 7,
@@ -73,7 +51,6 @@ const serviciosData = [
     icon: <FaCogs />,
     description:
       "Desarrollamos soluciones personalizadas que optimizan la gestión y automatizan tus procesos.",
-    cta: "Solicitar demo",
   },
 ];
 
@@ -91,22 +68,29 @@ const Servicios = () => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ delay: i * 0.1, duration: 0.5 }}
             viewport={{ once: true }}
+            style={{ height: '100%' }} 
           >
-            <Card>
-              <IconWrapper>{servicio.icon}</IconWrapper>
-              <CardTitle>{servicio.title}</CardTitle>
-              <CardText>{servicio.description}</CardText>
-              <CtaButton
-                href="https://wa.me/1122684234"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                {servicio.cta}
-              </CtaButton>
-            </Card>
+            <TiltCard>
+              <div style={{textAlign: 'center', height: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'center'}}>
+                <IconWrapper>{servicio.icon}</IconWrapper>
+                <CardTitle>{servicio.title}</CardTitle>
+                <CardText>{servicio.description}</CardText>
+              </div>
+            </TiltCard>
           </motion.div>
         ))}
       </ServiciosGrid>
+
+      <div style={{ marginTop: '4rem', display: 'flex', justifyContent: 'center' }}>
+        <CtaButton
+            href="https://wa.me/1122684234"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{ fontSize: '1.2rem', padding: '1rem 3rem' }}
+        >
+            ¡Quiero potenciar mi negocio!
+        </CtaButton>
+      </div>
     </ServiciosContainer>
   );
 };

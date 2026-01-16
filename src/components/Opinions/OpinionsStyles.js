@@ -2,17 +2,18 @@ import styled from "styled-components";
 
 export const OpinionsWrapper = styled.section`
   width: 100%;
+  padding: 5rem 2rem;
+  position: relative;
+  overflow: hidden;
+  /* Background is now handled by the 3D Canvas, but we can add a fallback or overlay */
+  background: transparent; 
+  border-top: 2px solid rgba(255, 255, 255, 0.05);
+  border-bottom: 2px solid rgba(255, 255, 255, 0.05);
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   gap: 2.5rem;
-  padding: 5rem 2rem;
-  position: relative;
-  overflow: hidden;
-  background: linear-gradient(180deg, #0f141a 0%, #111d29 100%);
-  border-top: 2px solid rgba(255, 255, 255, 0.05);
-  border-bottom: 2px solid rgba(255, 255, 255, 0.05);
 
   h2 {
     font-size: 3rem;
@@ -21,6 +22,7 @@ export const OpinionsWrapper = styled.section`
     font-family: var(--funnel);
     font-weight: 900;
     position: relative;
+    z-index: 2; /* Ensure text is above stars */
 
     &::after {
       content: "";
@@ -47,6 +49,8 @@ export const OpinionsWrapper = styled.section`
     gap: 25px;
     cursor: grab;
     padding: 1rem;
+    position: relative;
+    z-index: 2; /* Ensure carousel is above stars */
   }
 
   a {
@@ -62,6 +66,19 @@ export const OpinionsWrapper = styled.section`
     &:hover {
       box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
     }
+  }
+
+  /* Optional overlay to ensure text readability if stars are too bright */
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at center, transparent 0%, rgba(0,0,0,0.4) 100%);
+    z-index: 1;
+    pointer-events: none;
   }
 
   img {

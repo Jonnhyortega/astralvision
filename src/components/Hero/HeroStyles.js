@@ -4,17 +4,25 @@ import { motion } from "framer-motion";
 export const HeroContainer = styled.section`
   position: relative;
   width: 100%;
-  min-height: 100vh;
-  overflow: hidden;
+  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  border-bottom: 4px solid var(--third);
-  color: #fff;
+  overflow: hidden;
+  background-color: #000;
+`;
 
-  @media (max-width: 768px) {
-    padding: 2rem 0;
-  }
+export const CanvasContainer = styled(motion.div)`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2; /* Encima del fondo y overlay, debajo del texto */
+  pointer-events: none; /* Para que no bloquee clicks en textos/botones */
+  
+  /* Habilitar interacción con el canvas si es necesario con esto: */
+  /* & > div { pointer-events: auto; } */
 `;
 
 export const Background = styled.div`
@@ -28,6 +36,7 @@ export const Background = styled.div`
   filter: brightness(0.5);
   background-attachment: fixed;
   z-index: 0;
+  will-change: transform; /* Optimización para la animación de escala */
 `;
 
 export const Overlay = styled.div`
@@ -44,14 +53,22 @@ export const Overlay = styled.div`
 `;
 
 export const TextContent = styled(motion.div)`
+  position: relative;
   z-index: 3;
   text-align: center;
-  max-width: 900px;
-  padding: 2rem;
+  max-width: 800px;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  
+  /* 🔹 Fondo sutil para mejorar legibilidad sin tapar el 3D */
+  background: radial-gradient(circle, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0) 70%);
+  border-radius: 50%; /* Hace que el fondo sea más orgánico con el agujero negro */
 
   h2 {
     margin-top: 6rem ;
-    font-size: 1.5rem;
+    font-size: 2rem;
     font-weight: 600;
     color: #e0e0e0;
     text-transform: uppercase;
@@ -63,13 +80,13 @@ export const TextContent = styled(motion.div)`
   }
 `;
 
-export const Title = styled(motion.h3)`
-  font-size: 2.8rem;
+export const Title = styled(motion.h1)`
+  font-size: 3.2rem;
   font-weight: 600;
   line-height: 1.2;
   color: #fff;
   margin: 3.5rem 0 2rem 0;
-  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
+  text-shadow: 0 4px 12px rgba(0, 0, 0, 0.9); /* Sombra más fuerte */
   position: relative;
 
   /* 🔹 Línea decorativa */
@@ -92,19 +109,20 @@ export const Title = styled(motion.h3)`
   }
 `;
 
-export const Subtitle = styled(motion.small)`
+export const Subtitle = styled(motion.p)`
   display: block;
   font-size: 1.2rem;
   color: #eaeaea;
   font-weight: 400;
   margin-bottom: 1rem;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8); /* Agregada sombra */
 
   @media (max-width: 768px) {
     font-size: 1rem;
   }
 `;
 
-export const MicroText = styled(motion.p)`
+export const MicroText = styled(motion.small)`
   font-size: 1rem;
   color: #bdbdbd;
   font-weight: 300;
@@ -120,7 +138,7 @@ export const ButtonsContainer = styled(motion.div)`
   .btn-primary,
   .btn-secondary {
     padding: 0.9rem 2rem;
-    border-radius: 50px;
+    border-radius: 5px;
     font-weight: 600;
     text-decoration: none;
     transition: 0.3s all ease;

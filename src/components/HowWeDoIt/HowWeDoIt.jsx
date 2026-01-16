@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { WrapperHWDI } from "./HowWeDoItStyles";
+import { WrapperHWDI, ContentGrid } from "./HowWeDoItStyles";
 
 const info = [
   {
@@ -27,40 +27,42 @@ const info = [
 export const HowWeDoIt = () => {
   return (
     <WrapperHWDI>
-      <motion.h2
-        initial={{ opacity: 0, y: -50 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
-        viewport={{ once: true }}
-      >
-        ¿Cómo trabajamos?
-      </motion.h2>
-
-      {info.map((x, index) => (
-        <motion.div
-          key={x.title}
-          className="card"
-          initial={{ opacity: 0, y: 50 }}
+      <ContentGrid>
+        <motion.h2
+          initial={{ opacity: 0, y: -50 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: index * 0.1 }}
+          transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-          whileHover={{
-            scale: 1.02,
-            transition: { duration: 0.3 },
-          }}
         >
-          <motion.img
-            src={x.image}
-            alt={`Icono ${x.title}`}
-            className="img"
-            whileHover={{ rotate: [0, -5, 5, 0], transition: { duration: 0.8 } }}
-          />
-          <div>
-            <h3 className="title">{x.title}</h3>
-            <p className="info">{x.info}</p>
-          </div>
-        </motion.div>
-      ))}
+          ¿Cómo trabajamos?
+        </motion.h2>
+
+        {info.map((x, index) => (
+          <motion.div
+            key={x.title}
+            className="card"
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: index * 0.1 }}
+            viewport={{ once: true }}
+            whileHover={{
+              scale: 1.02,
+              transition: { duration: 0.3 },
+            }}
+          >
+            <motion.img
+              src={x.image}
+              alt={`Icono ${x.title}`}
+              className="img"
+              whileHover={{ rotate: [0, -5, 5, 0], transition: { duration: 0.8 } }}
+            />
+            <div>
+              <h3 className="title">{x.title}</h3>
+              <p className="info">{x.info}</p>
+            </div>
+          </motion.div>
+        ))}
+      </ContentGrid>
     </WrapperHWDI>
   );
 };
