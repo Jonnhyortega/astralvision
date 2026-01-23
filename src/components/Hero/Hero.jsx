@@ -16,7 +16,7 @@ import {
   CanvasContainer,
 } from "./HeroStyles";
 import heroBackground from "../../imgs/BackgroundHero/backHero6.webp";
-import BlackHole from "./BlackHole";
+import AstralObject from "./AstralObject";
 
 export const Hero = () => {
   return (
@@ -31,7 +31,7 @@ export const Hero = () => {
       />
       <Overlay />
 
-      {/* 🔹 Objeto 3D: Black Hole */}
+      {/* 🔹 Objeto 3D: Astral Object (Soft) */}
       <CanvasContainer
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -42,10 +42,10 @@ export const Hero = () => {
           dpr={[1, 2]} // Optimiza para pantallas retina evitando renderizar pixeles extra innecesarios
           gl={{ powerPreference: "high-performance", alpha: true, antialias: true }}
         >
-          <ambientLight intensity={0.5} />
-          <pointLight position={[10, 10, 10]} intensity={1} />
+          <ambientLight intensity={0.6} />
+          <pointLight position={[10, 10, 10]} intensity={1.5} />
           <Suspense fallback={null}>
-            <BlackHole />
+            <AstralObject />
           </Suspense>
           <OrbitControls enableZoom={false} enablePan={false} autoRotate autoRotateSpeed={0.5} />
         </Canvas>

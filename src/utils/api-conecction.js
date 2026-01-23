@@ -4,10 +4,13 @@ async function callChatAPI(message, history = [], context = "") {
   try {
     // 🧩 El backend exige estos tres campos
     const payload = {
-      message: message || "",
+      // Forzamos el contexto dentro del mensaje si el backend ignora el campo 'context'
+      message: `INSTRUCCIONES DEL SISTEMA (Respetar estrictamente):\n${context || "Solo responde sobre servicios de Astral Vision."}\n\n====================\nMENSAJE DEL USUARIO:\n${message || ""}`, 
       history: history || [],
-      context: context || "astralvision", // Valor por defecto
+      context: context || "astralvision", // Se mantiene por si acaso
     };
+
+    console.log("📤 Enviando a API:", payload); // DEBUG
 
     const res = await fetch(`${API_URL}/api/chat/`, {
       method: "POST",

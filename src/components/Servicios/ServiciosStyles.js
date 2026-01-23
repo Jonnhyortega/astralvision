@@ -93,18 +93,20 @@ export const CardText = styled.p`
 
 export const CtaButton = styled.a`
   align-self: center;
-  background: radial-gradient(circle at 20% 30%, #0b1221 0%, #05080f 100%);
+  /* Cambio de fondo oscuro a un gradiente vibrante */
+  background: linear-gradient(90deg, #0077b6 0%, #00b4d8 100%);
   color: white;
-  font-weight: 600;
+  font-weight: 700;
   border-radius: 5px;
-  padding: 0.8rem 1.6rem;
+  padding: 1rem 2rem;
   text-decoration: none;
-  transition: 0.3s;
-  letter-spacing: 0.4px;
+  transition: all 0.3s ease-in-out;
+  letter-spacing: 0.5px;
+  box-shadow: 0 4px 15px rgba(0, 119, 182, 0.3);
 
   &:hover {
-    transform: scale(1.05);
+    transform: translateY(-3px) scale(1.05); // Efecto de elevación
     background: linear-gradient(90deg, #0096c7, #0077b6);
-    box-shadow: 0 0 12px rgba(0, 128, 255, 0.4);
+    box-shadow: 0 6px 20px rgba(0, 136, 255, 0.5); // Sombra más intensa
   }
 `;
