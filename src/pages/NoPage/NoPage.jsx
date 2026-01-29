@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import styled, { keyframes } from 'styled-components';
+import SEO from "../../components/SEO/SEO";
 
 const fadeIn = keyframes`
   0% {
@@ -54,6 +55,7 @@ const ErrorMessage = styled.div`
 export const NoPage = () => {
   return (
     <ErrorMessage>
+      <SEO title="404 - Página no encontrada" noindex={true} />
       <span>404</span>
       <p>Oops! Página no encontrada.</p>
       <Link to="/">Volver al inicio</Link>

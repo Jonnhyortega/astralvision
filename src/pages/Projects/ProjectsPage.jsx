@@ -2,6 +2,7 @@ import React, { useMemo } from "react";
 import { ProjectsWrapper } from "./ProjectsPageStyles";
 import projects from "../../utils/projects";
 import { motion } from "framer-motion";
+import SEO from "../../components/SEO/SEO";
 
 export default function ProjectsPage() {
   // Use useMemo to prevent re-shuffling on every render
@@ -11,6 +12,11 @@ export default function ProjectsPage() {
 
   return (
     <ProjectsWrapper>
+      <SEO 
+        title="Proyectos & Portfolio | Astral Vision"
+        description="Explora nuestro portfolio de diseño web y desarrollo. Casos de éxito en tiendas online, landing pages y aplicaciones web."
+      />
+
       <h2 className="headline">Proyectos recientes</h2>
 
       <div className="projects-list">

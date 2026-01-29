@@ -1,6 +1,7 @@
 import ContactForm from "../../components/ContactForm/ContactForm";
 import styled from "styled-components";
 import SocialContact from "../../components/SocialContact/SocialContact";
+import SEO from "../../components/SEO/SEO";
 
 const ContactContainer = styled.section`
   width: 100%;
@@ -27,6 +28,11 @@ const ContactContainer = styled.section`
 const Contact = () => {
   return (
     <ContactContainer>
+      <SEO 
+        title="Contacto | Astral Vision"
+        description="¡Hablemos de tu proyecto! Contáctanos para cotizaciones de sitios web, tiendas virtuales y estrategias digitales."
+      />
+
       {/* <ContactForm /> */}
       <h2>Conectá con nosotros</h2>
       <SocialContact />

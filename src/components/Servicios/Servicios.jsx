@@ -15,6 +15,7 @@ import {
   FaNetworkWired,
   FaCogs,
 } from "react-icons/fa";
+import SEO from "../SEO/SEO";
 
 const serviciosData = [
   {
@@ -57,6 +58,11 @@ const serviciosData = [
 const Servicios = () => {
   return (
     <ServiciosContainer id="servicios">
+      <SEO 
+        title="Servicios de Diseño Web | Astral Vision"
+        description="Servicios de desarrollo web, diseño UX/UI, SEO y mantenimiento. Soluciones a medida para startups y empresas."
+      />
+
       <h2>
         <span>Servicios</span> que impulsan tu negocio 🚀
       </h2>
