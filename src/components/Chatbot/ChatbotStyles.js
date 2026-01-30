@@ -196,4 +196,34 @@ export const ChatbotContainer = styled.div`
     background: #48cae4;
     transform: scale(1.05);
   }
+
+  @media (max-width: 768px) {
+    .chat-window {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      height: 100dvh; 
+      margin: 0;
+      border-radius: 0;
+      border: none;
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .chat-messages {
+      /* No extra padding needed if input is in flow */
+      flex: 1;
+    }
+
+    .chat-input-area {
+      /* Keep in flow */
+      position: static;
+      width: 100%;
+      padding-bottom: max(15px, env(safe-area-inset-bottom));
+    }
+  }
 `;

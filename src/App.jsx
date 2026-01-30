@@ -1,16 +1,21 @@
+import { Suspense, lazy } from "react";
 import "./App.css";
 import Layout from "./components/Layout/Layout";
 import AppRoutes from "../src/Routes/Routes";
 import { Navbar } from "./components/Navbar/Navbar";
 import Footer from "./components/Footer/Footer";
-import Chatbot from "./components/Chatbot/Chatbot";
+
+const Chatbot = lazy(() => import("./components/Chatbot/Chatbot"));
+
 function App() {
   return (
     <Layout>
       <Navbar />
       <AppRoutes />
       <Footer />
-      <Chatbot />
+      <Suspense fallback={null}>
+        <Chatbot />
+      </Suspense>
     </Layout>
   );
 }

@@ -53,7 +53,9 @@ export default function Chatbot({ context = "" }) {
   ];
 
   const scrollToBottom = useCallback(() => {
-    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
+    requestAnimationFrame(() => {
+      messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
+    });
   }, []);
 
   useEffect(scrollToBottom, [messages, scrollToBottom]);

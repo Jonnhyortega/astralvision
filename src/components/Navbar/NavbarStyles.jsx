@@ -1,9 +1,9 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 
-export const NavbarWrapper = styled.nav`
+const NavbarNav = styled.nav`
   position: fixed;
-  top: ${({ scrollDirection }) => (scrollDirection === "down" ? "-100px" : "0")};
+  top: ${({ $scrollDirection }) => ($scrollDirection === "down" ? "-100px" : "0")};
   left: 0;
   width: 100%;
   z-index: 1000;
@@ -12,9 +12,6 @@ export const NavbarWrapper = styled.nav`
   align-items: center;
   justify-content: space-between;
   background: transparent;
-  // backdrop-filter: blur(10px);
-  // background: rgba(15, 15, 20, 0.25);
-  // border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   transition: top 0.5s ease, background 0.3s ease;
 
   img {
@@ -43,7 +40,7 @@ export const NavbarWrapper = styled.nav`
 
   .menu-mobile {
   position: fixed;
-  top: ${({ showMenu }) => (showMenu ? "0" : "-100vh")};
+  top: ${({ $showMenu }) => ($showMenu ? "0" : "-100vh")};
   left: 0;
   width: 100%;
   height: 100vh;
@@ -107,6 +104,14 @@ export const NavbarWrapper = styled.nav`
     }
   }
 `;
+
+export const NavbarWrapper = ({ $scrollDirection, $showMenu, children, ...props }) => {
+    return (
+        <NavbarNav $scrollDirection={$scrollDirection} $showMenu={$showMenu} {...props}>
+            {children}
+        </NavbarNav>
+    );
+};
 
 export const NavLink = styled(Link)`
   color: white;

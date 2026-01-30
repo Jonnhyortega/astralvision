@@ -48,6 +48,9 @@ export default function Technologies() {
               <motion.img
                 src={p.logo}
                 alt={"Logo de " + p.name}
+                width="160"
+                height="100"
+                loading="lazy"
                 whileHover={{ 
                   scale: 1.15, 
                   filter: "drop-shadow(0 0 10px rgba(255,255,255,0.6)) grayscale(0%)",

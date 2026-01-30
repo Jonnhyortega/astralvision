@@ -3,7 +3,7 @@ export const projects = [
   {
     id: 1,
     name: "Sanitarios Lugano",
-    logo: "https://res.cloudinary.com/do87isqjr/image/upload/v1761247566/LogoBlue_myntoz.jpg",
+    logo: "https://res.cloudinary.com/do87isqjr/image/upload/w_400,f_auto,q_auto/v1761247566/LogoBlue_myntoz.jpg",
     link: "https://sanitarioslugano.vercel.app",
     color: {
       background: "radial-gradient(90deg, #3aa6dc, black)",
@@ -16,7 +16,7 @@ export const projects = [
   {
     id: 2,
     name: "Chulos design",
-    logo: "https://res.cloudinary.com/do87isqjr/image/upload/v1761247540/Logo_zlwxg7.png",
+    logo: "https://res.cloudinary.com/do87isqjr/image/upload/w_400,f_auto,q_auto/v1761247540/Logo_zlwxg7.png",
     link: "https://landingchulos.vercel.app/",
     color: {
       background: "radial-gradient(90deg, black, #3fca5d)",
@@ -29,7 +29,7 @@ export const projects = [
   {
     id: 3,
     name: "HC habilitaciones",
-    logo: "https://res.cloudinary.com/do87isqjr/image/upload/v1761247432/logo_au2kan.webp",
+    logo: "https://res.cloudinary.com/do87isqjr/image/upload/w_400,f_auto,q_auto/v1761247432/logo_au2kan.webp",
     link: "https://www.gestioncomercialhc.com",
     color: {
       background: "radial-gradient(90deg, #1550a0, #25aae7)",
@@ -43,7 +43,7 @@ export const projects = [
   {
     id: 4,
     name: "Casa Molinas",
-    logo: "https://res.cloudinary.com/do87isqjr/image/upload/v1761330119/AZUL_BORDO_uvoaym.jpg",
+    logo: "https://res.cloudinary.com/do87isqjr/image/upload/w_400,f_auto,q_auto/v1761330119/AZUL_BORDO_uvoaym.jpg",
     link: "https://casamolinas.mitiendanube.com/",
     color: {
       background: "radial-gradient(90deg, #f8f4ef, #7b2030)",
@@ -56,7 +56,7 @@ export const projects = [
   {
     id: 5,
     name: "Creatina sticks",
-    logo: "https://res.cloudinary.com/do87isqjr/image/upload/v1761247688/logo_-_copia_mvyoq5.jpg",
+    logo: "https://res.cloudinary.com/do87isqjr/image/upload/w_400,f_auto,q_auto/v1761247688/logo_-_copia_mvyoq5.jpg",
     link: "https://creatinasticks.mitiendanube.com/",
     color: {
       background: "radial-gradient(90deg, #68a305, black)",
@@ -69,7 +69,7 @@ export const projects = [
   {
     id: 6,
     name: "Viandas healty & gourmet",
-    logo: "https://res.cloudinary.com/do87isqjr/image/upload/v1761247975/logo_2_z1dcau.webp",
+    logo: "https://res.cloudinary.com/do87isqjr/image/upload/w_400,f_auto,q_auto/v1761247975/logo_2_z1dcau.webp",
     link: "https://viandashyg.mitiendanube.com/",
     color: {
       background: "radial-gradient(90deg, black, rgb(63, 202, 93))",
@@ -82,7 +82,7 @@ export const projects = [
   {
     id: 7,
     name: "Estudio juridico Rokotovich",
-    logo: "https://res.cloudinary.com/do87isqjr/image/upload/v1764261488/logo-sinfondo_lbgdzo.png",
+    logo: "https://res.cloudinary.com/do87isqjr/image/upload/w_400,f_auto,q_auto/v1764261488/logo-sinfondo_lbgdzo.png",
     link: "https://rokotovich.vercel.app/",
     color: {
       background: "",
@@ -95,7 +95,7 @@ export const projects = [
   {
     id: 8,
     name: "Controlia software",
-    logo: "https://res.cloudinary.com/do87isqjr/image/upload/v1765112813/logo-controlia_wn3fcj.png",
+    logo: "https://res.cloudinary.com/do87isqjr/image/upload/w_400,f_auto,q_auto/v1765112813/logo-controlia_wn3fcj.png",
     link: "https://gestioncontrolia.com",
     color: {
       background: "",
@@ -108,7 +108,7 @@ export const projects = [
   {
     id: 9,
     name: "Ls Motos",
-    logo: "https://res.cloudinary.com/do87isqjr/image/upload/v1767995225/cian-removebg-preview_1_vhpjvx.png",
+    logo: "https://res.cloudinary.com/do87isqjr/image/upload/w_400,f_auto,q_auto/v1767995225/cian-removebg-preview_1_vhpjvx.png",
     link: "https://lsmotos.com",
     color: {
       background: "transparent",

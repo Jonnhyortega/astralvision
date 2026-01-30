@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 import { motion } from "framer-motion";
 
 export const HeroContainer = styled.section`
@@ -80,14 +80,27 @@ export const TextContent = styled(motion.div)`
   }
 `;
 
-export const Title = styled(motion.h1)`
+const fadeInUp = keyframes`
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+`;
+
+export const Title = styled.h1`
   font-size: 3.2rem;
   font-weight: 600;
   line-height: 1.2;
   color: #fff;
   margin: 3.5rem 0 2rem 0;
-  text-shadow: 0 4px 12px rgba(0, 0, 0, 0.9); /* Sombra más fuerte */
+  text-shadow: 0 4px 12px rgba(0, 0, 0, 0.9);
   position: relative;
+  opacity: 0;
+  animation: ${fadeInUp} 0.6s ease-out forwards;
 
   /* 🔹 Línea decorativa */
   &::after {

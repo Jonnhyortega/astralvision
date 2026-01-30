@@ -1,8 +1,6 @@
-import { motion } from "framer-motion";
+import { motion, useInView } from "framer-motion";
 import { NavLink } from "react-router-dom";
-import { Canvas } from "@react-three/fiber";
-import { OrbitControls, Stars } from "@react-three/drei";
-import { Suspense } from "react";
+import { Suspense, useRef, lazy } from "react";
 import {
   HeroContainer,
   Background,
@@ -16,9 +14,14 @@ import {
   CanvasContainer,
 } from "./HeroStyles";
 import heroBackground from "../../imgs/BackgroundHero/backHero6.webp";
-import AstralObject from "./AstralObject";
+
+// Lazy load Three.js scene to reduce initial bundle size
+const HeroScene = lazy(() => import("./HeroScene"));
 
 export const Hero = () => {
+  const canvasRef = useRef(null);
+  const isInView = useInView(canvasRef, { amount: 0.1 });
+
   return (
     <HeroContainer>
       {/* 🔹 Fondo con animación sutil */}
@@ -33,69 +36,29 @@ export const Hero = () => {
 
       {/* 🔹 Objeto 3D: Astral Object (Soft) */}
       <CanvasContainer
+        ref={canvasRef}
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ duration: 2, delay: 0.5 }}
+        transition={{ duration: 1.5, delay: 0.2 }}
       >
-        <Canvas 
-          camera={{ position: [0, 0, 8], fov: 45 }}
-          dpr={[1, 2]} // Optimiza para pantallas retina evitando renderizar pixeles extra innecesarios
-          gl={{ powerPreference: "high-performance", alpha: true, antialias: true }}
-        >
-          <ambientLight intensity={0.6} />
-          <pointLight position={[10, 10, 10]} intensity={1.5} />
-          <Stars 
-            radius={100} 
-            depth={50} 
-            count={5000} 
-            factor={4} 
-            saturation={0} 
-            fade 
-            speed={1} 
-          />
-          <Stars 
-            radius={100} 
-            depth={50} 
-            count={3000} 
-            factor={2} 
-            saturation={0} 
-            fade 
-            speed={2} 
-          />
-          <Suspense fallback={null}>
-            <AstralObject />
-          </Suspense>
-          <OrbitControls makeDefault enableZoom={false} enablePan={false} />
-        </Canvas>
+        <Suspense fallback={null}>
+          {isInView && <HeroScene isInView={isInView} />}
+        </Suspense>
       </CanvasContainer>
 
-      {/* 🔹 Texto central */}
-      <TextContent
-        initial={{ opacity: 0, y: 40 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1 }}
-      >
-        {/* <motion.h2
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.2, duration: 0.8 }}
-        >
-          Agencia de diseño web y marketing digital 
-        </motion.h2> */}
+      {/* 🔹 Texto central: LCP Optimized (Sin opacidad inicial 0 en contenedor) */}
+      <TextContent>
+        {/* <motion.h2 ... se mantiene comentado ... */}
 
-        <Title
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.4, duration: 0.8 }}
-        >
+        <Title>
           Impulsamos tu negocio con tecnología, diseño y marketing que generan
           resultados.
         </Title>
 
         <Subtitle
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.6, duration: 0.8 }}
+          transition={{ delay: 0.3, duration: 0.6 }}
         >
           Creamos sitios web, tiendas online y sistemas empresariales personalizados.
         </Subtitle>
@@ -103,15 +66,15 @@ export const Hero = () => {
         <MicroText
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ delay: 0.8, duration: 1 }}
+          transition={{ delay: 0.5, duration: 0.8 }}
         >
           Trabajamos con emprendedores, pymes y empresas que quieren crecer en el mundo digital.
         </MicroText>
 
         <ButtonsContainer
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 1, duration: 0.8 }}
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.7, duration: 0.6 }}
         >
           <a
             className="btn-primary"
@@ -134,7 +97,7 @@ export const Hero = () => {
         target="_blank"
         rel="noopener noreferrer"
       >
-        <img src="https://img.icons8.com/fluency/48/whatsapp.png" alt="" />
+        <img src="/assets/icons/whatsapp.png" alt="" />
       </WhatsappFloat>
     </HeroContainer>
   );

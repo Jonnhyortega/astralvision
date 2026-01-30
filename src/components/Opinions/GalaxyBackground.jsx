@@ -1,6 +1,6 @@
 import React, { useRef, useMemo } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
-import * as THREE from 'three';
+import { CanvasTexture, Color, AdditiveBlending } from 'three';
 
 const generateStarTexture = () => {
   if (typeof document === 'undefined') return null; // SSR safety
@@ -18,7 +18,7 @@ const generateStarTexture = () => {
   ctx.fillStyle = gradient;
   ctx.fillRect(0, 0, 64, 64);
   
-  const texture = new THREE.CanvasTexture(canvas);
+  const texture = new CanvasTexture(canvas);
   return texture;
 };
 
@@ -38,13 +38,13 @@ const generateNebulaTexture = () => {
     ctx.fillStyle = gradient;
     ctx.fillRect(0, 0, 128, 128);
     
-    const texture = new THREE.CanvasTexture(canvas);
+    const texture = new CanvasTexture(canvas);
     return texture;
 };
 
 const RealisticStars = () => {
-  const count = 4000; // Increased density
-  const mesh = useRef();
+  const count = 400; // Optimized for performance
+  const mesh = useRef(); // ... remainder unchanged
   
   // Generate material texture once
   const texture = useMemo(() => generateStarTexture(), []);
@@ -56,12 +56,12 @@ const RealisticStars = () => {
 
     // Realistic Star Colors (Kelvin approximation)
     const starColors = [
-      new THREE.Color('#9bb0ff'), // Blue-white
-      new THREE.Color('#aabfff'), // Light blue
-      new THREE.Color('#cad7ff'), // White-blue
-      new THREE.Color('#ffddb4'), // Yellow-white
-      new THREE.Color('#ffcc6f'), // Orange-ish
-      new THREE.Color('#ff5c5c'), // Reddish (keeping user preference for red)
+      new Color('#9bb0ff'), // Blue-white
+      new Color('#aabfff'), // Light blue
+      new Color('#cad7ff'), // White-blue
+      new Color('#ffddb4'), // Yellow-white
+      new Color('#ffcc6f'), // Orange-ish
+      new Color('#ff5c5c'), // Reddish (keeping user preference for red)
     ];
 
     for (let i = 0; i < count; i++) {
@@ -89,24 +89,9 @@ const RealisticStars = () => {
 
   useFrame((state, delta) => {
     if (!mesh.current) return;
-    
-    const positionsArray = mesh.current.geometry.attributes.position.array;
-    const speed = 30 * delta; // Faster warp
-    
-    for (let i = 0; i < count; i++) {
-        let z = positionsArray[i * 3 + 2];
-        z += speed;
-        
-        // Reset when passing camera
-        if (z > 50) { 
-            z = -150; 
-        }
-        
-        positionsArray[i * 3 + 2] = z;
-    }
-    
-    mesh.current.geometry.attributes.position.needsUpdate = true;
-    mesh.current.rotation.z += delta * 0.05; // Gentle rotation
+    // Optimized: Only rotate the entire system, do not update individual attributes per frame
+    mesh.current.rotation.z += delta * 0.05; 
+    mesh.current.rotation.y += delta * 0.02;
   });
 
   return (
@@ -131,7 +116,7 @@ const RealisticStars = () => {
         transparent 
         alphaTest={0.01}
         opacity={1}
-        blending={THREE.AdditiveBlending}
+        blending={AdditiveBlending}
         depthWrite={false}
       />
     </points>
@@ -148,9 +133,9 @@ const RealisticNebula = () => {
     const cols = new Float32Array(count * 3);
     
     const nebulaColors = [
-      new THREE.Color('#3b0066'), // Deep Purple
-      new THREE.Color('#660022'), // Deep Red
-      new THREE.Color('#002266'), // Deep Blue
+      new Color('#3b0066'), // Deep Purple
+      new Color('#660022'), // Deep Red
+      new Color('#002266'), // Deep Blue
     ];
 
     for (let i = 0; i < count; i++) {
@@ -187,17 +172,18 @@ const RealisticNebula = () => {
         sizeAttenuation 
         transparent 
         opacity={0.3} // Subtle
-        blending={THREE.AdditiveBlending}
+        blending={AdditiveBlending}
         depthWrite={false}
       />
     </points>
   );
 };
 
-export default function GalaxyBackground() {
+export default function GalaxyBackground({ isInView = true }) {
   return (
     <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', zIndex: 0, background: '#020204' }}>
       <Canvas 
+        frameloop={isInView ? "always" : "never"}
         camera={{ position: [0, 0, 50], fov: 60 }} 
         // dpr setup helps with realism on high res screens
         dpr={[1, 2]}

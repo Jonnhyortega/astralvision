@@ -47,7 +47,7 @@ export const Navbar = () => {
   
 
   return (
-    <NavbarWrapper scrollDirection={scrollDirection} showMenu={showMenu}>
+    <NavbarWrapper $scrollDirection={scrollDirection} $showMenu={showMenu}>
       <img src={logo} alt="Astral Vision Estudio" />
       <div className="deco"></div>
 

@@ -19,7 +19,7 @@ export default function Modal({ tech }) {
         "Integraciones con APIs",
         "Mejora de conversiones",
       ],
-      src: "https://img.icons8.com/color/100/javascript--v1.png",
+      src: "/assets/icons/javascript.png",
     },
     react: {
       title: "React Avanzado",
@@ -31,7 +31,7 @@ export default function Modal({ tech }) {
         "Optimización del rendimiento",
         "Facilidad de mantenimiento",
       ],
-      src: "https://img.icons8.com/external-tal-revivo-shadow-tal-revivo/100/external-react-a-javascript-library-for-building-user-interfaces-logo-shadow-tal-revivo.png",
+      src: "/assets/icons/react.png",
     },
     nextjs: {
       title: "Next.js para SEO",
@@ -43,7 +43,7 @@ export default function Modal({ tech }) {
         "Optimización para motores de búsqueda",
         "Carga ultrarrápida",
       ],
-      src: "https://img.icons8.com/color/100/nextjs.png",
+      src: "/assets/icons/nextjs.png",
     },
     nodejs: {
       title: "Node.js para Backend",
@@ -55,7 +55,7 @@ export default function Modal({ tech }) {
         "Integración con bases de datos",
         "Soporte para WebSockets",
       ],
-      src: "https://img.icons8.com/color/100/nodejs.png",
+      src: "/assets/icons/nodejs.png",
     },
     "google-analytics": {
       title: "Google Analytics",
@@ -67,7 +67,7 @@ export default function Modal({ tech }) {
         "Informes detallados",
         "Optimización de campañas",
       ],
-      src: "https://static.cdnlogo.com/logos/a/62/analytics.svg",
+      src: "/assets/icons/analytics.svg",
     },
     "facebook-ads": {
       title: "Facebook Ads",
@@ -79,7 +79,7 @@ export default function Modal({ tech }) {
         "Optimización de ROI",
         "Análisis de resultados",
       ],
-      src: "https://static.cdnlogo.com/logos/f/16/facebook-ads.svg",
+      src: "/assets/icons/facebook-ads.svg",
     },
   };
 

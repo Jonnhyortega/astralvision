@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
 
@@ -69,15 +69,13 @@ const ContentLayer = styled.div`
 `;
 
 export const TiltCard = ({ children, className }) => {
-  const cardRef = useRef(null);
+  console.log("TiltCard render");
   const [rotation, setRotation] = useState({ x: 0, y: 0 });
   const [glowPos, setGlowPos] = useState({ x: 50, y: 50 });
   const [opacity, setOpacity] = useState(0);
 
   const handleMouseMove = (e) => {
-    if (!cardRef.current) return;
-
-    const rect = cardRef.current.getBoundingClientRect();
+    const rect = e.currentTarget.getBoundingClientRect();
     const width = rect.width;
     const height = rect.height;
     
@@ -109,7 +107,6 @@ export const TiltCard = ({ children, className }) => {
       onMouseLeave={handleMouseLeave}
     >
       <StyledCard
-        ref={cardRef}
         className={className}
         style={{
           transform: `rotateX(${rotation.x}deg) rotateY(${rotation.y}deg)`,
