@@ -1,14 +1,15 @@
 import React, { useRef } from "react";
 import { useFrame } from "@react-three/fiber";
-import { Float, Sparkles, MeshDistortMaterial, Sphere } from "@react-three/drei";
+import { Float, Stars, MeshDistortMaterial, Sphere } from "@react-three/drei";
 
 const AstralObject = () => {
   const meshRef = useRef();
 
   useFrame((state) => {
     if (meshRef.current) {
-        // Subtle rotation for extra life
-        meshRef.current.rotation.y = state.clock.getElapsedTime() * 0.1;
+        // Subtle rotation for extra life - increased speed since camera won't rotate
+        meshRef.current.rotation.y = state.clock.getElapsedTime() * 0.3;
+        meshRef.current.rotation.x = state.clock.getElapsedTime() * 0.1;
     }
   });
 
@@ -24,28 +25,8 @@ const AstralObject = () => {
                 speed={2} // Animation speed
                 roughness={0.2}
                 metalness={0.6}
-                
             />
         </Sphere>
-        
-        {/* Ambient Sparkles */}
-        <Sparkles 
-            count={150} 
-            scale={8} 
-            size={3} 
-            speed={0.3} 
-            opacity={0.5}
-            color="#e0aaff" 
-        />
-        
-        <Sparkles 
-            count={80} 
-            scale={12} 
-            size={5} 
-            speed={0.2} 
-            opacity={0.3}
-            color="#9d4edd" 
-        />
       </Float>
     </group>
   );

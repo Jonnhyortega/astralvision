@@ -175,12 +175,11 @@ export const ButtonsContainer = styled(motion.div)`
 
 export const WhatsappFloat = styled.a`
   position: fixed;
-  bottom: 60px;
-  right: 16px;
+  bottom: 90px;
+  right: 26px;
   color: white;
   border-radius: 50%;
-  padding: 14px;
-  font-size: 1.8rem;
+  padding: 4px;
   z-index: 1000;
   transition: 0.3s ease;
   background: transparent ;

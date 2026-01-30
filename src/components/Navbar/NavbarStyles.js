@@ -11,9 +11,10 @@ export const NavbarWrapper = styled.nav`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  backdrop-filter: blur(10px);
-  background: rgba(15, 15, 20, 0.25);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  background: transparent;
+  // backdrop-filter: blur(10px);
+  // background: rgba(15, 15, 20, 0.25);
+  // border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   transition: top 0.5s ease, background 0.3s ease;
 
   img {
@@ -108,19 +109,23 @@ export const NavbarWrapper = styled.nav`
 `;
 
 export const NavLink = styled(Link)`
-  color: #f2f2f2;
+  color: white;
   text-decoration: none;
   font-size: 1.1rem;
   font-weight: 500;
   position: relative;
-  transition: color 0.3s ease;
+  transition: all 0.3s ease;
 
   &.active-menu {
-    color: #0ff;
+    color: white;
+    font-weight: 700;
+    letter-spacing: 1px;
   }
 
   &:hover {
-    color: #0ff;
+    color: white;
+    font-weight: 700;
+    letter-spacing: 1px;
   }
 
   &::after {

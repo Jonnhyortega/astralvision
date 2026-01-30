@@ -4,26 +4,37 @@ export const ServiciosContainer = styled.section`
   width: 100%;
   min-height: 100vh;
   padding: 6rem 2rem;
-  background: radial-gradient(circle at 20% 30%, #0b1221 0%, #05080f 100%);
+  background: black; /* Fallback */
   color: white;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   overflow: hidden;
+  position: relative;
+
+  /* Ensure content is above background */
+  h2, div, a {
+    position: relative;
+    z-index: 10;
+  }
 
   h2 {
-    font-size: 2.8rem;
-    font-weight: 900;
+    font-size: 3rem;
+    font-weight: 800;
     text-align: center;
     margin-bottom: 4rem;
-    color: var(--third);
-    /* text-shadow: 0 0 2px var(--third); */
-    letter-spacing: 2px ;
+    color: #fff;
+    letter-spacing: 1px;
+    line-height: 1.2;
 
     span {
-      color: var(--primary);
-      text-shadow: 0 0 2px var(--primary);
+      background: linear-gradient(90deg, var(--secondary), var(--third));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      display: inline-block;
+      /* Eliminamos sombra pesada para limpieza visual */
+      filter: drop-shadow(0 0 8px rgba(0, 180, 216, 0.3));
     }
   }
 
@@ -35,6 +46,8 @@ export const ServiciosContainer = styled.section`
     }
   }
 `;
+
+
 
 export const ServiciosGrid = styled.div`
   display: grid;

@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { NavLink } from "react-router-dom";
 import { Canvas } from "@react-three/fiber";
-import { OrbitControls } from "@react-three/drei";
+import { OrbitControls, Stars } from "@react-three/drei";
 import { Suspense } from "react";
 import {
   HeroContainer,
@@ -44,10 +44,28 @@ export const Hero = () => {
         >
           <ambientLight intensity={0.6} />
           <pointLight position={[10, 10, 10]} intensity={1.5} />
+          <Stars 
+            radius={100} 
+            depth={50} 
+            count={5000} 
+            factor={4} 
+            saturation={0} 
+            fade 
+            speed={1} 
+          />
+          <Stars 
+            radius={100} 
+            depth={50} 
+            count={3000} 
+            factor={2} 
+            saturation={0} 
+            fade 
+            speed={2} 
+          />
           <Suspense fallback={null}>
             <AstralObject />
           </Suspense>
-          <OrbitControls enableZoom={false} enablePan={false} autoRotate autoRotateSpeed={0.5} />
+          <OrbitControls makeDefault enableZoom={false} enablePan={false} />
         </Canvas>
       </CanvasContainer>
 

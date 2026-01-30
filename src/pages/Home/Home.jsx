@@ -20,7 +20,7 @@ export const Home = () => {
       <Servicios />
       <HowWeDoIt />
       <Opinions />
-      <Contact />
+      <Contact useSEO={false} />
       <Technologies />
       {/* <Publicidad /> */}
     </HomeWrapper>

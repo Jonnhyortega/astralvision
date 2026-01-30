@@ -1,11 +1,13 @@
 import { motion } from "framer-motion";
+import { Canvas } from "@react-three/fiber";
+import { Stars, Cloud } from "@react-three/drei";
 import {
   ServiciosContainer,
   ServiciosGrid,
   IconWrapper,
   CardTitle,
   CardText,
-  CtaButton, 
+  CtaButton
 } from "./ServiciosStyles";
 import { TiltCard } from "./TiltCard";
 import {
@@ -58,13 +60,14 @@ const serviciosData = [
 const Servicios = () => {
   return (
     <ServiciosContainer id="servicios">
+      
       <SEO 
         title="Servicios de Diseño Web | Astral Vision"
         description="Servicios de desarrollo web, diseño UX/UI, SEO y mantenimiento. Soluciones a medida para startups y empresas."
       />
 
       <h2>
-        <span>Servicios</span> que impulsan tu negocio 🚀
+        <span>Servicios</span> que impulsan tu negocio 
       </h2>
       <ServiciosGrid>
         {serviciosData.map((servicio, i) => (

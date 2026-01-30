@@ -3,6 +3,7 @@ import { ChatbotContainer } from "./ChatbotStyles";
 import callChatAPI from "../../utils/api-conecction";
 import "animate.css";
 import ArrowUpwardIcon from "@mui/icons-material/ArrowUpward";
+import SmartToyIcon from "@mui/icons-material/SmartToy";
 import { leapfrog } from "ldrs";
 
 leapfrog.register();
@@ -179,8 +180,7 @@ useEffect(() => {
     <ChatbotContainer>
       {!chatOpen ? (
         <button className="chat-icon" onClick={toggleChat}>
-          <img src="https://img.icons8.com/ios-glyphs/30/chat.png" alt="bot" />
-          {/* <span>Asistente Virtual</span> */}
+          <SmartToyIcon sx={{ fontSize: 28 }} />
         </button>
       ) : (
         <div className="overlay" onClick={toggleChat}>
@@ -189,14 +189,7 @@ useEffect(() => {
             onClick={(e) => e.stopPropagation()}
           >
             <header className="chat-header">
-              <div className="title">
-                <img
-                  width="40"
-                  src="https://img.icons8.com/avantgarde/50/message-bot.png"
-                  alt="bot"
-                />
-                <h4>Astral Vision Assistant</h4>
-              </div>
+              <h4>Astral Vision Assistant</h4>
               <button className="close-btn" onClick={toggleChat}>
                 ×
               </button>
