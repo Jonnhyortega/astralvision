@@ -62,7 +62,7 @@ export default function ModalMessage({ updateModalOpen }) {
   };
   const [showLoader, setShowLoader] = useState(true);
   const handleWsp = () => {
-    window.open("https://wa.me/541122684234?text=Hola%20Astral%20Vision!%20Quiero%20más%20información%20sobre%20sus%20servicios.", "_blank");
+    window.open("https://wa.me/541176513862?text=Hola%20Astral%20Vision!%20Quiero%20más%20información%20sobre%20sus%20servicios.", "_blank");
   };
 
   useEffect(() => {

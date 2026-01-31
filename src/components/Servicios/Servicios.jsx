@@ -92,7 +92,7 @@ const Servicios = () => {
 
       <div style={{ marginTop: '4rem', display: 'flex', justifyContent: 'center' }}>
         <CtaButton
-            href="https://wa.me/1122684234"
+            href="https://wa.me/541176513862"
             target="_blank"
             rel="noopener noreferrer"
             style={{ fontSize: '1.2rem', padding: '1rem 3rem' }}

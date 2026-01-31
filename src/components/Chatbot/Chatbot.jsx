@@ -107,7 +107,7 @@ useEffect(() => {
           type: "action",
           content: "Podés contactarme por WhatsApp o completar el formulario:",
           actions: [
-            { label: "💬 WhatsApp", url: "https://wa.me/541122684234" },
+            { label: "💬 WhatsApp", url: "https://wa.me/541176513862" },
             // { label: "📋 Formulario", url: "/contacto" },
           ],
         };
@@ -130,7 +130,7 @@ useEffect(() => {
         reply = {
           from: "bot",
           type: "text",
-          content: "Podés comunicarte conmigo directamente: 📧 jonnhyortega@gmail.com o 📲 +54 11 2268-4234",
+          content: "Podés comunicarte conmigo directamente: 📧 jonnhyortega@gmail.com o 📲 +54 11 7651-3862",
         };
         break;
 

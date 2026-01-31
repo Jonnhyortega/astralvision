@@ -16,7 +16,7 @@ const Footer = () => {
         <FooterColumn>
           <h3>Nuestras redes</h3>
           <SocialLinks>
-            <a href="https://wa.me/541122684234?text=Hola%20Astral%20Vision!%20Quiero%20más%20información%20sobre%20sus%20servicios." target="_blank" rel="noreferrer">
+            <a href="https://wa.me/541176513862?text=Hola%20Astral%20Vision!%20Quiero%20más%20información%20sobre%20sus%20servicios." target="_blank" rel="noreferrer">
               <SiWhatsapp />
             </a>
             <a
@@ -68,8 +68,8 @@ const Footer = () => {
               </a>
             </li>
             <li>
-              <a href="https://wa.me/541122684234?text=Hola%20Astral%20Vision!%20Quiero%20más%20información%20sobre%20sus%20servicios." target="_blank" rel="noreferrer">
-                +54 11 2268-4234
+              <a href="https://wa.me/541176513862?text=Hola%20Astral%20Vision!%20Quiero%20más%20información%20sobre%20sus%20servicios." target="_blank" rel="noreferrer">
+                +54 11 7651-3862
               </a>
             </li>
           </ul>

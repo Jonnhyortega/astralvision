@@ -32,7 +32,7 @@ export const Publicidad = () => {
       <motion.button
         whileHover={{ scale: 1.07 }}
         whileTap={{ scale: 0.96 }}
-        onClick={() => window.open(href="https://wa.me/541122684234?text=Hola%20Astral%20Vision!%20Quiero%20más%20información%20sobre%20sus%20servicios.", "_blank")}
+        onClick={() => window.open(href="https://wa.me/541176513862?text=Hola%20Astral%20Vision!%20Quiero%20más%20información%20sobre%20sus%20servicios.", "_blank")}
       >
         💬 Cotizar mi sitio web
       </motion.button>
