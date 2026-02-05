@@ -1,3 +1,4 @@
+
 import styled from "styled-components";
 
 export const ChatbotContainer = styled.div`
@@ -123,6 +124,67 @@ export const ChatbotContainer = styled.div`
     border: 1px solid #2d2f40;
     color: #e0e0e0;
     border-radius: 12px 12px 12px 0;
+  }
+
+  .link-list {
+    list-style: none;
+    padding: 0;
+    margin-top: 0.5rem;
+  }
+  
+  .link-list li {
+    margin-bottom: 0.5rem;
+  }
+  
+  .link-list a {
+    display: block;
+    background: rgba(0, 180, 216, 0.1);
+    color: #00b4d8;
+    padding: 0.6rem 1rem;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    border: 1px solid rgba(0, 180, 216, 0.2);
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+  }
+  
+  .link-list a:hover {
+    background: #00b4d8;
+    color: #000;
+    transform: translateX(5px);
+    box-shadow: 0 0 10px rgba(0, 180, 216, 0.3);
+  }
+  
+  .link-list a::before {
+    content: '🔗';
+    margin-right: 8px;
+    font-size: 0.8rem;
+  }
+
+  .actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+  }
+  
+  .actions a {
+    background: transparent;
+    border: 1px solid #00b4d8;
+    color: #00b4d8;
+    padding: 0.4rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    text-decoration: none;
+    transition: all 0.2s;
+  }
+  
+  .actions a:hover {
+    background: #00b4d8;
+    color: #000;
+    box-shadow: 0 0 10px rgba(0, 180, 216, 0.4);
   }
 
   /* ---------- Quick Replies ---------- */

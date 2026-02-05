@@ -4,7 +4,6 @@ export const TechnologiesContent = styled.section`
   width: 100%;
   padding: 8rem 2rem 10rem 2rem;
   background: radial-gradient(circle at 50% 10%, #111 0%, #02040a 100%);
-  color: #fff;
   text-align: center;
   overflow: hidden;
 
@@ -39,7 +38,7 @@ export const TechnologiesContent = styled.section`
       flex-wrap: wrap;
       gap: 4rem;
       perspective: 1000px;
-
+      border-radius: 10px;  
       .logo-wrapper {
         /* Wrapper for the floating animation */
         display: flex;

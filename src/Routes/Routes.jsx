@@ -5,6 +5,7 @@ import ProjectsPage from "../pages/Projects/ProjectsPage";
 import ProjectDetail from "../components/ProjectDetail/ProjectDetail"
 import Contact from "../pages/Contact/Contact";
 import Servicios from "../components/Servicios/Servicios";
+import ServiceLanding from "../pages/ServiceLanding/ServiceLanding";
 
 const AppRoutes = () => {
   return (
@@ -14,6 +15,7 @@ const AppRoutes = () => {
       {/* <Route path="/projects/:id" element={<ProjectDetail />} /> */}
       <Route path="/contact" element={<Contact />} />
       <Route path="/services" element={<Servicios />} />
+      <Route path="/servicios/:slug" element={<ServiceLanding />} />
       <Route path="*" element={<NoPage />} />
     </Routes>
   );

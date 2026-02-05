@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { Canvas } from "@react-three/fiber";
 import { Stars, Cloud } from "@react-three/drei";
+import { Link } from "react-router-dom";
 import {
   ServiciosContainer,
   ServiciosGrid,
@@ -23,6 +24,7 @@ const serviciosData = [
   {
     id: 1,
     title: "Landing Pages que convierten",
+    slug: "landing-pages",
     icon: <FaRocket />,
     description:
       "Transformamos tu idea en una página profesional optimizada para captar clientes y generar resultados.",
@@ -30,6 +32,7 @@ const serviciosData = [
   {
     id: 2,
     title: "Tiendas Online",
+    slug: "tiendas-online",
     icon: <FaShoppingCart />,
     description:
       "Creamos tu tienda lista para vender con medios de pago, integración a redes y atención por WhatsApp.",
@@ -37,6 +40,7 @@ const serviciosData = [
   {
     id: 3,
     title: "Sitios Web Personalizados",
+    slug: "sitios-web",
     icon: <FaLaptopCode />,
     description:
       "Diseñamos sitios únicos que reflejan la esencia de tu marca, transmitiendo confianza y profesionalismo.",
@@ -44,6 +48,7 @@ const serviciosData = [
   {
     id: 6,
     title: "Conectividad Empresarial",
+    slug: "conectividad",
     icon: <FaNetworkWired />,
     description:
       "Diseñamos redes empresariales seguras y rápidas. Conectá tus equipos sin interrupciones.",
@@ -51,6 +56,7 @@ const serviciosData = [
   {
     id: 7,
     title: "Software a Medida",
+    slug: "software-medida",
     icon: <FaCogs />,
     description:
       "Desarrollamos soluciones personalizadas que optimizan la gestión y automatizan tus procesos.",
@@ -79,13 +85,16 @@ const Servicios = () => {
             viewport={{ once: true }}
             style={{ height: '100%' }} 
           >
-            <TiltCard>
-              <div style={{textAlign: 'center', height: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'center'}}>
-                <IconWrapper>{servicio.icon}</IconWrapper>
-                <CardTitle>{servicio.title}</CardTitle>
-                <CardText>{servicio.description}</CardText>
-              </div>
-            </TiltCard>
+            <Link to={`/servicios/${servicio.slug}`} style={{ textDecoration: 'none', height: '100%', display: 'block' }}>
+              <TiltCard>
+                <div style={{textAlign: 'center', height: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'center'}}>
+                  <IconWrapper>{servicio.icon}</IconWrapper>
+                  <CardTitle>{servicio.title}</CardTitle>
+                  <CardText>{servicio.description}</CardText>
+                  <span style={{ marginTop: 'auto', color: 'var(--third)', fontSize: '0.9rem', fontWeight: 'bold' }}>Ver más &rarr;</span>
+                </div>
+              </TiltCard>
+            </Link>
           </motion.div>
         ))}
       </ServiciosGrid>

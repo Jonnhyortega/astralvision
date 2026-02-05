@@ -1,11 +1,22 @@
+
 import React, { useMemo } from "react";
-import { ProjectsWrapper } from "./ProjectsPageStyles";
 import projects from "../../utils/projects";
-import { motion } from "framer-motion";
 import SEO from "../../components/SEO/SEO";
+import ArrowOutwardIcon from '@mui/icons-material/ArrowOutward';
+import { 
+  ProjectsWrapper, 
+  Headline,
+  ProjectsGrid, 
+  ProjectCard, 
+  CardHeader, 
+  CardBody, 
+  ProjectTitle, 
+  ProjectDescription, 
+  CardFooter,
+  VisitButton 
+} from "./ProjectsPageStyles";
 
 export default function ProjectsPage() {
-  // Use useMemo to prevent re-shuffling on every render
   const projectsRandom = useMemo(() => {
     return [...projects].sort(() => Math.random() - 0.5);
   }, []);
@@ -13,52 +24,49 @@ export default function ProjectsPage() {
   return (
     <ProjectsWrapper>
       <SEO 
-        title="Proyectos & Portfolio | Astral Vision"
-        description="Explora nuestro portfolio de diseño web y desarrollo. Casos de éxito en tiendas online, landing pages y aplicaciones web."
+        title="Portfolio de Proyectos | Astral Vision"
+        description="Descubre nuestros últimos trabajos en diseño web, e-commerce y desarrollo de software."
       />
 
-      <h2 className="headline">Proyectos recientes</h2>
+      <Headline>Nuestros Proyectos</Headline>
 
-      <div className="projects-list">
+      <ProjectsGrid>
         {projectsRandom.map((project, index) => (
-          <motion.div
+          <ProjectCard
             key={project.id}
-            className={`project-row ${index % 2 === 0 ? "normal" : "reverse"}`}
-            style={{
-              background: project.color.background || 'rgba(255, 255, 255, 0.05)', 
-            }}
-            initial={{ opacity: 0, y: 40 }}
+            initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-50px" }}
-            transition={{ duration: 0.6, delay: index * 0.1 }}
+            transition={{ duration: 0.5, delay: index * 0.1 }}
           >
-            <div className="image-side">
-              <img src={project.logo} alt={project.name} loading="lazy" />
-            </div>
-
-            <div className="text-side">
-              <h3 style={{ color: project.color.font }}>
-                {project.name}
-              </h3>
-              <p>{project.description}</p>
-              <div className="buttons">
-                <a
-                  href={project.link}
-                  target="_blank"
+            {/* Header con gradiente de la marca y logo contenido */}
+            <CardHeader bg={project.color.background || '#111'}>
+              <img 
+                src={project.logo} 
+                alt={`${project.name} logo`} 
+                loading="lazy" 
+              />
+            </CardHeader>
+            
+            <CardBody>
+              <ProjectTitle>{project.name}</ProjectTitle>
+              <ProjectDescription>{project.description}</ProjectDescription>
+              
+              <CardFooter>
+                <VisitButton 
+                  href={project.link} 
+                  target="_blank" 
                   rel="noopener noreferrer"
-                  className="btn-site"
-                  style={{
-                    background: project.color.button,
-                    color: '#fff' 
-                  }}
+                  hoverColor={project.color.button || '#fff'}
+                  shadowColor={project.color.button ? project.color.button + '66' : 'rgba(255,255,255,0.3)'}
                 >
-                  Ver sitio
-                </a>
-              </div>
-            </div>
-          </motion.div>
+                  Visitar Sitio <ArrowOutwardIcon style={{ fontSize: '1.1rem' }} />
+                </VisitButton>
+              </CardFooter>
+            </CardBody>
+          </ProjectCard>
         ))}
-      </div>
+      </ProjectsGrid>
     </ProjectsWrapper>
   );
 }
