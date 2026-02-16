@@ -3,6 +3,7 @@ import { WrapperForm } from "./ContactFormStyles.js";
 import ModalMessage from "../ModalMessage/ModalMessage.jsx";
 import { motion } from "framer-motion";
 import "animate.css";
+import { useMetaEvents } from "../../hooks/useMetaEvents";
 
 const ContactForm = () => {
   const [formData, setFormData] = useState({
@@ -14,6 +15,7 @@ const ContactForm = () => {
   const [status, setStatus] = useState("");
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [loading, setLoading] = useState(false);
+  const { trackEvent } = useMetaEvents();
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -62,6 +64,14 @@ const ContactForm = () => {
 
       if (response.ok && data.success) {
         setStatus("✅ Mensaje enviado con éxito, te responderemos en breve.");
+        
+        // Trackear evento en Meta
+        trackEvent('Contact', {}, {
+          em: formData.user_email,
+          fn: formData.user_name,
+          ph: formData.user_number
+        });
+
         setFormData({ user_name: "", user_email: "", user_number: "", message: "" });
       } else {
         throw new Error(data.message || "Error al enviar el mensaje");

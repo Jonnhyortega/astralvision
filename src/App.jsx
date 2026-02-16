@@ -6,6 +6,7 @@ import { Navbar } from "./components/Navbar/Navbar";
 import Footer from "./components/Footer/Footer";
 
 const Chatbot = lazy(() => import("./components/Chatbot/Chatbot"));
+import MetaPixel from "./components/MetaPixel/MetaPixel";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
       <Navbar />
       <AppRoutes />
       <Footer />
+      <MetaPixel />
       <Suspense fallback={null}>
         <Chatbot />
       </Suspense>
