@@ -20,12 +20,13 @@ export const ServiciosContainer = styled.section`
   }
 
   h2 {
+    font-family: var(--font-sans);
     font-size: 3rem;
-    font-weight: 800;
+    font-weight: 700;
     text-align: center;
     margin-bottom: 4rem;
     color: #fff;
-    letter-spacing: 1px;
+    letter-spacing: -0.02em;
     line-height: 1.2;
 
     span {
@@ -33,13 +34,12 @@ export const ServiciosContainer = styled.section`
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       display: inline-block;
-      /* Eliminamos sombra pesada para limpieza visual */
       filter: drop-shadow(0 0 8px rgba(0, 180, 216, 0.3));
     }
   }
 
   @media (max-width: 768px) {
-    padding: 4rem 1rem;
+    padding: 6.5rem 1.5rem 4rem;
     h2 {
       font-size: 2rem;
       margin-bottom: 2.5rem;

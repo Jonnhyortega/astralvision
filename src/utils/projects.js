@@ -1,9 +1,14 @@
 
+import sani1 from "../imgs/Projects/Sanitarios/sani1.webp";
+import chulo1 from "../imgs/Projects/Chulos/chulo1.webp";
+import hc1 from "../imgs/Projects/Hc/hc1.png";
+
 export const projects = [
   {
     id: 1,
     name: "Sanitarios Lugano",
     logo: "https://res.cloudinary.com/do87isqjr/image/upload/w_400,f_auto,q_auto/v1761247566/LogoBlue_myntoz.jpg",
+    previewImage: sani1,
     link: "https://sanitarioslugano.vercel.app",
     color: {
       background: "radial-gradient(90deg, #3aa6dc, black)",
@@ -17,6 +22,7 @@ export const projects = [
     id: 2,
     name: "Chulos design",
     logo: "https://res.cloudinary.com/do87isqjr/image/upload/w_400,f_auto,q_auto/v1761247540/Logo_zlwxg7.png",
+    previewImage: chulo1,
     link: "https://landingchulos.vercel.app/",
     color: {
       background: "radial-gradient(90deg, black, #3fca5d)",
@@ -30,6 +36,7 @@ export const projects = [
     id: 3,
     name: "HC habilitaciones",
     logo: "https://res.cloudinary.com/do87isqjr/image/upload/w_400,f_auto,q_auto/v1761247432/logo_au2kan.webp",
+    previewImage: hc1,
     link: "https://www.gestioncomercialhc.com",
     color: {
       background: "radial-gradient(90deg, #1550a0, #25aae7)",

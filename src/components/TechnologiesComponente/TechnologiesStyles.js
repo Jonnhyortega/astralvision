@@ -12,12 +12,12 @@ export const TechnologiesContent = styled.section`
     margin: 0 auto;
 
     h4 {
-      margin-bottom: 5rem;
+      margin-bottom: 4rem;
       color: white;
-      font-family: var(--funnel); 
-      font-size: 3rem;
-      font-weight: 800;
-      letter-spacing: -1px;
+      font-family: var(--font-sans); 
+      font-size: 2.8rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
       
       span {
         color: var(--third);
@@ -27,7 +27,7 @@ export const TechnologiesContent = styled.section`
       }
       
       @media (max-width: 768px) {
-        font-size: 2.2rem;
+        font-size: 2rem;
       }
     }
 
@@ -36,11 +36,11 @@ export const TechnologiesContent = styled.section`
       justify-content: center;
       align-items: center;
       flex-wrap: wrap;
-      gap: 4rem;
+      gap: 3.5rem;
       perspective: 1000px;
       border-radius: 10px;  
+
       .logo-wrapper {
-        /* Wrapper for the floating animation */
         display: flex;
         justify-content: center;
         align-items: center;
@@ -54,22 +54,23 @@ export const TechnologiesContent = styled.section`
         width: auto;
         height: auto;
         object-fit: contain;
-        opacity: 0.6;
-        filter: grayscale(100%);
-        transition: all 0.4s ease;
+        opacity: 0.65;
+        mix-blend-mode: lighten;
+        filter: grayscale(100%) brightness(0.9);
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         cursor: pointer;
 
-        /* Enhance interaction */
         &:hover {
           opacity: 1;
-          filter: grayscale(0%) drop-shadow(0 0 10px rgba(255,255,255,0.4));
+          mix-blend-mode: normal;
+          filter: grayscale(0%) drop-shadow(0 0 14px rgba(255,255,255,0.6));
         }
       }
     }
   }
 
   @media (max-width: 768px) {
-    padding: 6rem 1rem;
+    padding: 6.5rem 1rem 4rem;
     
     .clients-logos {
       gap: 2rem;

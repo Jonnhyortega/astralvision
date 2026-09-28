@@ -1,12 +1,11 @@
 import { useState, useEffect } from "react";
 import { NavbarWrapper, NavLink } from "./NavbarStyles";
 import { HiOutlineMenu, HiOutlineX } from "react-icons/hi";
+import SmartToyIcon from "@mui/icons-material/SmartToy";
 import logo from "../../imgs/LogoAstral.webp";
 import { useLocation } from "react-router-dom";
 
-
-
-export const Navbar = () => {
+export const Navbar = ({ onOpenChat }) => {
   const [showMenu, setShowMenu] = useState(false);
   const [scrollDirection, setScrollDirection] = useState("up");
   const [lastScrollY, setLastScrollY] = useState(
@@ -39,12 +38,12 @@ export const Navbar = () => {
     } else {
       document.body.style.overflow = "auto";
     }
-  
+
     return () => {
       document.body.style.overflow = "auto";
     };
   }, [showMenu]);
-  
+
 
   return (
     <NavbarWrapper $scrollDirection={scrollDirection} $showMenu={showMenu}>
@@ -73,6 +72,13 @@ export const Navbar = () => {
         >
           Servicios
         </NavLink>
+        <button
+          className="chatbot-nav-btn"
+          onClick={() => onOpenChat && onOpenChat()}
+        >
+          <SmartToyIcon style={{ fontSize: "1.2rem" }} />
+          <span>Asistente IA</span>
+        </button>
       </div>
 
       {showMenu ? (
@@ -88,9 +94,8 @@ export const Navbar = () => {
       )}
 
       <div
-        className={`menu-mobile ${
-          showMenu ? "menu-mobile-open" : "menu-mobile-close"
-        }`}
+        className={`menu-mobile ${showMenu ? "menu-mobile-open" : "menu-mobile-close"
+          }`}
       >
         <NavLink
           className={pathname === "/" ? "active-menu-mobile" : ""}
@@ -121,6 +126,17 @@ export const Navbar = () => {
         >
           Servicios
         </NavLink>
+
+        <button
+          className="chatbot-nav-btn mobile-chat-btn"
+          onClick={() => {
+            handleToggleMenu();
+            if (onOpenChat) onOpenChat();
+          }}
+        >
+          <SmartToyIcon style={{ fontSize: "1.4rem" }} />
+          <span>Asistente IA</span>
+        </button>
 
         <div className="astral-logo">
           <h1>Astral Vision.©</h1>

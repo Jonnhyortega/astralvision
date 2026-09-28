@@ -103,9 +103,10 @@ export const ContentGrid = styled.div`
   h2 {
     grid-column: 1 / -1;
     text-align: center;
-    font-family: var(--funnel);
+    font-family: var(--font-sans);
     font-size: clamp(2rem, 5vw, 3.5rem);
-    font-weight: 900;
+    font-weight: 700;
+    letter-spacing: -0.02em;
     color: white;
     text-shadow: 1px 1px 4px black;
     margin-bottom: 3rem;

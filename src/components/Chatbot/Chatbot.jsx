@@ -33,8 +33,11 @@ Tu función es EXCLUSIVAMENTE responder consultas relacionadas con los servicios
    - Sé conciso.
 `;
 
-export default function Chatbot({ context = "" }) {
-  const [chatOpen, setChatOpen] = useState(false);
+export default function Chatbot({ context = "", chatOpen: controlledChatOpen, toggleChat: controlledToggleChat }) {
+  const [internalChatOpen, setInternalChatOpen] = useState(false);
+  const isChatOpen = controlledChatOpen !== undefined ? controlledChatOpen : internalChatOpen;
+  const toggleChat = controlledToggleChat || (() => setInternalChatOpen(prev => !prev));
+
   const [messages, setMessages] = useState([
     { from: "bot", type: "text", content: "👋 ¡Hola! Soy el asistente de Astral Vision. ¿En qué puedo ayudarte hoy?" },
   ]);
@@ -43,7 +46,6 @@ export default function Chatbot({ context = "" }) {
   const [loading, setLoading] = useState(false);
   const messagesEndRef = useRef(null);
   const [canSend, setCanSend] = useState(true);
-
 
   const quickReplies = [
     "💼 Quiero un presupuesto",
@@ -60,8 +62,8 @@ export default function Chatbot({ context = "" }) {
 
   useEffect(scrollToBottom, [messages, scrollToBottom]);
 
-useEffect(() => {
-    if (chatOpen) {
+  useEffect(() => {
+    if (isChatOpen) {
       document.body.style.overflow = "hidden";
     } else {
       document.body.style.overflow = "auto";
@@ -70,25 +72,17 @@ useEffect(() => {
     return () => {
       document.body.style.overflow = "auto";
     };
-  }, [chatOpen]);
-  
-   
-
-  const toggleChat = () => setChatOpen(!chatOpen);
+  }, [isChatOpen]);
 
   const handleQuickReply = (text) => send(text);
-
-  // ✅ Evita que el usuario mande muchos mensajes seguidos
 
   const startCooldown = (duration = 2000) => {
     setCanSend(false);
     setTimeout(() => setCanSend(true), duration);
   };
 
-
   const send = async (text) => {
     if (!text.trim() || !canSend || loading) return;
-    // 🔒 Bloqueo temporal de envíos
     startCooldown(2000);
     setMessages((prev) => [...prev, { from: "user", type: "text", content: text }]);
     setHistory((prev) => [...prev, { role: "user", content: text }]);
@@ -108,7 +102,6 @@ useEffect(() => {
           content: "Podés contactarme por WhatsApp o completar el formulario:",
           actions: [
             { label: "💬 WhatsApp", url: "https://wa.me/541176513862" },
-            // { label: "📋 Formulario", url: "/contacto" },
           ],
         };
         break;
@@ -178,85 +171,81 @@ useEffect(() => {
     setInput("");
   };
 
+  if (!isChatOpen) return null;
+
   return (
     <ChatbotContainer>
-      {!chatOpen ? (
-        <button className="chat-icon" onClick={toggleChat}>
-          <SmartToyIcon sx={{ fontSize: 28 }} />
-        </button>
-      ) : (
-        <div className="overlay" onClick={toggleChat}>
-          <div
-            className="chat-window animate__animated animate__fadeInUp"
-            onClick={(e) => e.stopPropagation()}
-          >
-            <header className="chat-header">
-              <h4>Astral Vision Assistant</h4>
-              <button className="close-btn" onClick={toggleChat}>
-                ×
-              </button>
-            </header>
+      <div className="overlay" onClick={toggleChat}>
+        <div
+          className="chat-window animate__animated animate__fadeInUp"
+          onClick={(e) => e.stopPropagation()}
+        >
+          <header className="chat-header">
+            <h4>Astral Vision Assistant</h4>
+            <button className="close-btn" onClick={toggleChat}>
+              ×
+            </button>
+          </header>
 
-            <div className="chat-messages">
-              {messages.map((msg, i) => (
-                <div key={i} className={`message ${msg.from}`}>
-                  {msg.type === "text" && <p>{msg.content}</p>}
+          <div className="chat-messages">
+            {messages.map((msg, i) => (
+              <div key={i} className={`message ${msg.from}`}>
+                {msg.type === "text" && <p>{msg.content}</p>}
 
-                  {msg.type === "linklist" && (
-                    <div>
-                      <p>{msg.content}</p>
-                      <ul className="link-list">
-                        {msg.links.map((l, index) => (
-                          <li key={index}>
-                            <a href={l.url} target="_blank" rel="noreferrer">
-                              {l.name}
-                            </a>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  )}
-
-                  {msg.type === "action" && (
-                    <div>
-                      <p>{msg.content}</p>
-                      <div className="actions">
-                        {msg.actions.map((a, index) => (
-                          <a key={index} href={a.url} target="_blank" rel="noreferrer">
-                            {a.label}
+                {msg.type === "linklist" && (
+                  <div>
+                    <p>{msg.content}</p>
+                    <ul className="link-list">
+                      {msg.links.map((l, index) => (
+                        <li key={index}>
+                          <a href={l.url} target="_blank" rel="noreferrer">
+                            {l.name}
                           </a>
-                        ))}
-                      </div>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+
+                {msg.type === "action" && (
+                  <div>
+                    <p>{msg.content}</p>
+                    <div className="actions">
+                      {msg.actions.map((a, index) => (
+                        <a key={index} href={a.url} target="_blank" rel="noreferrer">
+                          {a.label}
+                        </a>
+                      ))}
                     </div>
-                  )}
-                </div>
-              ))}
-              {loading && <l-leapfrog size="40" speed="2.5" />}
-              <div ref={messagesEndRef} />
-            </div>
-
-            <div className="quick-replies">
-              {quickReplies.map((q, i) => (
-                <button key={i} onClick={() => handleQuickReply(q)}>
-                  {q}
-                </button>
-              ))}
-            </div>
-
-            <form className="chat-input-area" onSubmit={handleSubmit}>
-              <input
-                type="text"
-                placeholder="Escribí tu mensaje..."
-                value={input}
-                onChange={(e) => setInput(e.target.value)}
-              />
-              <button type="submit" disabled={!canSend || loading}>
-                <ArrowUpwardIcon />
-              </button>
-            </form>
+                  </div>
+                )}
+              </div>
+            ))}
+            {loading && <l-leapfrog size="40" speed="2.5" />}
+            <div ref={messagesEndRef} />
           </div>
+
+          <div className="quick-replies">
+            {quickReplies.map((q, i) => (
+              <button key={i} onClick={() => handleQuickReply(q)}>
+                {q}
+              </button>
+            ))}
+          </div>
+
+          <form className="chat-input-area" onSubmit={handleSubmit}>
+            <input
+              type="text"
+              placeholder="Escribí tu mensaje..."
+              value={input}
+              onChange={(e) => setInput(e.target.value)}
+            />
+            <button type="submit" disabled={!canSend || loading}>
+              <ArrowUpwardIcon />
+            </button>
+          </form>
         </div>
-      )}
+      </div>
     </ChatbotContainer>
   );
 }

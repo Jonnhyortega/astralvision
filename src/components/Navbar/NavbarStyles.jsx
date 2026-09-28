@@ -27,7 +27,37 @@ const NavbarNav = styled.nav`
 
   .menu-desktop {
     display: flex;
+    align-items: center;
     gap: 32px;
+  }
+
+  .chatbot-nav-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: linear-gradient(135deg, rgba(0, 180, 216, 0.15), rgba(0, 119, 182, 0.25));
+    border: 1px solid rgba(0, 180, 216, 0.5);
+    color: #00b4d8;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    font-family: var(--font-sans);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 10px rgba(0, 180, 216, 0.15);
+
+    &:hover {
+      background: #00b4d8;
+      color: #000;
+      transform: translateY(-2px);
+      box-shadow: 0 0 15px rgba(0, 180, 216, 0.5);
+    }
+  }
+
+  .mobile-chat-btn {
+    padding: 12px 24px;
+    font-size: 1.2rem;
   }
 
   .toggle-menu {

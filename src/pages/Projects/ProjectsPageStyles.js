@@ -8,17 +8,21 @@ export const ProjectsWrapper = styled.section`
   padding: 6rem 2rem;
   background-color: #050511; 
   background-image: radial-gradient(circle at 50% 0%, #1a1a40 0%, #000 70%);
-  font-family: var(--titilium);
+  font-family: var(--font-sans);
   overflow-x: hidden;
+
+  @media (max-width: 768px) {
+    padding: 6.5rem 1.5rem 3rem;
+  }
 `;
 
 export const Headline = styled.h2`
-  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-size: clamp(2rem, 5vw, 3.5rem);
   text-align: center;
-  margin-bottom: 5rem;
-  font-family: var(--oswald);
-  text-transform: uppercase;
-  letter-spacing: 2px;
+  margin-bottom: 4rem;
+  font-family: var(--font-sans);
+  font-weight: 700;
+  letter-spacing: -0.02em;
   background: linear-gradient(to right, #fff, #94a3b8);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -63,44 +67,123 @@ export const ProjectCard = styled(motion.div)`
 `;
 
 export const CardHeader = styled.div`
-  height: 200px;
+  height: 220px;
   width: 100%;
   background: ${(props) => props.bg || '#111'};
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 2rem;
+  padding: 1rem;
   position: relative;
   overflow: hidden;
 
-  /* Efecto de brillo sutil sobre el fondo */
-  &::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; right: 0; bottom: 0;
-    background: linear-gradient(180deg, rgba(255,255,255,0.05) 0%, rgba(0,0,0,0.2) 100%);
+  .browser-frame {
+    width: 100%;
+    height: 100%;
+    background: #0f172a;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
+    transition: transform 0.4s ease, border-color 0.4s ease;
   }
 
-  /* Ruido/grano opcional para textura */
-  &::after {
-    content: "";
-    position: absolute;
-    top: 0; left: 0; right: 0; bottom: 0;
-    opacity: 0.05;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  ${ProjectCard}:hover & .browser-frame {
+    transform: scale(1.02);
+    border-color: rgba(0, 180, 216, 0.5);
   }
 
-  img {
-    max-width: 80%;
-    max-height: 80%;
-    object-fit: contain;
-    z-index: 2;
-    filter: drop-shadow(0 10px 20px rgba(0,0,0,0.3));
-    transition: transform 0.4s ease;
+  .browser-header {
+    height: 28px;
+    background: #1e293b;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    display: flex;
+    align-items: center;
+    padding: 0 10px;
+    gap: 10px;
   }
 
-  ${ProjectCard}:hover & img {
-    transform: scale(1.1) rotate(-2deg);
+  .browser-dots {
+    display: flex;
+    gap: 5px;
+  }
+
+  .dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+
+    &.red { background: #ff5f56; }
+    &.yellow { background: #ffbd2e; }
+    &.green { background: #27c93f; }
+  }
+
+  .browser-url {
+    font-size: 0.72rem;
+    color: #94a3b8;
+    background: rgba(0, 0, 0, 0.3);
+    padding: 2px 10px;
+    border-radius: 8px;
+    font-family: var(--font-sans);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    max-width: 180px;
+  }
+
+  .browser-screen {
+    flex: 1;
+    position: relative;
+    overflow: hidden;
+    background: #090d16;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    img.site-preview {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top;
+      transition: transform 0.5s ease;
+    }
+
+    img.logo-preview {
+      max-width: 65%;
+      max-height: 65%;
+      object-fit: contain;
+      filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.4));
+    }
+
+    .project-badge {
+      position: absolute;
+      bottom: 8px;
+      right: 8px;
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(8px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 4px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        border-radius: 50%;
+      }
+    }
+  }
+
+  ${ProjectCard}:hover & img.site-preview {
+    transform: scale(1.05);
   }
 `;
 

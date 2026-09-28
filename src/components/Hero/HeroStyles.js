@@ -92,9 +92,11 @@ const fadeInUp = keyframes`
 `;
 
 export const Title = styled.h1`
+  font-family: var(--font-sans);
   font-size: 3.2rem;
-  font-weight: 600;
-  line-height: 1.2;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  line-height: 1.15;
   color: #fff;
   margin: 3.5rem 0 2rem 0;
   text-shadow: 0 4px 12px rgba(0, 0, 0, 0.9);
@@ -115,6 +117,7 @@ export const Title = styled.h1`
 
   @media (max-width: 768px) {
     font-size: 2rem;
+    margin: 2rem 0 1.5rem 0;
   }
 
   @media (max-width: 480px) {
@@ -188,25 +191,33 @@ export const ButtonsContainer = styled(motion.div)`
 
 export const WhatsappFloat = styled.a`
   position: fixed;
-  bottom: 90px;
-  right: 26px;
+  bottom: 25px;
+  right: 25px;
   color: white;
   border-radius: 50%;
   padding: 4px;
   z-index: 1000;
   transition: 0.3s ease;
-  background: transparent ;
-  img{
-      /* box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); */
-      background: transparent ;
+  background: transparent;
+
+  img {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+    background: transparent;
+    filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.4));
+    transition: transform 0.3s ease;
     &:hover {
       transform: scale(1.1);
     }
   }
 
-
   @media (max-width: 480px) {
-    padding: 12px;
-    font-size: 1.6rem;
+    bottom: 20px;
+    right: 20px;
+    img {
+      width: 52px;
+      height: 52px;
+    }
   }
 `;

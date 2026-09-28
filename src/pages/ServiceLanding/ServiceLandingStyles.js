@@ -18,7 +18,7 @@ export const PageContainer = styled.div`
   background: black;
   color: white;
   min-height: 100vh;
-  font-family: var(--titilium);
+  font-family: var(--font-sans);
   overflow-x: hidden;
 `;
 
@@ -31,6 +31,12 @@ export const HeroSection = styled.section`
   text-align: center;
   padding: 0 2rem;
   overflow: hidden;
+
+  @media (max-width: 768px) {
+    padding-top: 110px;
+    height: auto;
+    min-height: 80vh;
+  }
 
   &::before {
     content: '';
@@ -75,17 +81,15 @@ export const HeroContent = styled.div`
 `;
 
 export const HeroTitle = styled.h1`
-  font-size: 4rem;
-  font-weight: 800;
+  font-family: var(--font-sans);
+  font-size: clamp(2.2rem, 5vw, 4rem);
+  font-weight: 700;
+  letter-spacing: -0.025em;
   margin-bottom: 1.5rem;
-  line-height: 1.1;
+  line-height: 1.15;
   background: linear-gradient(90deg, #fff, #a0a0a0);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-
-  @media (max-width: 768px) {
-    font-size: 2.5rem;
-  }
 `;
 
 export const HeroSubtitle = styled.p`

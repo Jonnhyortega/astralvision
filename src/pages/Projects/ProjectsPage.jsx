@@ -39,13 +39,33 @@ export default function ProjectsPage() {
             viewport={{ once: true, margin: "-50px" }}
             transition={{ duration: 0.5, delay: index * 0.1 }}
           >
-            {/* Header con gradiente de la marca y logo contenido */}
+            {/* Header con mockup de navegador web e interfaz real */}
             <CardHeader bg={project.color.background || '#111'}>
-              <img 
-                src={project.logo} 
-                alt={`${project.name} logo`} 
-                loading="lazy" 
-              />
+              <div className="browser-frame">
+                <div className="browser-header">
+                  <div className="browser-dots">
+                    <span className="dot red" />
+                    <span className="dot yellow" />
+                    <span className="dot green" />
+                  </div>
+                  <div className="browser-url">
+                    {project.link ? project.link.replace("https://", "").replace("http://", "").replace(/\/$/, "") : "astralvisionestudio.com"}
+                  </div>
+                </div>
+                <div className="browser-screen">
+                  <img 
+                    src={project.previewImage || project.logo} 
+                    alt={`${project.name} preview`} 
+                    className={project.previewImage ? "site-preview" : "logo-preview"}
+                    loading="lazy" 
+                  />
+                  {project.previewImage && (
+                    <div className="project-badge">
+                      <img src={project.logo} alt="" />
+                    </div>
+                  )}
+                </div>
+              </div>
             </CardHeader>
             
             <CardBody>

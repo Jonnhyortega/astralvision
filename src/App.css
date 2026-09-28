@@ -6,20 +6,20 @@
   --third: #24638d;
 
   /* FONTS */
-  --roboto: "Roboto", sans-serif;
-  --funnel: "Funnel Display", sans-serif;
-  --titilium: "Titillium Web", sans-serif;
-  --roboto: "Roboto", sans-serif;
-  --oswald: "Oswald", serif;
+  --font-sans: "Plus Jakarta Sans", "Inter", system-ui, -apple-system, sans-serif;
+  --jakarta: "Plus Jakarta Sans", sans-serif;
   --inter: "Inter", sans-serif;
+  --roboto: "Roboto", sans-serif;
+  --funnel: "Plus Jakarta Sans", "Inter", sans-serif;
+  --titilium: "Plus Jakarta Sans", "Inter", sans-serif;
+  --oswald: "Plus Jakarta Sans", sans-serif;
 }
 
 body {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-
-  
+  font-family: var(--font-sans);
 }
 
 * {
@@ -27,9 +27,15 @@ body {
   padding: 0;
   box-sizing: border-box;
 }
+
 #root {
-  font-family: var(--titilium);
+  font-family: var(--font-sans);
   background: var(--bodyColor);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-sans);
+  letter-spacing: -0.02em;
 }
 
 /* SCROLL BAR */
