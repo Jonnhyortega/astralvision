@@ -21,8 +21,9 @@ const AppRoutes = () => {
   }, [location.key, location.pathname]);
 
   return (
+    // initial={false}: en la primera carga no hay fundido (el título del hero es el LCP).
     // La página nueva arranca arriba recién cuando terminó de salir la anterior.
-    <AnimatePresence mode="wait" onExitComplete={scrollToTop}>
+    <AnimatePresence mode="wait" initial={false} onExitComplete={scrollToTop}>
       <motion.div
         key={location.pathname}
         variants={pageTransition}
