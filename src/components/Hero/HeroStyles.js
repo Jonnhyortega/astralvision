@@ -34,9 +34,7 @@ export const Background = styled.div`
   background-size: cover;
   background-position: center;
   filter: brightness(0.5);
-  background-attachment: fixed;
   z-index: 0;
-  will-change: transform; /* Optimización para la animación de escala */
 `;
 
 export const Overlay = styled.div`
@@ -157,12 +155,17 @@ export const ButtonsContainer = styled(motion.div)`
     border-radius: 5px;
     font-weight: 600;
     text-decoration: none;
-    transition: 0.3s all ease;
+    transition: transform 0.2s cubic-bezier(0.22, 1, 0.36, 1), background-color 0.3s ease, color 0.3s ease;
     cursor: pointer;
   }
 
   .btn-secondary:hover{
     color: black;
+  }
+
+  .btn-primary:active,
+  .btn-secondary:active {
+    transform: scale(0.97);
   }
 
   .btn-primary {
@@ -171,7 +174,7 @@ export const ButtonsContainer = styled(motion.div)`
     box-shadow: 0 4px 12px rgba(0, 136, 255, 0.35);
 
     &:hover {
-      transform: scale(1.05);
+      transform: scale(1.03);
       box-shadow: 0 6px 16px rgba(0, 136, 255, 0.45);
     }
   }
@@ -184,7 +187,7 @@ export const ButtonsContainer = styled(motion.div)`
     &:hover {
       background-color: #fff;
       color: var(--third);
-      transform: scale(1.05);
+      transform: scale(1.03);
     }
   }
 `;

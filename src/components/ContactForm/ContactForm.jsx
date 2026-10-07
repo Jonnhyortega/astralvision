@@ -2,6 +2,8 @@ import { useState } from "react";
 import { WrapperForm } from "./ContactFormStyles.js";
 import ModalMessage from "../ModalMessage/ModalMessage.jsx";
 import { motion } from "framer-motion";
+import { Reveal } from "../motion";
+import { hoverGrow, tapPress } from "../../lib/motion";
 import "animate.css";
 import { useMetaEvents } from "../../hooks/useMetaEvents";
 
@@ -88,13 +90,7 @@ const ContactForm = () => {
   return (
     <WrapperForm>
       {!isModalOpen ? (
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
-          className="form-box"
-        >
+        <Reveal className="form-box">
           <h2>Hablemos sobre tu proyecto</h2>
           <p>Contanos tu idea o necesidad y te respondemos en menos de 24 horas.</p>
 
@@ -139,14 +135,14 @@ const ContactForm = () => {
 
             <motion.button
               type="submit"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.97 }}
+              whileHover={hoverGrow}
+              whileTap={tapPress}
               disabled={loading}
             >
               {loading ? "Enviando..." : "Enviar mensaje"}
             </motion.button>
           </form>
-        </motion.div>
+        </Reveal>
       ) : (
         <ModalMessage updateModalOpen={setIsModalOpen} message={status} />
       )}

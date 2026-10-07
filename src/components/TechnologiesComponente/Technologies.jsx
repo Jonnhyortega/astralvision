@@ -1,5 +1,7 @@
 import { useMemo } from "react";
 import { motion } from "framer-motion";
+import { Reveal } from "../motion";
+import { durations } from "../../lib/motion";
 import projects from "../../utils/projects";
 import { TechnologiesContent } from "./TechnologiesStyles";
 
@@ -18,14 +20,9 @@ export default function Technologies() {
   return (
     <TechnologiesContent>
       <div className="clients-section">
-        <motion.h4
-            initial={{ opacity: 0, y: -20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-        >
+        <Reveal as="h4">
             Marcas que <span>confían en nosotros</span>
-        </motion.h4>
+        </Reveal>
         
         <div className="clients-logos">
           {floatingProjects.map((p) => (
@@ -51,11 +48,7 @@ export default function Technologies() {
                 width="160"
                 height="100"
                 loading="lazy"
-                whileHover={{ 
-                  scale: 1.15, 
-                  filter: "drop-shadow(0 0 10px rgba(255,255,255,0.6)) grayscale(0%)",
-                  transition: { duration: 0.3 }
-                }}
+                whileHover={{ scale: 1.15, transition: { duration: durations.fast } }}
               />
             </motion.div>
           ))}

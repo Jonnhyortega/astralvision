@@ -1,5 +1,7 @@
 
 import React, { useMemo } from "react";
+import { Parallax, Reveal } from "../../components/motion";
+import { fadeUp, hoverLift, revealViewport } from "../../lib/motion";
 import projects from "../../utils/projects";
 import SEO from "../../components/SEO/SEO";
 import ArrowOutwardIcon from '@mui/icons-material/ArrowOutward';
@@ -28,16 +30,19 @@ export default function ProjectsPage() {
         description="Descubre nuestros últimos trabajos en diseño web, e-commerce y desarrollo de software."
       />
 
-      <Headline>Nuestros Proyectos</Headline>
+      <Reveal>
+        <Headline>Nuestros Proyectos</Headline>
+      </Reveal>
 
       <ProjectsGrid>
-        {projectsRandom.map((project, index) => (
+        {projectsRandom.map((project) => (
           <ProjectCard
             key={project.id}
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-50px" }}
-            transition={{ duration: 0.5, delay: index * 0.1 }}
+            initial="hidden"
+            whileInView="visible"
+            viewport={revealViewport}
+            variants={fadeUp}
+            whileHover={hoverLift}
           >
             {/* Header con mockup de navegador web e interfaz real */}
             <CardHeader bg={project.color.background || '#111'}>
@@ -53,12 +58,14 @@ export default function ProjectsPage() {
                   </div>
                 </div>
                 <div className="browser-screen">
-                  <img 
-                    src={project.previewImage || project.logo} 
-                    alt={`${project.name} preview`} 
-                    className={project.previewImage ? "site-preview" : "logo-preview"}
-                    loading="lazy" 
-                  />
+                  <Parallax offset={12} style={{ height: "100%" }}>
+                    <img
+                      src={project.previewImage || project.logo}
+                      alt={`${project.name} preview`}
+                      className={project.previewImage ? "site-preview" : "logo-preview"}
+                      loading="lazy"
+                    />
+                  </Parallax>
                   {project.previewImage && (
                     <div className="project-badge">
                       <img src={project.logo} alt="" />

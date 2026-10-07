@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
-import { Canvas } from "@react-three/fiber";
-import { Stars, Cloud } from "@react-three/drei";
 import { Link } from "react-router-dom";
+import { Reveal, RevealItem } from "../motion";
+import { staggerContainer, revealViewport, hoverLift } from "../../lib/motion";
 import {
   ServiciosContainer,
   ServiciosGrid,
@@ -72,18 +72,21 @@ const Servicios = () => {
         description="Servicios de desarrollo web, diseño UX/UI, SEO y mantenimiento. Soluciones a medida para startups y empresas."
       />
 
-      <h2>
-        <span>Servicios</span> que impulsan tu negocio 
-      </h2>
-      <ServiciosGrid>
-        {serviciosData.map((servicio, i) => (
-          <motion.div
+      <Reveal as="h2">
+        <span>Servicios</span> que impulsan tu negocio
+      </Reveal>
+      <ServiciosGrid
+        as={motion.div}
+        initial="hidden"
+        whileInView="visible"
+        viewport={revealViewport}
+        variants={staggerContainer}
+      >
+        {serviciosData.map((servicio) => (
+          <RevealItem
             key={servicio.id}
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ delay: i * 0.1, duration: 0.5 }}
-            viewport={{ once: true }}
-            style={{ height: '100%' }} 
+            whileHover={hoverLift}
+            style={{ height: '100%' }}
           >
             <Link to={`/servicios/${servicio.slug}`} style={{ textDecoration: 'none', height: '100%', display: 'block' }}>
               <TiltCard>
@@ -95,7 +98,7 @@ const Servicios = () => {
                 </div>
               </TiltCard>
             </Link>
-          </motion.div>
+          </RevealItem>
         ))}
       </ServiciosGrid>
 

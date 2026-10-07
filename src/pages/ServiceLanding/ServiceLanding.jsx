@@ -23,7 +23,8 @@ import {
 import SEO from "../../components/SEO/SEO";
 import Navbar from "../../components/Navbar/Navbar";
 import Footer from "../../components/Footer/Footer";
-import { motion } from "framer-motion";
+import { Reveal } from "../../components/motion";
+import { hoverLift, stagger } from "../../lib/motion";
 import { FaRocket, FaShoppingCart, FaLaptopCode, FaNetworkWired, FaCogs } from "react-icons/fa";
 
 const iconMap = {
@@ -79,18 +80,12 @@ const ServiceLanding = () => {
         <SectionTitle>¿Por qué <span>elegirnos?</span></SectionTitle>
         <GridThree>
           {service.painPoints.map((point, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.2 }}
-            >
+            <Reveal key={index} delay={index * stagger} whileHover={hoverLift}>
               <Card>
                 <h3>{point.title}</h3>
                 <p>{point.description}</p>
               </Card>
-            </motion.div>
+            </Reveal>
           ))}
         </GridThree>
       </Section>

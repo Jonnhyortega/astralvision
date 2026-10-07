@@ -1,4 +1,6 @@
 import { motion } from "framer-motion";
+import { Reveal, Parallax } from "../motion";
+import { durations, hoverLift, stagger } from "../../lib/motion";
 import { WrapperHWDI, ContentGrid } from "./HowWeDoItStyles";
 
 const info = [
@@ -28,39 +30,28 @@ export const HowWeDoIt = () => {
   return (
     <WrapperHWDI>
       <ContentGrid>
-        <motion.h2
-          initial={{ opacity: 0, y: -50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-        >
-          ¿Cómo trabajamos?
-        </motion.h2>
+        <Reveal as="h2">¿Cómo trabajamos?</Reveal>
 
         {info.map((x, index) => (
-          <motion.div
+          <Reveal
             key={x.title}
             className="card"
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: index * 0.1 }}
-            viewport={{ once: true }}
-            whileHover={{
-              scale: 1.02,
-              transition: { duration: 0.3 },
-            }}
+            delay={index * stagger}
+            whileHover={hoverLift}
           >
-            <motion.img
-              src={x.image}
-              alt={`Icono ${x.title}`}
-              className="img"
-              whileHover={{ rotate: [0, -5, 5, 0], transition: { duration: 0.8 } }}
-            />
+            <Parallax offset={12}>
+              <motion.img
+                src={x.image}
+                alt={`Icono ${x.title}`}
+                className="img"
+                whileHover={{ rotate: [0, -5, 5, 0], transition: { duration: durations.slow } }}
+              />
+            </Parallax>
             <div>
               <h3 className="title">{x.title}</h3>
               <p className="info">{x.info}</p>
             </div>
-          </motion.div>
+          </Reveal>
         ))}
       </ContentGrid>
     </WrapperHWDI>

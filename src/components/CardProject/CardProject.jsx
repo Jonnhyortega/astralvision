@@ -1,7 +1,6 @@
 import React from "react";
 import { CardProjectWrapper } from "./CardProjectStyles";
 import { FiExternalLink } from "react-icons/fi";
-import "animate.css";
 
 export const CardProject = ({ projectObject }) => {
   return (
@@ -16,7 +15,7 @@ export const CardProject = ({ projectObject }) => {
       </h3>
 
       {/* 🖼️ Imagen del proyecto */}
-      <div className="image-container animate__animated animate__fadeInUp">
+      <div className="image-container">
         <img src={projectObject.img[0]} alt={projectObject.name} />
       </div>
 

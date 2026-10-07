@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
+import { durations, easings } from '../../lib/motion';
 
 const TiltWrapper = styled(motion.div)`
   perspective: 1000px;
@@ -25,7 +26,7 @@ const StyledCard = styled.div`
   overflow: hidden;
   box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
   transform-style: preserve-3d;
-  transition: transform 0.1s ease-out; /* Suavizar movimiento del mouse */
+  transition: transform ${durations.fast}s cubic-bezier(${easings.out.join(", ")});
   
   /* Gradiente sutil interno para volumen */
   background: linear-gradient(
@@ -50,7 +51,7 @@ const Glare = styled.div`
   pointer-events: none; /* CRITICO: No bloquear eventos del mouse */
   opacity: 0;
   mix-blend-mode: overlay;
-  transition: opacity 0.3s ease;
+  transition: opacity ${durations.fast}s ease;
   z-index: 5;
 `;
 
@@ -69,7 +70,6 @@ const ContentLayer = styled.div`
 `;
 
 export const TiltCard = ({ children, className }) => {
-  console.log("TiltCard render");
   const [rotation, setRotation] = useState({ x: 0, y: 0 });
   const [glowPos, setGlowPos] = useState({ x: 50, y: 50 });
   const [opacity, setOpacity] = useState(0);

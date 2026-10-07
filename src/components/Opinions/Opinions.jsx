@@ -1,5 +1,7 @@
 import React, { Suspense, lazy, useRef } from "react";
-import { motion, useInView } from "framer-motion";
+import { useInView } from "framer-motion";
+import { Reveal, RevealGroup } from "../motion";
+import { fadeUp, hoverLift, tapPress } from "../../lib/motion";
 import { OpinionsWrapper, TestimonialCard } from "./OpinionsStyles";
 import StarIcon from "@mui/icons-material/Star";
 
@@ -51,27 +53,20 @@ export const Opinions = () => {
         <GalaxyBackground isInView={isInView} />
       </Suspense>
 
-      <motion.h2
-        initial={{ opacity: 0, y: -30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
-        viewport={{ once: true }}
-      >
+      <Reveal as="h2">
         Lo que dicen nuestros <span>clientes</span>
-      </motion.h2>
+      </Reveal>
 
-      <div className="testimonials-grid">
-        {testimonialsData.map((item, index) => (
+      <RevealGroup className="testimonials-grid">
+        {testimonialsData.map((item) => (
           <TestimonialCard
             key={item.id}
             href="https://maps.app.goo.gl/MuDzaEkscywn51hK8"
             target="_blank"
             rel="noopener noreferrer"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: index * 0.1 }}
-            viewport={{ once: true }}
-            whileHover={{ y: -6 }}
+            variants={fadeUp}
+            whileHover={hoverLift}
+            whileTap={tapPress}
           >
             <div className="card-header">
               <div className="client-avatar">
@@ -92,7 +87,7 @@ export const Opinions = () => {
             <p className="comment-text">"{item.comment}"</p>
           </TestimonialCard>
         ))}
-      </div>
+      </RevealGroup>
     </OpinionsWrapper>
   );
 };

@@ -1,4 +1,5 @@
-import { motion, useInView } from "framer-motion";
+import { useInView, useReducedMotion, useScroll, useTransform } from "framer-motion";
+import { durations, easings, fadeIn, fadeUp } from "../../lib/motion";
 import { NavLink } from "react-router-dom";
 import { Suspense, useRef, lazy } from "react";
 import {
@@ -21,17 +22,16 @@ const HeroScene = lazy(() => import("./HeroScene"));
 export const Hero = () => {
   const canvasRef = useRef(null);
   const isInView = useInView(canvasRef, { amount: 0.1 });
+  const reduced = useReducedMotion();
+  const { scrollY } = useScroll();
+  const vh = typeof window !== "undefined" ? window.innerHeight : 800;
+  const textY = useTransform(scrollY, [0, vh], [0, -60]);
+  const textOpacity = useTransform(scrollY, [0, vh], [1, 0.4]);
 
   return (
     <HeroContainer>
       {/* 🔹 Fondo con animación sutil */}
-      <Background
-        as={motion.div}
-        // style={{ backgroundImage: `url(${heroBackground})` }}
-        initial={{ scale: 1.05 }}
-        animate={{ scale: 1 }}
-        transition={{ duration: 8, repeat: Infinity, repeatType: "reverse" }}
-      />
+      <Background />
       <Overlay />
 
       {/* 🔹 Objeto 3D: Astral Object (Soft) */}
@@ -47,7 +47,7 @@ export const Hero = () => {
       </CanvasContainer>
 
       {/* 🔹 Texto central: LCP Optimized (Sin opacidad inicial 0 en contenedor) */}
-      <TextContent>
+      <TextContent style={reduced ? undefined : { y: textY, opacity: textOpacity }}>
         {/* <motion.h2 ... se mantiene comentado ... */}
 
         <Title>
@@ -56,25 +56,28 @@ export const Hero = () => {
         </Title>
 
         <Subtitle
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.3, duration: 0.6 }}
+          variants={fadeUp}
+          initial="hidden"
+          animate="visible"
+          transition={{ delay: 0.3, duration: durations.base, ease: easings.out }}
         >
           Creamos sitios web, tiendas online y sistemas empresariales personalizados.
         </Subtitle>
 
         <MicroText
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.5, duration: 0.8 }}
+          variants={fadeIn}
+          initial="hidden"
+          animate="visible"
+          transition={{ delay: 0.5, duration: durations.slow, ease: easings.out }}
         >
           Trabajamos con emprendedores, pymes y empresas que quieren crecer en el mundo digital.
         </MicroText>
 
         <ButtonsContainer
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.7, duration: 0.6 }}
+          variants={fadeUp}
+          initial="hidden"
+          animate="visible"
+          transition={{ delay: 0.7, duration: durations.base, ease: easings.out }}
         >
           <a
             className="btn-primary"
