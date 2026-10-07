@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const NavbarNav = styled.nav`
   position: fixed;
-  top: ${({ $scrollDirection }) => ($scrollDirection === "down" ? "-100px" : "0")};
+  top: 0;
   left: 0;
   width: 100%;
   z-index: 1000;
@@ -11,8 +11,12 @@ const NavbarNav = styled.nav`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background: transparent;
-  transition: top 0.5s ease, background 0.3s ease;
+  /* Con el menú mobile abierto no se aplica transform ni backdrop-filter:
+     ambos convertirían al nav en contenedor del .menu-mobile (position: fixed). */
+  transform: ${({ $hidden, $showMenu }) => ($hidden && !$showMenu ? "translateY(-100%)" : "none")};
+  background-color: ${({ $scrolled, $showMenu }) => ($scrolled && !$showMenu ? "rgba(5, 5, 15, 0.75)" : "transparent")};
+  backdrop-filter: ${({ $scrolled, $showMenu }) => ($scrolled && !$showMenu ? "blur(12px)" : "none")};
+  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1), background-color 0.3s ease;
 
   img {
     width: 50px;
@@ -70,7 +74,8 @@ const NavbarNav = styled.nav`
 
   .menu-mobile {
   position: fixed;
-  top: ${({ $showMenu }) => ($showMenu ? "0" : "-100vh")};
+  top: 0;
+  transform: ${({ $showMenu }) => ($showMenu ? "none" : "translateY(-100%)")};
   left: 0;
   width: 100%;
   height: 100vh;
@@ -80,7 +85,7 @@ const NavbarNav = styled.nav`
   align-items: center;
   justify-content: center;
   gap: 50px;
-  transition: top 0.4s ease-in-out;
+  transition: transform 0.4s ease-in-out;
   backdrop-filter: blur(10px);
 
   a {
@@ -135,9 +140,9 @@ const NavbarNav = styled.nav`
   }
 `;
 
-export const NavbarWrapper = ({ $scrollDirection, $showMenu, children, ...props }) => {
+export const NavbarWrapper = ({ $hidden, $scrolled, $showMenu, children, ...props }) => {
     return (
-        <NavbarNav $scrollDirection={$scrollDirection} $showMenu={$showMenu} {...props}>
+        <NavbarNav $hidden={$hidden} $scrolled={$scrolled} $showMenu={$showMenu} {...props}>
             {children}
         </NavbarNav>
     );

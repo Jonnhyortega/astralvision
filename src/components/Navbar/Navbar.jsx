@@ -1,4 +1,6 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
+import { getNavbarState } from "../../lib/navbarState";
+import { getLenis } from "../../lib/lenis";
 import { NavbarWrapper, NavLink } from "./NavbarStyles";
 import { HiOutlineMenu, HiOutlineX } from "react-icons/hi";
 import SmartToyIcon from "@mui/icons-material/SmartToy";
@@ -7,10 +9,8 @@ import { useLocation } from "react-router-dom";
 
 export const Navbar = ({ onOpenChat }) => {
   const [showMenu, setShowMenu] = useState(false);
-  const [scrollDirection, setScrollDirection] = useState("up");
-  const [lastScrollY, setLastScrollY] = useState(
-    typeof window !== "undefined" ? window.scrollY : 0
-  );
+  const [navState, setNavState] = useState({ hidden: false, scrolled: false });
+  const lastScrollY = useRef(typeof window !== "undefined" ? window.scrollY : 0);
   const { pathname } = useLocation();
 
   const handleToggleMenu = () => {
@@ -19,34 +19,36 @@ export const Navbar = ({ onOpenChat }) => {
 
   useEffect(() => {
     const handleScroll = () => {
-      const currentScrollY = window.scrollY;
-      if (currentScrollY > lastScrollY) {
-        setScrollDirection("down");
-      } else if (currentScrollY < lastScrollY) {
-        setScrollDirection("up");
-      }
-      setLastScrollY(currentScrollY);
+      const y = window.scrollY;
+      const next = getNavbarState(lastScrollY.current, y);
+      lastScrollY.current = y;
+      setNavState((prev) =>
+        prev.hidden === next.hidden && prev.scrolled === next.scrolled ? prev : next
+      );
     };
 
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
-  }, [lastScrollY]);
+  }, []);
 
   useEffect(() => {
     if (showMenu) {
       document.body.style.overflow = "hidden";
+      getLenis()?.stop();
     } else {
       document.body.style.overflow = "auto";
+      getLenis()?.start();
     }
 
     return () => {
       document.body.style.overflow = "auto";
+      getLenis()?.start();
     };
   }, [showMenu]);
 
 
   return (
-    <NavbarWrapper $scrollDirection={scrollDirection} $showMenu={showMenu}>
+    <NavbarWrapper $hidden={navState.hidden} $scrolled={navState.scrolled} $showMenu={showMenu}>
       <img src={logo} alt="Astral Vision Estudio" />
       <div className="deco"></div>
 

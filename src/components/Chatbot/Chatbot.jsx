@@ -178,6 +178,7 @@ export default function Chatbot({ context = "", chatOpen: controlledChatOpen, to
       <div className="overlay" onClick={toggleChat}>
         <div
           className="chat-window animate__animated animate__fadeInUp"
+          data-lenis-prevent
           onClick={(e) => e.stopPropagation()}
         >
           <header className="chat-header">

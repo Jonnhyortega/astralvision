@@ -1,5 +1,5 @@
 
-import React, { useEffect } from "react";
+import React from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { servicesData } from "../../data/servicesData";
 import {
@@ -39,10 +39,6 @@ const ServiceLanding = () => {
   const { slug } = useParams();
   const navigate = useNavigate();
   const service = servicesData[slug];
-
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [slug]);
 
   if (!service) {
     return (
