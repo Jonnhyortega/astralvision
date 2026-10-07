@@ -1,4 +1,5 @@
 import { useState, useRef, useEffect, useCallback } from "react";
+import { getLenis } from "../../lib/lenis";
 import { ChatbotContainer } from "./ChatbotStyles";
 import callChatAPI from "../../utils/api-conecction";
 import "animate.css";
@@ -63,14 +64,18 @@ export default function Chatbot({ context = "", chatOpen: controlledChatOpen, to
   useEffect(scrollToBottom, [messages, scrollToBottom]);
 
   useEffect(() => {
+    // Lenis scrollea por JS e ignora el overflow del body: hay que frenarlo aparte.
     if (isChatOpen) {
       document.body.style.overflow = "hidden";
+      getLenis()?.stop();
     } else {
       document.body.style.overflow = "auto";
+      getLenis()?.start();
     }
-  
+
     return () => {
       document.body.style.overflow = "auto";
+      getLenis()?.start();
     };
   }, [isChatOpen]);
 

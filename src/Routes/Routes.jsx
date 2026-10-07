@@ -1,3 +1,4 @@
+import { useEffect, useRef } from "react";
 import { Routes, Route, useLocation } from "react-router-dom";
 import { AnimatePresence, motion } from "framer-motion";
 import Home from "../pages/Home/Home";
@@ -11,6 +12,13 @@ import { scrollToTop } from "../lib/lenis";
 
 const AppRoutes = () => {
   const location = useLocation();
+  const prevPathname = useRef(location.pathname);
+
+  // Click en el link de la página actual: no hay transición, pero se vuelve arriba igual.
+  useEffect(() => {
+    if (prevPathname.current === location.pathname) scrollToTop();
+    prevPathname.current = location.pathname;
+  }, [location.key, location.pathname]);
 
   return (
     // La página nueva arranca arriba recién cuando terminó de salir la anterior.
