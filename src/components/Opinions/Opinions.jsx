@@ -1,12 +1,7 @@
-import React, { Suspense, lazy, useRef } from "react";
-import { useInView } from "framer-motion";
 import { Reveal, RevealGroup } from "../motion";
 import { fadeUp, hoverLift, tapPress } from "../../lib/motion";
 import { OpinionsWrapper, TestimonialCard } from "./OpinionsStyles";
 import StarIcon from "@mui/icons-material/Star";
-
-// Lazy load the 3D background to optimize performance
-const GalaxyBackground = lazy(() => import("./GalaxyBackground"));
 
 const testimonialsData = [
   {
@@ -44,15 +39,8 @@ const testimonialsData = [
 ];
 
 export const Opinions = () => {
-  const containerRef = useRef(null);
-  const isInView = useInView(containerRef, { margin: "-100px" });
-
   return (
-    <OpinionsWrapper ref={containerRef}>
-      <Suspense fallback={<div style={{position: 'absolute', width: '100%', height: '100%', background: '#05080f'}} />}>
-        <GalaxyBackground isInView={isInView} />
-      </Suspense>
-
+    <OpinionsWrapper>
       <Reveal as="h2">
         Lo que dicen nuestros <span>clientes</span>
       </Reveal>

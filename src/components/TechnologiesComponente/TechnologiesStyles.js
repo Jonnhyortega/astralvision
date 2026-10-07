@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const TechnologiesContent = styled.section`
   width: 100%;
   padding: 8rem 2rem 10rem 2rem;
-  background: radial-gradient(circle at 50% 10%, #111 0%, #02040a 100%);
+  background: radial-gradient(circle at 50% 10%, rgba(17, 17, 17, 0.6) 0%, rgba(2, 4, 10, 0.85) 100%);
   text-align: center;
   overflow: hidden;
 

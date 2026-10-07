@@ -4,7 +4,7 @@ export const ServiciosContainer = styled.section`
   width: 100%;
   min-height: 100vh;
   padding: 6rem 2rem;
-  background: black; /* Fallback */
+  background: transparent;
   color: white;
   display: flex;
   flex-direction: column;

@@ -1,10 +1,8 @@
-import { useInView, useReducedMotion, useScroll, useTransform } from "framer-motion";
+import { useReducedMotion, useScroll, useTransform } from "framer-motion";
 import { durations, easings, fadeIn, fadeUp } from "../../lib/motion";
 import { NavLink } from "react-router-dom";
-import { Suspense, useRef, lazy } from "react";
 import {
   HeroContainer,
-  Background,
   Overlay,
   TextContent,
   Title,
@@ -12,16 +10,9 @@ import {
   MicroText,
   ButtonsContainer,
   WhatsappFloat,
-  CanvasContainer,
 } from "./HeroStyles";
-import heroBackground from "../../imgs/BackgroundHero/backHero6.webp";
-
-// Lazy load Three.js scene to reduce initial bundle size
-const HeroScene = lazy(() => import("./HeroScene"));
 
 export const Hero = () => {
-  const canvasRef = useRef(null);
-  const isInView = useInView(canvasRef, { amount: 0.1 });
   const reduced = useReducedMotion();
   const { scrollY } = useScroll();
   const vh = typeof window !== "undefined" ? window.innerHeight : 800;
@@ -30,21 +21,8 @@ export const Hero = () => {
 
   return (
     <HeroContainer>
-      {/* 🔹 Fondo con animación sutil */}
-      <Background />
       <Overlay />
 
-      {/* 🔹 Objeto 3D: Astral Object (Soft) */}
-      <CanvasContainer
-        ref={canvasRef}
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 1.5, delay: 0.2 }}
-      >
-        <Suspense fallback={null}>
-          {isInView && <HeroScene isInView={isInView} />}
-        </Suspense>
-      </CanvasContainer>
 
       {/* 🔹 Texto central: LCP Optimized (Sin opacidad inicial 0 en contenedor) */}
       <TextContent style={reduced ? undefined : { y: textY, opacity: textOpacity }}>

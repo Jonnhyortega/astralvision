@@ -9,44 +9,19 @@ export const HeroContainer = styled.section`
   justify-content: center;
   align-items: center;
   overflow: hidden;
-  background-color: #000;
-`;
-
-export const CanvasContainer = styled(motion.div)`
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 2; /* Encima del fondo y overlay, debajo del texto */
-  pointer-events: none; /* Para que no bloquee clicks en textos/botones */
-  
-  /* Habilitar interacción con el canvas si es necesario con esto: */
-  /* & > div { pointer-events: auto; } */
-`;
-
-export const Background = styled.div`
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-size: cover;
-  background-position: center;
-  filter: brightness(0.5);
-  z-index: 0;
+  background-color: transparent;
 `;
 
 export const Overlay = styled.div`
   position: absolute;
   width: 100%;
   height: 100%;
+  /* Oscurece el centro (detrás del texto) y deja ver la constelación hacia los bordes */
   background: radial-gradient(
-      circle at 30% 30%,
-      rgba(0, 0, 0, 0.2) 0%,
-      rgba(0, 0, 0, 0.9) 100%
-    ),
-    rgba(0, 0, 0, 0.6);
+    ellipse at center,
+    rgba(0, 0, 0, 0.55) 0%,
+    rgba(0, 0, 0, 0.15) 70%
+  );
   z-index: 1;
 `;
 
@@ -61,7 +36,7 @@ export const TextContent = styled(motion.div)`
   align-items: center;
   
   /* 🔹 Fondo sutil para mejorar legibilidad sin tapar el 3D */
-  background: radial-gradient(circle, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0) 70%);
+  background: radial-gradient(ellipse at center, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0) 70%);
   border-radius: 50%; /* Hace que el fondo sea más orgánico con el agujero negro */
 
   h2 {

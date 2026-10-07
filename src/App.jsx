@@ -6,6 +6,7 @@ import AppRoutes from "../src/Routes/Routes";
 import { Navbar } from "./components/Navbar/Navbar";
 import Footer from "./components/Footer/Footer";
 import ScrollProgress from "./components/ScrollProgress/ScrollProgress";
+import StarfieldBackground from "./components/StarfieldBackground/StarfieldBackground";
 import { initLenis, destroyLenis } from "./lib/lenis";
 
 const Chatbot = lazy(() => import("./components/Chatbot/Chatbot"));
@@ -23,6 +24,7 @@ function App() {
   return (
     <MotionConfig reducedMotion="user">
       <Layout>
+        <StarfieldBackground />
         <ScrollProgress />
         <Navbar onOpenChat={toggleChat} />
         <AppRoutes />
