@@ -47,29 +47,39 @@ export const ProjectsGrid = styled.div`
   margin: 0 auto;
 `;
 
+// Color de acento de cada proyecto (color.button del array); sin acento queda el gris neutro.
+const tint = (accent, pct, fallback) =>
+  accent ? `color-mix(in srgb, ${accent} ${pct}%, transparent)` : fallback;
+
 export const ProjectCard = styled(motion.div)`
-  background: rgba(20, 20, 30, 0.6);
-  border: 1px solid rgba(255, 255, 255, 0.05);
+  background:
+    radial-gradient(120% 60% at 50% 0%, ${({ $accent }) => tint($accent, 22, "transparent")} 0%, transparent 70%),
+    rgba(20, 20, 30, 0.6);
+  border: 1px solid ${({ $accent }) => tint($accent, 25, "rgba(255, 255, 255, 0.05)")};
   border-radius: 24px;
   overflow: hidden;
   backdrop-filter: blur(20px);
   display: flex;
   flex-direction: column;
   height: 100%;
-  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  /* transform lo maneja framer (hoverLift); acá solo sombra y borde */
+  transition: box-shadow 0.4s ease, border-color 0.4s ease;
   box-shadow: 0 10px 30px rgba(0,0,0,0.3);
 
   &:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 20px 50px rgba(0,0,0,0.5);
-    border-color: rgba(255, 255, 255, 0.15);
+    box-shadow: 0 20px 50px rgba(0,0,0,0.5), 0 0 40px ${({ $accent }) => tint($accent, 20, "transparent")};
+    border-color: ${({ $accent }) => tint($accent, 60, "rgba(255, 255, 255, 0.15)")};
   }
 `;
 
 export const CardHeader = styled.div`
   height: 220px;
   width: 100%;
-  background: ${(props) => props.bg || '#111'};
+  /* color.background del proyecto; si no tiene, se arma con su acento */
+  background: ${({ $bg, $accent }) =>
+    $bg && $bg !== "transparent"
+      ? $bg
+      : `linear-gradient(135deg, ${tint($accent, 85, "#222")}, #000)`};
   display: flex;
   align-items: center;
   justify-content: center;
@@ -77,112 +87,16 @@ export const CardHeader = styled.div`
   position: relative;
   overflow: hidden;
 
-  .browser-frame {
-    width: 100%;
-    height: 100%;
-    background: #0f172a;
+  .project-logo {
+    max-width: 60%;
+    max-height: 70%;
+    object-fit: contain;
     border-radius: 12px;
-    border: 1px solid rgba(255, 255, 255, 0.15);
-    display: flex;
-    flex-direction: column;
-    overflow: hidden;
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
-    transition: transform 0.4s ease, border-color 0.4s ease;
+    filter: drop-shadow(0 8px 20px rgba(0, 0, 0, 0.45));
+    transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
   }
 
-  ${ProjectCard}:hover & .browser-frame {
-    transform: scale(1.02);
-    border-color: rgba(0, 180, 216, 0.5);
-  }
-
-  .browser-header {
-    height: 28px;
-    background: #1e293b;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-    display: flex;
-    align-items: center;
-    padding: 0 10px;
-    gap: 10px;
-  }
-
-  .browser-dots {
-    display: flex;
-    gap: 5px;
-  }
-
-  .dot {
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-
-    &.red { background: #ff5f56; }
-    &.yellow { background: #ffbd2e; }
-    &.green { background: #27c93f; }
-  }
-
-  .browser-url {
-    font-size: 0.72rem;
-    color: #94a3b8;
-    background: rgba(0, 0, 0, 0.3);
-    padding: 2px 10px;
-    border-radius: 8px;
-    font-family: var(--font-sans);
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    max-width: 180px;
-  }
-
-  .browser-screen {
-    flex: 1;
-    position: relative;
-    overflow: hidden;
-    background: #090d16;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    img.site-preview {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: top;
-      transition: transform 0.5s ease;
-    }
-
-    img.logo-preview {
-      max-width: 65%;
-      max-height: 65%;
-      object-fit: contain;
-      filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.4));
-    }
-
-    .project-badge {
-      position: absolute;
-      bottom: 8px;
-      right: 8px;
-      width: 34px;
-      height: 34px;
-      border-radius: 50%;
-      background: rgba(15, 23, 42, 0.9);
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      backdrop-filter: blur(8px);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 4px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.4);
-
-      img {
-        width: 100%;
-        height: 100%;
-        object-fit: contain;
-        border-radius: 50%;
-      }
-    }
-  }
-
-  ${ProjectCard}:hover & img.site-preview {
+  ${ProjectCard}:hover & .project-logo {
     transform: scale(1.05);
   }
 `;
@@ -233,11 +147,11 @@ export const VisitButton = styled.a`
   gap: 0.5rem;
 
   &:hover {
-    background: ${(props) => props.hoverColor || '#fff'};
-    color: ${(props) => props.isDark ? '#fff' : '#000'};
-    border-color: ${(props) => props.hoverColor || '#fff'};
+    background: ${(props) => props.$hoverColor || '#fff'};
+    color: ${(props) => props.$isDark ? '#fff' : '#000'};
+    border-color: ${(props) => props.$hoverColor || '#fff'};
     transform: translateY(-2px);
-    box-shadow: 0 5px 15px ${(props) => props.shadowColor || 'rgba(255,255,255,0.2)'};
+    box-shadow: 0 5px 15px ${(props) => props.$shadowColor || 'rgba(255,255,255,0.2)'};
   }
 `;
 

@@ -43,34 +43,16 @@ export default function ProjectsPage() {
             viewport={revealViewport}
             variants={fadeUp}
             whileHover={hoverLift}
+            $accent={project.color.button || project.color.font}
           >
-            {/* Header con mockup de navegador web e interfaz real */}
-            <CardHeader bg={project.color.background || '#111'}>
-              <div className="browser-frame">
-                <div className="browser-header">
-                  <div className="browser-dots">
-                    <span className="dot red" />
-                    <span className="dot yellow" />
-                    <span className="dot green" />
-                  </div>
-                  <div className="browser-url">
-                    {project.link ? project.link.replace("https://", "").replace("http://", "").replace(/\/$/, "") : "astralvisionestudio.com"}
-                  </div>
-                </div>
-                <div className="browser-screen">
-                  <img
-                    src={project.previewImage || project.logo}
-                    alt={`${project.name} preview`}
-                    className={project.previewImage ? "site-preview" : "logo-preview"}
-                    loading="lazy"
-                  />
-                  {project.previewImage && (
-                    <div className="project-badge">
-                      <img src={project.logo} alt="" />
-                    </div>
-                  )}
-                </div>
-              </div>
+            {/* Header con el logo del proyecto sobre sus colores */}
+            <CardHeader $bg={project.color.background} $accent={project.color.button || project.color.font}>
+              <img
+                src={project.logo}
+                alt={`Logo de ${project.name}`}
+                className="project-logo"
+                loading="lazy"
+              />
             </CardHeader>
             
             <CardBody>
@@ -82,8 +64,8 @@ export default function ProjectsPage() {
                   href={project.link} 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  hoverColor={project.color.button || '#fff'}
-                  shadowColor={project.color.button ? project.color.button + '66' : 'rgba(255,255,255,0.3)'}
+                  $hoverColor={project.color.button || '#fff'}
+                  $shadowColor={project.color.button ? project.color.button + '66' : 'rgba(255,255,255,0.3)'}
                 >
                   Visitar Sitio <ArrowOutwardIcon style={{ fontSize: '1.1rem' }} />
                 </VisitButton>

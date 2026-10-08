@@ -8,10 +8,10 @@ export const projects = [
     id: 1,
     name: "Sanitarios Lugano",
     logo: "https://res.cloudinary.com/do87isqjr/image/upload/w_400,f_auto,q_auto/v1761247566/LogoBlue_myntoz.jpg",
-    previewImage: sani1,
-    link: "https://res.cloudinary.com/do87isqjr/image/upload/w_400,f_auto,q_auto/v1761247566/LogoBlue_myntoz.jpg",
+    previewImage:"https://res.cloudinary.com/do87isqjr/image/upload/w_400,f_auto,q_auto/v1761247566/LogoBlue_myntoz.jpg",
+    link: "https://sanitarioslugano.vercel.app",
     color: {
-      background: "radial-gradient(90deg, #3aa6dc, black)",
+      background: "linear-gradient(135deg, #3aa6dc, black)",
       font: "#3aa6dc",
       button: "#3aa6dc"
     },
@@ -25,7 +25,7 @@ export const projects = [
     previewImage: "https://res.cloudinary.com/do87isqjr/image/upload/w_400,f_auto,q_auto/v1761247540/Logo_zlwxg7.png",
     link: "https://landingchulos.vercel.app/",
     color: {
-      background: "radial-gradient(90deg, black, #3fca5d)",
+      background: "linear-gradient(135deg, black, #3fca5d)",
       font: "#3fca5d",
       button: "#3fca5d"
     },
@@ -39,7 +39,7 @@ export const projects = [
     previewImage: hc1,
     link: "https://www.gestioncomercialhc.com",
     color: {
-      background: "radial-gradient(90deg, #1550a0, #25aae7)",
+      background: "linear-gradient(135deg, #1550a0, #25aae7)",
       font: "#25aae7",
       button: "#25aae7",
 
@@ -51,9 +51,10 @@ export const projects = [
     id: 4,
     name: "Casa Molinas",
     logo: "https://res.cloudinary.com/do87isqjr/image/upload/w_400,f_auto,q_auto/v1761330119/AZUL_BORDO_uvoaym.jpg",
+    previewImage: "https://res.cloudinary.com/do87isqjr/image/upload/v1791421909/Branding_Casa_Molinas_Ajustes_v4_page-0005-removebg-preview_fq8ejf.png",
     link: "https://casamolinas.mitiendanube.com/",
     color: {
-      background: "radial-gradient(90deg, #f8f4ef, #7b2030)",
+      background: "linear-gradient(135deg, #f8f4ef, #7b2030)",
       font: "#7b2030",
       button: "#7b2030",
     },
@@ -66,7 +67,7 @@ export const projects = [
     logo: "https://res.cloudinary.com/do87isqjr/image/upload/w_400,f_auto,q_auto/v1761247688/logo_-_copia_mvyoq5.jpg",
     link: "https://creatinasticks.mitiendanube.com/",
     color: {
-      background: "radial-gradient(90deg, #68a305, black)",
+      background: "linear-gradient(135deg, #68a305, black)",
       font: "#68a305",
       button: "#68a305"
     },
@@ -79,7 +80,7 @@ export const projects = [
   //   logo: "https://res.cloudinary.com/do87isqjr/image/upload/w_400,f_auto,q_auto/v1761247975/logo_2_z1dcau.webp",
   //   link: "https://viandashyg.mitiendanube.com/",
   //   color: {
-  //     background: "radial-gradient(90deg, black, rgb(63, 202, 93))",
+  //     background: "linear-gradient(135deg, black, rgb(63, 202, 93))",
   //     font: "rgb(63, 202, 93)",
   //     button: "rgb(63, 202, 93)"
   //   },
