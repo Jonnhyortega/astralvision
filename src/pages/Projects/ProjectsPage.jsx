@@ -1,6 +1,6 @@
 
 import React, { useMemo } from "react";
-import { Parallax, Reveal } from "../../components/motion";
+import { Reveal } from "../../components/motion";
 import { fadeUp, hoverLift, revealViewport } from "../../lib/motion";
 import projects from "../../utils/projects";
 import SEO from "../../components/SEO/SEO";
@@ -58,14 +58,12 @@ export default function ProjectsPage() {
                   </div>
                 </div>
                 <div className="browser-screen">
-                  <Parallax offset={12} style={{ height: "100%" }}>
-                    <img
-                      src={project.previewImage || project.logo}
-                      alt={`${project.name} preview`}
-                      className={project.previewImage ? "site-preview" : "logo-preview"}
-                      loading="lazy"
-                    />
-                  </Parallax>
+                  <img
+                    src={project.previewImage || project.logo}
+                    alt={`${project.name} preview`}
+                    className={project.previewImage ? "site-preview" : "logo-preview"}
+                    loading="lazy"
+                  />
                   {project.previewImage && (
                     <div className="project-badge">
                       <img src={project.logo} alt="" />
