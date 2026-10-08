@@ -9,7 +9,7 @@ export const projects = [
     name: "Sanitarios Lugano",
     logo: "https://res.cloudinary.com/do87isqjr/image/upload/w_400,f_auto,q_auto/v1761247566/LogoBlue_myntoz.jpg",
     previewImage: sani1,
-    link: "https://sanitarioslugano.vercel.app",
+    link: "https://res.cloudinary.com/do87isqjr/image/upload/w_400,f_auto,q_auto/v1761247566/LogoBlue_myntoz.jpg",
     color: {
       background: "radial-gradient(90deg, #3aa6dc, black)",
       font: "#3aa6dc",
@@ -22,7 +22,7 @@ export const projects = [
     id: 2,
     name: "Chulos design",
     logo: "https://res.cloudinary.com/do87isqjr/image/upload/w_400,f_auto,q_auto/v1761247540/Logo_zlwxg7.png",
-    previewImage: chulo1,
+    previewImage: "https://res.cloudinary.com/do87isqjr/image/upload/w_400,f_auto,q_auto/v1761247540/Logo_zlwxg7.png",
     link: "https://landingchulos.vercel.app/",
     color: {
       background: "radial-gradient(90deg, black, #3fca5d)",
@@ -73,24 +73,24 @@ export const projects = [
     description:
       "Eccomerce para empresa fabricante de cretinas",
   },
-  {
-    id: 6,
-    name: "Viandas healty & gourmet",
-    logo: "https://res.cloudinary.com/do87isqjr/image/upload/w_400,f_auto,q_auto/v1761247975/logo_2_z1dcau.webp",
-    link: "https://viandashyg.mitiendanube.com/",
-    color: {
-      background: "radial-gradient(90deg, black, rgb(63, 202, 93))",
-      font: "rgb(63, 202, 93)",
-      button: "rgb(63, 202, 93)"
-    },
-    description:
-      "Eccomerce para empresa gastronomica de viandas saludables.",
-  },
+  // {
+  //   id: 6,
+  //   name: "Viandas healty & gourmet",
+  //   logo: "https://res.cloudinary.com/do87isqjr/image/upload/w_400,f_auto,q_auto/v1761247975/logo_2_z1dcau.webp",
+  //   link: "https://viandashyg.mitiendanube.com/",
+  //   color: {
+  //     background: "radial-gradient(90deg, black, rgb(63, 202, 93))",
+  //     font: "rgb(63, 202, 93)",
+  //     button: "rgb(63, 202, 93)"
+  //   },
+  //   description:
+  //     "Eccomerce para empresa gastronomica de viandas saludables.",
+  // },
   {
     id: 7,
     name: "Estudio juridico Rokotovich",
     logo: "https://res.cloudinary.com/do87isqjr/image/upload/w_400,f_auto,q_auto/v1764261488/logo-sinfondo_lbgdzo.png",
-    link: "https://rokotovich.vercel.app/",
+    link: "https://estudio-rokotovich.vercel.app/",
     color: {
       background: "",
       font: "#e5e7eb",
@@ -124,6 +124,19 @@ export const projects = [
     },
     description:
       "Software de gestion para pymes y comercios. Permite administrar inventarios, ventas, clientes y proveedores de manera eficiente.",
+  },
+  {
+    id: 10,
+    name: "Sublime Kids",
+    logo: "https://res.cloudinary.com/do87isqjr/image/upload/w_400,f_auto,q_auto/v1790637089/logo-color_v9mqkv.jpg",
+    link: "https://tiendadesublimekids26.mitiendanube.com/",
+    color: {
+      background: "",
+      font: "#9b6bf2",
+      button: "#9b6bf2"
+    },
+    description:
+      "Eccomerce para marca de ropa infantil: abrigos, buzos y tejidos, con compra y pago online.",
   },
 ];
 
