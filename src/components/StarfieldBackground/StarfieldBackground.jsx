@@ -30,7 +30,9 @@ export const StarfieldBackground = () => {
   const [ready, setReady] = useState(false);
 
   useEffect(() => {
-    const capable = shouldRenderStarfield({
+    // Solo en desarrollo: ?demo fuerza el canvas aunque el equipo no califique.
+    const demo = import.meta.env.DEV && new URLSearchParams(window.location.search).has("demo");
+    const capable = demo || shouldRenderStarfield({
       width: window.innerWidth,
       cores: navigator.hardwareConcurrency,
       saveData: navigator.connection?.saveData,

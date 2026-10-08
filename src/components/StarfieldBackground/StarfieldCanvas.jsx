@@ -61,7 +61,8 @@ const Rig = ({ reducedMotion, materials }) => {
 
     camera.rotation.set(c.rx, c.ry, 0);
     camera.position.z = BASE_Z - c.progress * 2;
-    const [r, g, b] = colorAtProgress(c.progress);
+    // Tono de marca aclarado hacia blanco para que se distinga sobre el negro.
+    const [r, g, b] = colorAtProgress(c.progress).map((v) => v * 0.55 + 0.45);
     materials.forEach((m) => m.current?.color.setRGB(r, g, b));
 
     const settled =
@@ -82,7 +83,7 @@ const Constellation = ({ reducedMotion }) => {
     const { positions, sizes, segments } = createConstellation({});
     // El brillo de cada estrella va en el color de vértice; el material aporta el tono.
     const colors = new Float32Array(sizes.length * 3);
-    sizes.forEach((s, i) => colors.fill(s / 1.5, i * 3, i * 3 + 3));
+    sizes.forEach((s, i) => colors.fill(0.4 + s / 2.5, i * 3, i * 3 + 3));
     const points = new BufferGeometry();
     points.setAttribute("position", new BufferAttribute(positions, 3));
     points.setAttribute("color", new BufferAttribute(colors, 3));
@@ -105,17 +106,17 @@ const Constellation = ({ reducedMotion }) => {
       <points geometry={points}>
         <pointsMaterial
           ref={pointsMat}
-          size={0.08}
+          size={0.11}
           sizeAttenuation
           map={dot}
           vertexColors
           transparent
-          opacity={0.55}
+          opacity={0.85}
           depthWrite={false}
         />
       </points>
       <lineSegments geometry={lines}>
-        <lineBasicMaterial ref={linesMat} transparent opacity={0.1} depthWrite={false} />
+        <lineBasicMaterial ref={linesMat} transparent opacity={0.2} depthWrite={false} />
       </lineSegments>
       <Rig reducedMotion={reducedMotion} materials={[pointsMat, linesMat]} />
     </>
