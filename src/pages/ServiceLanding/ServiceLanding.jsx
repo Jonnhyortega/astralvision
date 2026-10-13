@@ -21,8 +21,6 @@ import {
   FinalCTA
 } from "./ServiceLandingStyles";
 import SEO from "../../components/SEO/SEO";
-import Navbar from "../../components/Navbar/Navbar";
-import Footer from "../../components/Footer/Footer";
 import { Reveal } from "../../components/motion";
 import { hoverLift, stagger } from "../../lib/motion";
 import { FaRocket, FaShoppingCart, FaLaptopCode, FaNetworkWired, FaCogs } from "react-icons/fa";
@@ -43,11 +41,9 @@ const ServiceLanding = () => {
   if (!service) {
     return (
       <PageContainer>
-        <Navbar />
         <div style={{ height: "80vh", display: "flex", alignItems: "center", justifyContent: "center" }}>
           <h2>Servicio no encontrado</h2>
         </div>
-        <Footer />
       </PageContainer>
     );
   }
@@ -59,8 +55,6 @@ const ServiceLanding = () => {
         description={service.heroSubtitle}
         image={service.heroImage}
       />
-      
-      {/* <Navbar /> */}
 
       <HeroSection bgImage={service.heroImage}>
         <HeroContent>
@@ -132,8 +126,6 @@ const ServiceLanding = () => {
           Solicitar Presupuesto
         </CTAButton>
       </FinalCTA>
-
-      <Footer />
     </PageContainer>
   );
 };
