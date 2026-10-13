@@ -91,7 +91,7 @@ export const projects = [
     id: 7,
     name: "Estudio juridico Rokotovich",
     logo: "https://res.cloudinary.com/do87isqjr/image/upload/w_400,f_auto,q_auto/v1764261488/logo-sinfondo_lbgdzo.png",
-    link: "https://estudio-rokotovich.vercel.app/",
+    link: "https://www.estudiorokotovich.com/",
     color: {
       background: "",
       font: "#e5e7eb",
